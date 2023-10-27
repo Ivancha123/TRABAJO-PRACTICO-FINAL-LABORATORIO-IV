@@ -1,2 +1,9 @@
 Discord:  https://discord.gg/Mc6BV3FJ
 Jira: https://tp-lab4.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
+Figma: https://www.figma.com/team_invite/redeem/gbDqRs8wEYCT7aOpOrdpg8
+
+Notas:
+	Al crear un componente:
+		Al utilizar el comando "ng g c pages/altaUsuario"
+		poner los componentes visuales en la carpeta pages como muestra el ejemplo y utilizar lowerCamelCase para definir nombre del componente
+		borrar de app.module.ts el import correspondiente y la declaracion en NgModule... y agregar el pat en app-routing.module.ts
