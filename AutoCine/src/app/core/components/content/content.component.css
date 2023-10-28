@@ -1,0 +1,12 @@
+.container{
+    background-color: lightgrey;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100vw;
+    border-radius: 15px 15px 15px 15px;
+    border-color: black 0.5px;
+}
+#content{
+    margin-top: 10px;   
+    text-align: center;
+}
