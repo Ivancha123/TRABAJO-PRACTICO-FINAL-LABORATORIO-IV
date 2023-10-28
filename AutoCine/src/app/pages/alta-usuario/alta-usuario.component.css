@@ -1,19 +1,40 @@
-.alta-usuario {
+  .alta-usuario {
     width: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff;
+    
+    
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    border: 1 px solid black;
+    align-items: center;
+    
   }
   
   .form-group {
-    margin-bottom: 20px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
   }
   
   .form-control {
-    width: 100%;
-    padding: 10px;
+    width: 160%;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: black;
+    color:white;
+    margin: 20px;
+  }
+
+  .form-control::placeholder {
+    text-align: center;
+    color: white;
+    
   }
   
   .form-control:focus {
@@ -21,7 +42,7 @@
     border-color: #000;
   }
   
-  .button {
+  button {
     background-color: #000;
     color: #ffffff;
     font-weight: bold;
@@ -29,8 +50,57 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 0 5px #000;
+    width: 10%;
   }
   
-  .button:hover {
+  button:hover {
     background-color: #555;
   }
+
+  .labelForm{
+    font-size: 16px;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+    width: 50%;
+    
+  }
+
+  .radios{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+  }
+
+  input[type=date]{
+    text-align: center;
+  }
+
+  input[type=radio]{
+    display: none;
+  }
+  input[type=radio]+label{
+    display: inline;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+      border-radius: 10px;
+      margin: 8px;
+      background: grey;
+      
+  }
+  input[type=radio].visible:checked+label{
+      background: black;
+      color: white; 
+  }
+  input[type=radio].novisible:checked+label{
+          background: black;
+          color: white;
+  }
+
+ 
