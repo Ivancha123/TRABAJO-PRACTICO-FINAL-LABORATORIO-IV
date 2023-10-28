@@ -1,0 +1,20 @@
+header {
+  height: 120px;
+  background-color: #d80b0b;
+  background-image: url('/assets/header-bg.png');
+  background-repeat: no-repeat;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container-logo {
+  margin: 10px 15px;
+}
