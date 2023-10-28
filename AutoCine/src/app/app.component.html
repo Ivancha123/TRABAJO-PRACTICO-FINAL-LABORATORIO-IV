@@ -1,3 +1,13 @@
 <!--Agregar Encabezado-->
-<router-outlet></router-outlet>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<app-content></app-content>
+    <router-outlet></router-outlet>
 <!--Agregar Footer-->
+<a [routerLink]="['home']">Inicio</a>
+<a [routerLink]="['show']">Funciones</a>
+<a [routerLink]="['prices']">Precios</a>
+<a [routerLink]="['combos']">Promociones</a>
+<a [routerLink]="['cooming-soon']">Proximos Estrenos</a>
+<a [routerLink]="['contact-us']">Contactos</a>
+<a [routerLink]="['about-us']">Acerca De</a>
