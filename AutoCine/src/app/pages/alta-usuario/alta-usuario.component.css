@@ -1,8 +1,16 @@
-  .alta-usuario {
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.form{
+  --background-color: rgb(226, 162, 162);
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 30px;
+  height: 100%;
+}
+.alta-usuario {
     width: 500px;
     margin: 0 auto;
     padding: 20px;
-    
     
   }
 
@@ -21,20 +29,17 @@
     align-items: center;
   }
   
-  .form-control {
-    width: 160%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: black;
-    color:white;
-    margin: 20px;
+  #title{
+    margin: 10px;
   }
 
-  .form-control::placeholder {
-    text-align: center;
-    color: white;
-    
+  .form-control {
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #363636;
+    border-radius: 5px;
+    border-width: 2px;
   }
   
   .form-control:focus {
@@ -42,65 +47,30 @@
     border-color: #000;
   }
   
-  button {
-    background-color: #000;
+
+  #button {
+    background-color: #dd0808a8;
     color: #ffffff;
     font-weight: bold;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px ;
     cursor: pointer;
     box-shadow: 0 0 5px #000;
     width: 10%;
   }
   
-  button:hover {
-    background-color: #555;
-  }
 
-  .labelForm{
-    font-size: 16px;
-    align-items: center;
-    text-align: center;
-    background-color: red;
-    color: white;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 10px 10px 10px 10px;
-    width: 50%;
-    
+  #button:hover {
+    background-color: #910404a8;
   }
-
-  .radios{
+  #button:active {
+    background-color: #3f0101a8;
+  }
+  #radioButtonGrup{
     display: flex;
-    flex-direction: row;
-    margin: 20px;
+    justify-content: center;
+  }
+  #radioButtonGrup #item{
+      margin: 5px;
   }
 
-  input[type=date]{
-    text-align: center;
-  }
-
-  input[type=radio]{
-    display: none;
-  }
-  input[type=radio]+label{
-    display: inline;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid black;
-    cursor: pointer;
-      border-radius: 10px;
-      margin: 8px;
-      background: grey;
-      
-  }
-  input[type=radio].visible:checked+label{
-      background: black;
-      color: white; 
-  }
-  input[type=radio].novisible:checked+label{
-          background: black;
-          color: white;
-  }
-
- 

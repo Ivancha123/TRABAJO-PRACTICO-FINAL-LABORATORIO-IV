@@ -1,32 +1,41 @@
 <form class="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label class="labelForm" for="user">Usuario</label>
-      <input type="text" class="form-control" id="user" name="user" required>
-    </div>
-    <div class="form-group">
-      <label class="labelForm" for="documento">Documento</label>
-      <input type="text" class="form-control" id="documento" name="documento" required>
-    </div>
-    <div class="form-group">
-      <label class="labelForm" for="born">Fecha de nacimiento</label>
-      <input type="date" class="form-control" id="born" name="born" required>
-    </div>
-    <div class="form-group">
-      <label class="labelForm" for="email">Correo electrónico</label>
-      <input type="email" class="form-control" id="email" placeholder="El correo electrónico debe ser válido." name="email" required>
-    </div>
-    <div class="form-group">
-      <label class="labelForm" for="genre">Genero</label>
-      <div class="radios">
-        <input type="radio" name="public" id="public1" value="1" class="visible" checked>
-        <label for="public1">Masculino</label>
-        <input type="radio" name="public" id="public0" value="0" class="novisible">
-        <label for="public0">Femenino</label>
-      </div>
+
+  <div class="form-group">
+    <label id="title" for="user">Usuario</label>
+    <input type="text" class="form-control" id="user" name="user" required>
   </div>
-    <div class="form-group">
-      <label class="labelForm" for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" placeholder="El teléfono debe tener el formato +54 9 11 2222-3333" name="telefono" required>
+  <div class="form-group">
+    <label id="title" for="documento">Documento</label>
+    <input type="text" class="form-control" id="documento" name="documento" required>
+  </div>
+  <div class="form-group">
+    <label id="title" for="born">Fecha de nacimiento</label>
+    <input type="date" class="form-control" id="born" name="born" required>
+  </div>
+  <div class="form-group">
+    <label id="title" for="email">Correo electrónico</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label id="title" for="genre">Género</label><br>
+    <div id="radioButtonGrup">
+      <div id="item">
+        <input type="radio" name="genre" id="masculino" value="Masculino" checked>
+        <label for="masculino">Masculino</label>
+      </div>
+      <div id="item">
+        <input type="radio" name="genre" id="femenino" value="Femenino">
+        <label for="femenino">Femenino</label>
+      </div>
+
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
+  </div>
+  <div class="form-group">
+    <label id="title" for="telefono">Teléfono</label>
+    <input type="text" class="form-control" id="telefono" name="telefono" required>
+    <small id="telefonoHelp" class="form-text text-muted">El teléfono debe tener el formato +54 9 11 2222-3333</small>
+  </div>
+  <button id="button" type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
