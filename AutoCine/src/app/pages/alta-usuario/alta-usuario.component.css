@@ -1,3 +1,11 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.form{
+  --background-color: rgb(226, 162, 162);
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 30px;
+  height: 100%;
+}
 .alta-usuario {
     width: 500px;
     margin: 0 auto;
@@ -9,11 +17,16 @@
     margin-bottom: 20px;
   }
   
+  #title{
+    margin: 10px;
+  }
+
   .form-control {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #363636;
     border-radius: 5px;
+    border-width: 2px;
   }
   
   .form-control:focus {
@@ -21,16 +34,26 @@
     border-color: #000;
   }
   
-  .button {
-    background-color: #000;
+  #button {
+    background-color: #dd0808a8;
     color: #ffffff;
     font-weight: bold;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px ;
     cursor: pointer;
     box-shadow: 0 0 5px #000;
   }
   
-  .button:hover {
-    background-color: #555;
+  #button:hover {
+    background-color: #910404a8;
+  }
+  #button:active {
+    background-color: #3f0101a8;
+  }
+  #radioButtonGrup{
+    display: flex;
+    justify-content: center;
+  }
+  #radioButtonGrup #item{
+      margin: 5px;
   }
