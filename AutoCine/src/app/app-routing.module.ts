@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AltaUsuarioComponent } from './pages/alta-usuario/alta-usuario.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { MoviesComponent } from './pages/movies/movies.component';
+import { MovieListComponent } from './pages/movies/movies.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: "movies",
-    component: MoviesComponent
+    component: MovieListComponent
   },
   {
     path: "prices",
