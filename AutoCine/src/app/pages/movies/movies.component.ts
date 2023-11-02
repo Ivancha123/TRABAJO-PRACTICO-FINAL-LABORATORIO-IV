@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Movie } from 'src/app/core/interfaces/movie';
+import { Movie } from 'src/app/core/interfaces/peliculas.module';
+import { PeliculasService } from 'src/app/core/services/peliculas/peliculas.service';
 
 @Component({
   selector: 'app-movies',
@@ -7,20 +8,18 @@ import { Movie } from 'src/app/core/interfaces/movie';
   styleUrls: ['./movies.component.css']
 })
 
-export class MovieListComponent implements OnInit {
-  @Input()
-  movie = new Movie();
-  movieList : Array<Movie> = [];
+export class MovieComponent implements OnInit {
 
-  @Output()
-  selectedMovieEvent = new EventEmitter<Movie>();
+  movies:Movie[] = [];
+  moviesSlideShow:Movie[] = [];
 
-  constructor() { }
+  constructor(private peliculasSvc:PeliculasService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.peliculasSvc.getPeliculas().subscribe(movies=>{
+      this.movies = movies;
+      this.moviesSlideShow = movies;
+    })
   }
 
-  selectMovie(movie : Movie){    
-    this.selectedMovieEvent.emit(movie);
-  }  
 }

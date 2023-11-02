@@ -1,25 +1,5 @@
-<h2>Movies List</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Image</th>
-      <th scope="col">Sinopsis</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Duration</th>
-      <th scope="col">Premiere Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let movie of movieList">
-      <td>{{ movie.title }}</td>
-      <td>{{ movie.image }}</td>
-      <td>{{ movie.sinopsis }}</td>
-      <td>{{ movie.genre }}</td>
-      <td>{{ movie.duration }}</td>
-      <td>{{ movie.premiereDate }}</td>
-      <td><button type="button" class="btn btn-success"
-          (click)="selectMovie(movie)">Select</button></td>
-    </tr>    
-  </tbody>
-</table>
+<h1>Cartelera</h1>
+
+<div class="row" *ngif="movies.length > 0" >
+  
+</div>
