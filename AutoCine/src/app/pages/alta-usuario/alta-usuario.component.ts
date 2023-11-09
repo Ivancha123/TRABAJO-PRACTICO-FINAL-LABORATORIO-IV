@@ -1,6 +1,6 @@
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/core/interfaces/usuario.module';
+import { Usuario } from 'src/app/core/interfaces/user.module';
 
 @Component({
   selector: 'app-alta-usuario',

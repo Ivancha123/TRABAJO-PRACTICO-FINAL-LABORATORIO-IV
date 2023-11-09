@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Movie } from 'src/app/core/interfaces/peliculas.module';
-import { PeliculasService } from 'src/app/core/services/peliculas/peliculas.service';
+import { MoviesService } from 'src/app/core/services/movies/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -9,17 +8,14 @@ import { PeliculasService } from 'src/app/core/services/peliculas/peliculas.serv
 })
 
 export class MovieComponent implements OnInit {
+  movies: any[] = [];
 
-  movies:Movie[] = [];
-  moviesSlideShow:Movie[] = [];
+  constructor(private moviesService:MoviesService) { }
 
-  constructor(private peliculasSvc:PeliculasService) { }
-
-  ngOnInit(): void {
-    this.peliculasSvc.getPeliculas().subscribe(movies=>{
-      this.movies = movies;
-      this.moviesSlideShow = movies;
-    })
+  ngOnInit() {
+    this.moviesService.getMovies(1).subscribe(movies => {
+      console.log(movies);
+    });
+    }
   }
 
-}
