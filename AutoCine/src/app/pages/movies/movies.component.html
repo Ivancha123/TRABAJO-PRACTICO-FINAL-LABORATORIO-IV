@@ -1,5 +1,8 @@
-<h1>Cartelera</h1>
+<h1>Popular Movies</h1>
 
-<div class="row" *ngif="movies.length > 0" >
-  
-</div>
+<ul>
+    <li *ngFor="let movie of movies">
+        <h3>{{movie.title }}</h3>
+        <img src="{{movie.poster_path}}" alt="{{movie.title}}">
+    </li>
+</ul>
