@@ -1,0 +1,56 @@
+<header>
+    <div class="banner">
+        <img src="../../../../assets/Logo.png" height="100">
+    </div>
+
+    <div class="buttons">
+
+        <nav id="nav" class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+                        <li class="nav-item" [hidden]="isLogin !== false">
+                            <div id="login" (click)="openLogin()" class="nav-link active" aria-current="page">Log In</div>  
+                        </li>
+
+                        <li class="nav-item" [hidden]="isLogin !== false">
+                            <div id="register" (click)="navigate('register')" class="nav-link">Register</div>
+                        </li>
+
+                        <li class="nav-item dropdown" id="options" [hidden]="isLogin === true">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Welcome! User
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">User Profile</a></li>
+                                <li><a class="dropdown-item" href="#">My Tickets</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+    <!--
+    <div class="buttons">
+        <div id="login" (click)="openLogin()">LogIn</div>  
+        <div> / </div>
+        <div id="register" (click)="navigate('register')">Register</div>
+    </div>
+    <div class="loginModal" *ngIf="loginSwitch == true">
+        <app-login></app-login>
+    </div>
+    -->

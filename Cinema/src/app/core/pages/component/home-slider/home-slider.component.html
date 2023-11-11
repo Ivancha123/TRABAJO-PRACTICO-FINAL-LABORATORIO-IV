@@ -1,0 +1,48 @@
+<div class="carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <ng-container *ngFor="let movie of movies; let i = index" >
+      <div class="carousel-item" [hidden]="i !== movieIndex" [class.active]="i === movieIndex">
+        <img id="img" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" class="d-block w-100" alt="{{movie.title}}">
+        <div class="movie-description">
+          <h3 >{{movie.title}} <button mat-button class="mat-button">Details</button></h3>
+          <p>{{movie.overview}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev" (click)="prev()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next" (click)="next()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+</div>
+
+<!--
+<div class="carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    
+    <ng-container *ngFor="let movie of movies; let i = index">
+      <div class="carousel-item" [class.active]="i === this.movieIndex">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" class="d-block w-100" alt="{{movie.title}}">
+        <div class="movie-description">
+          <h3>{{movie.title}} <button mat-button class="mat-button">Details</button></h3>
+          <p>{{movie.overview}}</p>
+        </div>
+      </div>
+    </ng-container>
+
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev" (click)="prev()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next" (click)="next()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+</div>
+-->
