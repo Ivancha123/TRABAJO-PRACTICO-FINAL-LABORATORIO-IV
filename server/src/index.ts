@@ -4,6 +4,13 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
 import personRoutes from './routes/personRoutes';
+import comboTicketRoutes from './routes/combo-ticketRoutes';
+import comboRoutes from './routes/comboRoutes';
+import functionRoutes from './routes/functionRoutes';
+import movieRoutes from './routes/movieRoutes';
+import roomRoutes from './routes/roomRoutes';
+import ticketSeatRoutes from './routes/ticket-seatRoutes';
+import ticketRoutes from './routes/ticketRoutes';
 
 class Server {
     public app: Application;
@@ -24,6 +31,13 @@ class Server {
     routes(): void {
         this.app.use(indexRoutes);
         this.app.use('/api/persons', personRoutes);
+        this.app.use('/api/combos', comboRoutes);
+        this.app.use('/api/functions', functionRoutes);
+        this.app.use('/api/combos-tickets', comboTicketRoutes);
+        this.app.use('/api/movies', movieRoutes);
+        this.app.use('/api/rooms', roomRoutes);
+        this.app.use('/api/tickets-seats', ticketSeatRoutes);
+        this.app.use('/api/tickets', ticketRoutes);
     }
 
     start(): void {
