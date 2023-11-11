@@ -31,7 +31,6 @@ class Server {
     routes() {
         this.app.use(indexRoutes_1.default);
         this.app.use('/api/persons', personRoutes_1.default);
-        this.app.use('/api/combos-tickets', combo_ticketRoutes_1.default);
         this.app.use('/api/combos', comboRoutes_1.default);
         this.app.use('/api/functions', functionRoutes_1.default);
         this.app.use('/api/combos-tickets', combo_ticketRoutes_1.default);

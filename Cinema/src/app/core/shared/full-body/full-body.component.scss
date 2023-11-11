@@ -1,0 +1,11 @@
+.background {
+  position: fixed;
+  background-image: url("../../../../assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+  background-color: red;
+}

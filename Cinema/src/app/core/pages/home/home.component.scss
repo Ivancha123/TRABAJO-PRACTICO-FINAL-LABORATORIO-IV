@@ -1,0 +1,9 @@
+.slider{
+    position: absolute;
+    margin: 30px;
+    z-index: 3;
+    display: flex;
+}
+.slider #sliderContent{
+    align-self: right;
+}
