@@ -11,6 +11,8 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AdministratorComponent } from './core/pages/administrator/administrator.component';
 import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
+import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
+import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
 
 const routes: Routes = [  {
   path: "",
@@ -55,6 +57,18 @@ const routes: Routes = [  {
 {
   path: "my-tickets",
   component: MyTicketsComponent
+},
+{
+  path: "persons",
+  component: PersonsListComponent
+},
+{
+  path: 'persons/add',
+  component: PersonFormComponent
+},
+{
+  path: 'persons/edit/:id',
+  component: PersonFormComponent
 },
 {
   path: "**",
