@@ -1,0 +1,34 @@
+@use "../../../../assets/variables/variables.scss";
+
+
+.container {
+    #alert{
+        background-color: variables.$primary-blackin-color;
+    }
+    form {
+        border: 2px solid;
+        border-color: variables.$primary-blackin-color;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+
+        .form-group {
+            margin-bottom: 15px;
+            background-color: variables.$primary-lightin-color;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    }
+
+}

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movie } from '../../interfaces/movies';
 
 @Component({
   selector: 'app-movie',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class MovieComponent {
 
+
+  @Input()
+  movie!: Movie;
+
+  haveFunction:boolean = false;
+
+
+  constructor() {
+    
+  }
 }

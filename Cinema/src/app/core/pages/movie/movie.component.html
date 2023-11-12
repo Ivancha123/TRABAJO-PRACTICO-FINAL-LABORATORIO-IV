@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="movie-details">
+        <div class="movie-poster">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-fluid rounded-start"
+                alt="{{movie.title}}">
+        </div>
+        <div class="movie-info">
+            <h1>{{movie.title}}</h1>
+            <div id="details">
+                <div id="detail">
+                    <div id="data">
+                        Genre:
+                    </div>
+                    <div id="info">
+                        Aventure
+                    </div>
+                </div>
+                <div id="detail">
+                    <div id="data">
+                        Language:
+                    </div>
+                    <div id="info">
+                        {{movie.original_language}}
+                    </div>
+                </div>
+                <div id="detail">
+                    <div id="data">
+                        Release Date:
+                    </div>
+                    <div id="info">
+                        {{movie.release_date}}
+                    </div>
+                </div>
+                <div id="detail">
+                    <div id="data">
+                        Vote Rate:
+                    </div>
+                    <div id="info">
+                        {{movie.vote_average}}
+                    </div>
+                </div>
+
+            </div>
+            <div id="details">
+                <div id="detail">
+                    <div id="data">
+                        Overwiew:
+                    </div>
+                    <div id="info">
+                        {{movie.overview}}
+                    </div>
+                </div>
+            </div>
+            <div id="details">
+                <div id="detail">
+                    <div id="data">
+                        Functions:
+                    </div>
+                    <div id="info">
+                        <div class="alert alert-danger" role="alert" [hidden]="haveFunction != false">
+                            Sorry! There are no showtimes available for this movie at the moment.
+                        </div>
+                        <!--Listar Funciones (en date hacer un *ngFor para listar los dias y un *ngfor en hour para listar horarios de ese dia)-->
+                        <div id="date" [hidden]="haveFunction === false"><!--Aqui SI va *ngFOr-->
+                            <!--Put Date-->
+                            <div id="hours"><!--Aqui NO va *ngFOr-->
+                                <div id="hour"><!--Aqui SI va *ngFOr-->
+                                    <!--Put Hour-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

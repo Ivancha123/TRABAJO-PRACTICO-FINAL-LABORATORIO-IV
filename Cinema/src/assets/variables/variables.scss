@@ -1,8 +1,13 @@
 $alpha-color: rgba($color: #000000, $alpha: 0);
 
 
-//$primary-color: rgb(233, 154, 167);
-$primary-color: rgb(243, 166, 179);
+:root {
+    --theme-color: #E99AA7;
+    /* Valor por defecto */
+}
+
+$primary-color: #E99AA7;
+//$primary-color: rgb(142, 231, 133);
 
 $primary-blackin-color: darken($primary-color, 10%);
 $primary-black-color: darken($primary-color, 20%);
