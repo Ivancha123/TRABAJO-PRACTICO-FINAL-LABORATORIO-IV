@@ -8,8 +8,9 @@ import { PricesComponent } from './core/pages/prices/prices.component';
 import { ComingSoonComponent } from './core/pages/coming-soon/coming-soon.component';
 import { ContactUsComponent } from './core/pages/contact-us/contact-us.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
-import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
-import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
+import { AdministratorComponent } from './core/pages/administrator/administrator.component';
+import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
+import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
 
 const routes: Routes = [  {
   path: "",
@@ -44,18 +45,17 @@ const routes: Routes = [  {
   component: ContactUsComponent
 },
 {
-  path: "persons",
-  component: PersonsListComponent
+  path: "user-profile",
+  component: UserProfileComponent
 },
 {
-  path: 'persons/add',
-  component: PersonFormComponent
+  path: "administrator",
+  component: AdministratorComponent
 },
 {
-  path: 'persons/edit/:id',
-  component: PersonFormComponent
+  path: "my-tickets",
+  component: MyTicketsComponent
 },
-
 {
   path: "**",
   component: NotFoundComponent
