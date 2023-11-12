@@ -72,6 +72,8 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     AmoviesComponent,
     UserProfileComponent,
     MyTicketsComponent,
+    PersonFormComponent,
+    PersonsListComponent,
   ],
   imports: [
     HttpClientModule,
