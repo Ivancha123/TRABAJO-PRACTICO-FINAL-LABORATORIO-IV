@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +27,8 @@ import { MovieCardComponent } from './core/pages/component/movie-card/movie-card
 import { MovieComponent } from './core/pages/movie/movie.component';
 import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
 import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
+
+import { DataBaseService } from './core/services/database/database.service';
 
 
 @NgModule({
@@ -59,8 +61,11 @@ import { PersonFormComponent } from './core/pages/persons-add/persons-add.compon
     BrowserAnimationsModule,
     MatSliderModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    DataBaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

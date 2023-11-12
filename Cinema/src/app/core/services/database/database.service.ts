@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
+
 import { Person } from 'src/app/core/interfaces/database.module' ;
 import { Movie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
@@ -23,9 +25,17 @@ export class DataBaseService {
 
   //Person functions
 
-  getPersons() {
-    return this.http.get(`${this.API_URI}/persons`);
+  public getPersons(): Observable<Person[]> {
+    return this.http.get<Person[]>(`${this.API_URI}/persons`).pipe(
+      map((res)=>res)
+    );
   }
+
+  /*public getMovies(): Observable<Movie[]> {
+    return this.http.get<MoviesResponse>(`${this.serverAPI}/movie/now_playing?`, { params: this.params }).pipe(
+      map((res) => res.results)
+    );
+  }*/
 
   getPerson(id: string) {
     return this.http.get(`${this.API_URI}/persons/${id}`);
