@@ -15,7 +15,7 @@ export class ComingSoonComponent implements OnInit {
 
   }
     ngOnInit(){
-      this.pushMoviestoArray(["550","808","5800"]);
+      this.pushMoviestoArray(["550","808","5800","562"]);
     }
 
   pushMoviestoArray(moviesIds: string[] | string) {

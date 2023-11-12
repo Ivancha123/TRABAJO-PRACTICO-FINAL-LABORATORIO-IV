@@ -41,7 +41,7 @@ export class HomeSliderComponent implements OnInit {
   }
 
   next() {
-    if (this.movieIndex < this.movies.length) {
+    if (this.movieIndex < this.movies.length-1) {
       this.movieIndex++;
     } else {
       this.movieIndex = 0;

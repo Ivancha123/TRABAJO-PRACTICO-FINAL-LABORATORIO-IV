@@ -1,14 +1,15 @@
 @use "../../../../assets/variables/variables.scss";
+
 header {
-    height: 120px;
-    background-color: variables.$primary-blackin-color;
-    background-repeat: no-repeat;
-    border-radius: 0 0 15px 15px;
-    display: flex;
-    z-index: -1;
-    align-items: flex-end;
-  }
-  
+  height: 120px;
+  background-color: variables.$primary-blackin-color;
+  background-repeat: no-repeat;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  z-index: -1;
+  align-items: flex-end;
+
+
   .banner {
     position: absolute;
     top: 0;
@@ -17,34 +18,43 @@ header {
     display: flex;
     margin: 10px 15px;
   }
-  
-  .buttons{
-    position: absolute; 
-    top: 10px; 
+
+  .buttons {
+    position: absolute;
+    top: 10px;
     right: 10px;
     display: flex;
     margin: 5px;
-  
+
     font-size: 20px;
     font-family: sans-serif;
     font-weight: normal;
     font-style: normal;
-    
+
     border-radius: 15px 15px 15px 15px;
     border-style: solid;
     border-width: 1px;
     background-color: variables.$primary-color;
+
+    #myTickets,
+    #administrator,
+    #userProfile,
+    #login,
+    #register  {
+      margin-right: 5px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    #myTickets:hover,
+    #administrator:hover,
+    #userProfile:hover,
+    #login:hover,
+    #register:hover {
+      cursor: pointer;
+      color: variables.$primary-button-color;
+    }
   }
-  #login, #register{
-    margin-right:5px; 
-    margin-left: 5px;
-    cursor: pointer;
-  }
-  
-  #login:hover, #register:hover{
-    cursor: pointer;
-    color:blue;
-  }
+
   .loginModal {
     position: fixed;
     margin: auto;
@@ -53,3 +63,5 @@ header {
     transform: translate(-50%, -50%);
     z-index: 90;
   }
+
+}

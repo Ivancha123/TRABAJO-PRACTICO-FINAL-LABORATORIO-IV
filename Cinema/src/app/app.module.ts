@@ -25,9 +25,15 @@ import { FullBodyComponent } from './core/shared/full-body/full-body.component';
 import { HomeSliderComponent } from './core/pages/component/home-slider/home-slider.component';
 import { MovieCardComponent } from './core/pages/component/movie-card/movie-card.component';
 import { MovieComponent } from './core/pages/movie/movie.component';
-import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
-import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
-
+import { AdministratorComponent } from './core/pages/administrator/administrator.component';
+import { FunctionsComponent } from './core/pages/administrator/functions/functions.component';
+import { CombosComponent } from './core/pages/administrator/combos/combos.component';
+import { StatisticsComponent } from './core/pages/administrator/statistics/statistics.component';
+import { TicketsComponent } from './core/pages/administrator/tickets/tickets.component';
+import { UsersComponent } from './core/pages/administrator/users/users.component';
+import { AmoviesComponent } from './core/pages/administrator/amovies/amovies.component';
+import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
+import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +55,15 @@ import { PersonFormComponent } from './core/pages/persons-add/persons-add.compon
     HomeSliderComponent,
     MovieCardComponent,
     MovieComponent,
-    PersonsListComponent,
-    PersonFormComponent,
+    AdministratorComponent,
+    FunctionsComponent,
+    CombosComponent,
+    StatisticsComponent,
+    TicketsComponent,
+    UsersComponent,
+    AmoviesComponent,
+    UserProfileComponent,
+    MyTicketsComponent,
   ],
   imports: [
     HttpClientModule,

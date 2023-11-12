@@ -4,7 +4,6 @@
     </div>
 
     <div class="buttons">
-
         <nav id="nav" class="navbar navbar-expand-lg ">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -14,43 +13,52 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-
-                        <li class="nav-item" [hidden]="isLogin !== false">
-                            <div id="login" (click)="openLogin()" class="nav-link active" aria-current="page">Log In</div>  
+                        <li class="nav-item" *ngIf="isLogin === false">
+                            <div id="login" (click)="openLogin()" class="nav-link active" aria-current="page">Log In
+                            </div>
                         </li>
-
-                        <li class="nav-item" [hidden]="isLogin !== false">
-                            <div id="register" (click)="navigate('register')" class="nav-link">Register</div>
+                        <li class="nav-item" *ngIf="isLogin === false">
+                            <div id="register" (click)="navigate('register')" class="nav-link active">Register</div>
                         </li>
-
-                        <li class="nav-item dropdown" id="options" [hidden]="isLogin === true">
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Welcome! User
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">User Profile</a></li>
-                                <li><a class="dropdown-item" href="#">My Tickets</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Log Out</a></li>
-                            </ul>
+                        <li *ngIf="isLogin === true">
+                            <a class="navbar-brand" class="nav-link">User</a>
+                        </li>
+                        <li class="nav-item" *ngIf="isLogin === true">
+                            <div id="userProfile" (click)="navigate('user-profile')" class="nav-link active" aria-current="page">User Profile
+                            </div>
+                        </li>
+                        <li class="nav-item" *ngIf="isLogin === true">
+                            <div id="myTickets" (click)="navigate('my-tickets')" class="nav-link active" aria-current="page">My Tickets
+                            </div>
+                        </li>
+                        <li class="nav-item" *ngIf="isLogin === true && isAdmin === true">
+                            <div id="administrator" (click)="navigate('administrator')" class="nav-link active" aria-current="page">Administrator
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-</header>
-    <!--
-    <div class="buttons">
-        <div id="login" (click)="openLogin()">LogIn</div>  
-        <div> / </div>
-        <div id="register" (click)="navigate('register')">Register</div>
-    </div>
     <div class="loginModal" *ngIf="loginSwitch == true">
         <app-login></app-login>
     </div>
-    -->
+</header>
+
+<!--
+<li class="nav-item dropdown" id="options" [hidden]="isLogin !== true">
+    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+        aria-expanded="true">
+        Welcome! User
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">User Profile</a></li>
+        <li><a class="dropdown-item" href="#">My Tickets</a></li>
+        <li><a class="dropdown-item" href="#" [hidden]="isAdmin !==false">Administrator</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Log Out</a></li>
+    </ul>
+</li>
+-->
