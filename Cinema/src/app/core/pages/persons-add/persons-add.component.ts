@@ -13,9 +13,9 @@ export class PersonFormComponent implements OnInit {
   @HostBinding('class') clases = 'row';
 
   person: Person = {
-    id: 0,
+    id_person: 0,
     document: '',
-    username: '',
+    user_name: '',
     lastname: '',
     born: new Date(),
     genre: '',
@@ -43,7 +43,7 @@ export class PersonFormComponent implements OnInit {
   }
 
   saveNewPerson() {
-    delete this.person.id;
+    delete this.person.id_person;
     this.databaseService.savePerson(this.person)
       .subscribe(
         res => {
@@ -55,7 +55,7 @@ export class PersonFormComponent implements OnInit {
   }
 
   updatePerson() {
-    this.databaseService.updatePerson(this.person.id!, this.person)
+    this.databaseService.updatePerson(this.person.id_person!, this.person)
       .subscribe(
         res => { 
           console.log(res);

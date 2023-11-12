@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,6 +25,13 @@ import { FullBodyComponent } from './core/shared/full-body/full-body.component';
 import { HomeSliderComponent } from './core/pages/component/home-slider/home-slider.component';
 import { MovieCardComponent } from './core/pages/component/movie-card/movie-card.component';
 import { MovieComponent } from './core/pages/movie/movie.component';
+
+import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
+import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
+
+import { DataBaseService } from './core/services/database/database.service';
+
+
 import { AdministratorComponent } from './core/pages/administrator/administrator.component';
 import { FunctionsComponent } from './core/pages/administrator/functions/functions.component';
 import { CombosComponent } from './core/pages/administrator/combos/combos.component';
@@ -34,6 +41,7 @@ import { UsersComponent } from './core/pages/administrator/users/users.component
 import { AmoviesComponent } from './core/pages/administrator/amovies/amovies.component';
 import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
+
 
 @NgModule({
   declarations: [
@@ -72,8 +80,11 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     BrowserAnimationsModule,
     MatSliderModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    DataBaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

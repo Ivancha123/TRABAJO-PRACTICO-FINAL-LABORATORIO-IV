@@ -12,7 +12,9 @@ export class PersonsListComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  persons: any = [];
+  persons: Person[] = [
+    
+  ];
 
   constructor(private databaseService: DataBaseService) { }
 
@@ -23,9 +25,10 @@ export class PersonsListComponent implements OnInit {
 
   getPersons() {
     this.databaseService.getPersons()
-      .subscribe(
+    .subscribe(
         res => {
           this.persons = res;
+          console.log(this.persons);
         },
         err => console.error(err)
       );
