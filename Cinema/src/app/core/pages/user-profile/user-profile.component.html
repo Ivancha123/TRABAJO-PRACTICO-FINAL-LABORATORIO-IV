@@ -1,0 +1,62 @@
+<div class="container">
+    <h1 class="mt-4">Mi Perfil</h1>
+    <!-- Información de perfil -->
+    <div class="card mt-4" id="card" style="background-color: var(--theme-color);">
+        <div class="card-body" id="Profile">
+            <img src="../../../../assets/Avatar.jpg" width="200px" height="200px" alt="Foto de perfil"
+                class="img-fluid rounded-circle">
+            <h2>User Name</h2>
+            <p>Email: user@example.com</p>
+            <p>Birth Date: 01/01/1990</p>
+        </div>
+    </div> 
+    <div class="card mt-4" id="card" style="background-color: var(--theme-color);">
+        <div class="card-body">
+            <h3>Edit Profile</h3>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">User:</label>
+                    <input type="text" class="form-control" id="nombre" value="User">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Email:</label>
+                    <input type="email" class="form-control" id="correo" value="user@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaNacimiento">Birth Date:</label>
+                    <input type="date" class="form-control" id="fechaNacimiento" value="1990-01-01">
+                </div>
+
+                <div class="form-group">
+                    <label for="newPassword">Password:</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="New Password">
+                </div>
+                <div class="form-group">
+                    <label for="oldPassword">Password:</label>
+                    <input type="old-password" class="form-control" id="oldPassword" placeholder="Old Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Formulario para cambiar el color de la interfaz
+    <div class="card mt-4" id="card_color">
+        <div class="card-body">
+            <h3>Cambiar Color de la Interfaz</h3>
+            <form id="theme-form">
+                <div class="form-group">
+                    <label>Seleccionar Tema de Color:</label>
+                    <div class="color-options">
+                        <div *ngFor="let color of colors" class="color-option" [style.background-color]="color"
+                            (click)="saveSelectedColorToCookie(color)"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    -->
+</div>

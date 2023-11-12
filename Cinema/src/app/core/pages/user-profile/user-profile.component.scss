@@ -1,0 +1,55 @@
+@use "../../../../assets/variables/variables.scss";
+
+.profile {
+    display: flex;
+}
+
+#card {
+    margin: 0 auto; // Centrar la tarjeta horizontalmente
+    max-width: 600px; // Establecer un ancho máximo
+    //background-color: variables.$primary-blackin-color; // Fondo de la tarjeta
+    border: 1px solid #dee2e6; // Borde de la tarjeta
+    border-radius: 15px; // Bordes redondeados
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra
+}
+
+.btn-primary {
+    background-color: variables.$primary-black-color; // Color de fondo del botón
+    border: none; // Sin borde
+    border-radius: 5px; // Bordes redondeados
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: variables.$primary-blacker-color; // Color de fondo del botón al pasar el mouse
+}
+
+.btn-primary:active {
+    background-color: variables.$primary-blackest-color; // Color de fondo del botón al pasar el mouse
+}
+
+#card_color {
+    margin: 0 auto; // Centrar la tarjeta horizontalmente
+    background-color: variables.$primary-blackin-color; // Fondo de la tarjeta
+    border: 1px solid #dee2e6; // Borde de la tarjeta
+    border-radius: 15px; // Bordes redondeados
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra
+
+    .color-options {
+        display: flex;
+        justify-content: center;
+
+        .color-option {
+            border: solid 1px gray;
+            border-radius: 15px;
+            margin: 20px;
+            width: 70px;
+            height: 70px;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background: linear-gradient(to bottom, currentColor, rgba(225, 225, 255, 0.1));
+            }
+        }
+    }
+}
