@@ -18,7 +18,7 @@ class TicketSeatController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const ticketSeat = yield database_1.default.query('SELECT * FROM tickets_seats');
-            res.json(ticketSeat);
+            res.json(ticketSeat[0]);
         });
     }
     getOne(req, res) {

@@ -4,7 +4,7 @@ import pool from '../database';
 class MovieController {
     public async list(req: Request, res: Response){
         const movies = await pool.query('SELECT * FROM movies');
-        res.json(movies);
+        res.json(movies[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{

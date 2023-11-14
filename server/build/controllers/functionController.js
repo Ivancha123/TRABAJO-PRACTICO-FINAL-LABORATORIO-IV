@@ -18,7 +18,7 @@ class FunctionController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const functions = yield database_1.default.query('SELECT * FROM functions');
-            res.json(functions);
+            res.json(functions[0]);
         });
     }
     getOne(req, res) {

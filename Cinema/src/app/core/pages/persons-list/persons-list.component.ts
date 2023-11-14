@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { DataBaseService } from 'src/app/core/services/database/database.service';
 import { Person } from 'src/app/core/interfaces/database.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-persons-list',
@@ -12,11 +13,9 @@ export class PersonsListComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  persons: Person[] = [
-    
-  ];
+  persons: Person[] = [];
 
-  constructor(private databaseService: DataBaseService) { }
+  constructor(private databaseService: DataBaseService, private router:Router) { }
 
 
   ngOnInit() {
@@ -24,14 +23,10 @@ export class PersonsListComponent implements OnInit {
   }
 
   getPersons() {
-    this.databaseService.getPersons()
-    .subscribe(
-        res => {
-          this.persons = res;
-          console.log(this.persons);
-        },
-        err => console.error(err)
-      );
+    this.databaseService.getPersons().subscribe((response) => {
+      this.persons = response;
+      console.log(response);
+    });
   }
 
   deletePerson(id: string) {

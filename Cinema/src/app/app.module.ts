@@ -28,6 +28,8 @@ import { MovieComponent } from './core/pages/movie/movie.component';
 
 import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
 import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
+import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
+import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
 
 import { DataBaseService } from './core/services/database/database.service';
 
@@ -74,6 +76,8 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     MyTicketsComponent,
     PersonFormComponent,
     PersonsListComponent,
+    SeatFormComponent,
+    RoomFormComponent,
   ],
   imports: [
     HttpClientModule,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 
-import { Person } from 'src/app/core/interfaces/database.module' ;
+import { Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
 import { Movie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
 import { Room } from 'src/app/core/interfaces/database.module' ;
@@ -25,17 +25,9 @@ export class DataBaseService {
 
   //Person functions
 
-  public getPersons(): Observable<Person[]> {
-    return this.http.get<Person[]>(`${this.API_URI}/persons`).pipe(
-      map((res)=>res)
-    );
+  public getPersons() : Observable<Person[]> {
+    return this.http.get<Person[]>(`${this.API_URI}/persons`);
   }
-
-  /*public getMovies(): Observable<Movie[]> {
-    return this.http.get<MoviesResponse>(`${this.serverAPI}/movie/now_playing?`, { params: this.params }).pipe(
-      map((res) => res.results)
-    );
-  }*/
 
   getPerson(id: string) {
     return this.http.get(`${this.API_URI}/persons/${id}`);
@@ -45,12 +37,12 @@ export class DataBaseService {
     return this.http.delete(`${this.API_URI}/persons/${id}`);
   }
 
-  savePerson(person: Person) {
-    return this.http.post(`${this.API_URI}/persons`, person);
+  savePerson(person: Person): Observable<Person> {
+    return this.http.post<Person>(`${this.API_URI}/persons`, person);
   }
 
   updatePerson(id: string|number, updatedPerson: Person): Observable<Person> {
-    return this.http.put(`${this.API_URI}/persons/${id}`, updatedPerson);
+    return this.http.put<Person>(`${this.API_URI}/persons/${id}`, updatedPerson);
   }
 
   //Movie Functions

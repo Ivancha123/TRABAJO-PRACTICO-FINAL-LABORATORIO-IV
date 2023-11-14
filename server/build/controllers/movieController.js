@@ -18,7 +18,7 @@ class MovieController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const movies = yield database_1.default.query('SELECT * FROM movies');
-            res.json(movies);
+            res.json(movies[0]);
         });
     }
     getOne(req, res) {

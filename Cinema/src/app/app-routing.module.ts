@@ -13,6 +13,8 @@ import { UserProfileComponent } from './core/pages/user-profile/user-profile.com
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
 import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
 import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
+import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
+import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
 
 const routes: Routes = [  {
   path: "",
@@ -69,6 +71,14 @@ const routes: Routes = [  {
 {
   path: 'persons/edit/:id',
   component: PersonFormComponent
+},
+{
+  path: 'seats/add',
+  component: SeatFormComponent
+},
+{
+  path: 'rooms/add',
+  component: RoomFormComponent
 },
 {
   path: "**",

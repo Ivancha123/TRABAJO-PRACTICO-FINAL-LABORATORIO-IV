@@ -4,7 +4,7 @@ import pool from '../database';
 class SeatController {
     public async list(req: Request, res: Response){
         const seats = await pool.query('SELECT * FROM seats');
-        res.json(seats);
+        res.json(seats[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
@@ -22,8 +22,8 @@ class SeatController {
     }
 
     public async createSeat (req: Request, res: Response): Promise<void>{
-        await pool.query('create_seat() ?', [req.body]);
-        res.json({message: 'seat saved'});
+        await pool.query('call create_seat('[req.body],')' );
+        res.json({message: 'seat created'});
     }
 
     public async update (req: Request, res: Response): Promise<void>{
