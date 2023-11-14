@@ -153,9 +153,9 @@ BEGIN
   INSERT INTO seat (id_room, seat_letter, seat_number)
   VALUES (p_id_room, p_seat_letter, p_seat_number);
   -- Actualizar la amount de seats de la room
-  UPDATE room r
+  UPDATE rooms r
   SET capacity = (SELECT COUNT(*)
-                 FROM seat s
+                 FROM seats s
                  WHERE s.id_room = p_id_room)
   WHERE r.id_room = p_id_room;
 END
