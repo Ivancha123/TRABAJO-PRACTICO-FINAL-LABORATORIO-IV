@@ -18,7 +18,7 @@ class ComboTicketController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const comboTicket = yield database_1.default.query('SELECT * FROM combos_tickets');
-            res.json(comboTicket);
+            res.json(comboTicket[0]);
         });
     }
     getOne(req, res) {

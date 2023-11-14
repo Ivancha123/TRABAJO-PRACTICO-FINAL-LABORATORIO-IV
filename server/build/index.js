@@ -15,6 +15,7 @@ const movieRoutes_1 = __importDefault(require("./routes/movieRoutes"));
 const roomRoutes_1 = __importDefault(require("./routes/roomRoutes"));
 const ticket_seatRoutes_1 = __importDefault(require("./routes/ticket-seatRoutes"));
 const ticketRoutes_1 = __importDefault(require("./routes/ticketRoutes"));
+const seatRoutes_1 = __importDefault(require("./routes/seatRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -38,6 +39,7 @@ class Server {
         this.app.use('/api/rooms', roomRoutes_1.default);
         this.app.use('/api/tickets-seats', ticket_seatRoutes_1.default);
         this.app.use('/api/tickets', ticketRoutes_1.default);
+        this.app.use('/api/seats', seatRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

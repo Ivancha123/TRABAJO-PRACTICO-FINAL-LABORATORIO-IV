@@ -4,7 +4,7 @@ import pool from '../database';
 class ComboController {
     public async list(req: Request, res: Response){
         const combo = await pool.query('SELECT * FROM combos');
-        res.json(combo);
+        res.json(combo[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{

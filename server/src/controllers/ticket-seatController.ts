@@ -4,7 +4,7 @@ import pool from '../database';
 class TicketSeatController {
     public async list(req: Request, res: Response){
         const ticketSeat = await pool.query('SELECT * FROM tickets_seats');
-        res.json(ticketSeat);
+        res.json(ticketSeat[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{

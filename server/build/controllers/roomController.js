@@ -18,7 +18,7 @@ class RoomController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const rooms = yield database_1.default.query('SELECT * FROM rooms');
-            res.json(rooms);
+            res.json(rooms[0]);
         });
     }
     getOne(req, res) {

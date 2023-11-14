@@ -18,7 +18,7 @@ class ComboController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const combo = yield database_1.default.query('SELECT * FROM combos');
-            res.json(combo);
+            res.json(combo[0]);
         });
     }
     getOne(req, res) {

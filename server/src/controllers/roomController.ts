@@ -4,7 +4,7 @@ import pool from '../database';
 class RoomController {
     public async list(req: Request, res: Response){
         const rooms = await pool.query('SELECT * FROM rooms');
-        res.json(rooms);
+        res.json(rooms[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{

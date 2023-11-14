@@ -18,7 +18,7 @@ class SeatController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const seats = yield database_1.default.query('SELECT * FROM seats');
-            res.json(seats);
+            res.json(seats[0]);
         });
     }
     getOne(req, res) {
@@ -39,8 +39,8 @@ class SeatController {
     }
     createSeat(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('create_seat() ?', [req.body]);
-            res.json({ message: 'seat saved' });
+            yield database_1.default.query('call create_seat('[req.body], ')');
+            res.json({ message: 'seat created' });
         });
     }
     update(req, res) {

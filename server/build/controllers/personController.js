@@ -18,7 +18,7 @@ class PersonController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const persons = yield database_1.default.query('SELECT * FROM persons');
-            res.json(persons);
+            res.json(persons[0]);
         });
     }
     getOne(req, res) {

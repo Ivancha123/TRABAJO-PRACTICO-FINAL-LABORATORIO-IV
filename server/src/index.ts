@@ -11,6 +11,7 @@ import movieRoutes from './routes/movieRoutes';
 import roomRoutes from './routes/roomRoutes';
 import ticketSeatRoutes from './routes/ticket-seatRoutes';
 import ticketRoutes from './routes/ticketRoutes';
+import seatRoutes from './routes/seatRoutes';
 
 class Server {
     public app: Application;
@@ -38,6 +39,7 @@ class Server {
         this.app.use('/api/rooms', roomRoutes);
         this.app.use('/api/tickets-seats', ticketSeatRoutes);
         this.app.use('/api/tickets', ticketRoutes);
+        this.app.use('/api/seats', seatRoutes);
     }
 
     start(): void {

@@ -12,6 +12,10 @@ export interface Person {
     email?: string;
 };
 
+export interface PersonResponse {
+    results: Person[];
+};
+
 export interface Movie {
     id?: number;
     title?: string;
@@ -25,8 +29,8 @@ export interface Combo {
 };
 
 export interface Room {
-    id?: number;
-    name?: string;
+    id_room?: number;
+    room_name?: string;
     capacity?: number;
 };
 
@@ -54,9 +58,9 @@ export interface ComboTicket {
 
 export interface Seat {
     id?: number;
-    idRoom?: number;
-    letter?: string;
-    number?: number;
+    id_Room?: number;
+    seat_letter?: string;
+    seat_number?: number;
 };
 
 export interface TicketSeat {

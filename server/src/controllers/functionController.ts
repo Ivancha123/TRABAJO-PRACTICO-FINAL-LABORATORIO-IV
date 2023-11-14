@@ -4,7 +4,7 @@ import pool from '../database';
 class FunctionController {
     public async list(req: Request, res: Response){
         const functions = await pool.query('SELECT * FROM functions');
-        res.json(functions);
+        res.json(functions[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
