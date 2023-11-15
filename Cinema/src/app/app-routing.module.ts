@@ -15,6 +15,10 @@ import { PersonsListComponent } from './core/pages/persons-list/persons-list.com
 import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
 import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
 import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
+import { FunctionFormComponent } from './core/pages/functions-add/functions-add.component';
+import { FunctionsListComponent } from './core/pages/functions-list/functions-list.component';
+import { ComboFormComponent } from './core/pages/combos-add/combos-add.component';
+import { ComboListComponent } from './core/pages/combos-list/combos-list.component';
 
 const routes: Routes = [  {
   path: "",
@@ -76,9 +80,42 @@ const routes: Routes = [  {
   path: 'seats/add',
   component: SeatFormComponent
 },
+
+{
+  path: 'seats/edit/:id',
+  component: SeatFormComponent
+},
 {
   path: 'rooms/add',
   component: RoomFormComponent
+},
+{
+  path: 'rooms/edit/:id',
+  component: RoomFormComponent
+},
+{
+  path: 'functions',
+  component: FunctionsListComponent
+},
+{
+  path: 'functions/add',
+  component: FunctionFormComponent
+},
+{
+  path: 'functions/edit/:id',
+  component: FunctionFormComponent
+},
+{
+  path: 'combos',
+  component: ComboListComponent
+},
+{
+  path: 'combos/add',
+  component: ComboFormComponent
+},
+{
+  path: 'combos/edit/:id',
+  component: ComboFormComponent
 },
 {
   path: "**",

@@ -30,6 +30,10 @@ import { PersonsListComponent } from './core/pages/persons-list/persons-list.com
 import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
 import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
 import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
+import {FunctionFormComponent} from './core/pages/functions-add/functions-add.component';
+import { FunctionsListComponent } from './core/pages/functions-list/functions-list.component';
+import {ComboFormComponent} from './core/pages/combos-add/combos-add.component';
+import { ComboListComponent } from './core/pages/combos-list/combos-list.component';
 
 import { DataBaseService } from './core/services/database/database.service';
 
@@ -78,6 +82,10 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     PersonsListComponent,
     SeatFormComponent,
     RoomFormComponent,
+    FunctionFormComponent,
+    FunctionsListComponent,
+    ComboFormComponent,
+    ComboListComponent,
   ],
   imports: [
     HttpClientModule,

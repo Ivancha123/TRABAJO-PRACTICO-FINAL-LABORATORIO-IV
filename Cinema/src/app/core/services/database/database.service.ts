@@ -33,7 +33,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/persons/${id}`);
   }
 
-  deletePerson(id: string) {
+  deletePerson(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/persons/${id}`);
   }
 
@@ -55,7 +55,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/movies/${id}`);
   }
 
-  deleteMovie(id: string) {
+  deleteMovie(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/movies/${id}`);
   }
 
@@ -69,15 +69,15 @@ export class DataBaseService {
 
   //Combo Functions
 
-  getCombos() {
-    return this.http.get(`${this.API_URI}/combos`);
+  public getCombos() : Observable<Combo[]> {
+    return this.http.get<Combo[]>(`${this.API_URI}/combos`);
   }
 
   getCombo(id: string) {
     return this.http.get(`${this.API_URI}/combos/${id}`);
   }
 
-  deleteCombo(id: string) {
+  deleteCombo(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/combos/${id}`);
   }
 
@@ -99,7 +99,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/rooms/${id}`);
   }
 
-  deleteRoom(id: string) {
+  deleteRoom(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/rooms/${id}`);
   }
 
@@ -113,15 +113,15 @@ export class DataBaseService {
 
   //Function Functions
 
-  getFunctions() {
-    return this.http.get(`${this.API_URI}/functions`);
+  public getFunctions() : Observable<Function[]> {
+    return this.http.get<Function[]>(`${this.API_URI}/functions`);
   }
 
   getFunction(id: string) {
     return this.http.get(`${this.API_URI}/functions/${id}`);
   }
 
-  deleteFunction(id: string) {
+  deleteFunction(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/functions/${id}`);
   }
 
@@ -143,7 +143,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/tickets/${id}`);
   }
 
-  deleteTicket(id: string) {
+  deleteTicket(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/tickets/${id}`);
   }
 
@@ -165,7 +165,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/combos-tickets/${id}`);
   }
 
-  deleteComboTicket(id: string) {
+  deleteComboTicket(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/combos-tickets/${id}`);
   }
 
@@ -187,7 +187,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/seats/${id}`);
   }
 
-  deleteSeat(id: string) {
+  deleteSeat(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/seats/${id}`);
   }
 
@@ -209,7 +209,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/tickets-seats/${id}`);
   }
 
-  deleteTicketSeat(id: string) {
+  deleteTicketSeat(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/tickets-seats/${id}`);
   }
 
