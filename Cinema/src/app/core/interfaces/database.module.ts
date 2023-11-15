@@ -23,8 +23,8 @@ export interface Movie {
 };
 
 export interface Combo {
-    id?: number;
-    description?: string;
+    id_combo?: number;
+    combo_description?: string;
     price?: number;
 };
 
@@ -35,11 +35,11 @@ export interface Room {
 };
 
 export interface Function {
-    id?: number;
-    date?: Date;
-    hour?: Time;
-    idRoom?: number;
-    idMovie?: number;
+    id_function?: number;
+    function_date?: Date;
+    function_hour?: Time;
+    id_room?: number;
+    id_movie?: number;
     price?: number;
 };
 
