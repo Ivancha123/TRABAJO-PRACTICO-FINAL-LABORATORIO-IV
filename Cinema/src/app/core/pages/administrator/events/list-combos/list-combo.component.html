@@ -1,0 +1,13 @@
+<div class="content">
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let combo of combos">
+          {{combo.id_combo}}. {{ combo.combo_description }}.{{combo.price}}
+          <button class="btn btn-danger" (click)="deleteCombo(combo.id_combo)">
+            <i class="far fa-trash-alt">ELIMINAR</i>
+          </button>
+          <a [routerLink]="['combo/edit', combo.id_combo]" class="btn btn-info btn-block">
+            EDIT COMBO
+          </a>
+      </li>
+  </ul>
+</div>

@@ -11,13 +11,10 @@
       <a class="nav-link" [ngClass]="{'active': selection[2]}" href="/administrator?tab=combos" id="combos-tab" data-toggle="tab" role="tab" aria-controls="combos" aria-selected="false">COMBOS</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" [ngClass]="{'active': selection[3]}" href="/administrator?tab=statistics" id="statistics-tab" data-toggle="tab" role="tab" aria-controls="statistics" aria-selected="false">STATISTICS</a>
+      <a class="nav-link" [ngClass]="{'active': selection[3]}" href="/administrator?tab=tickets" id="tickets-tab" data-toggle="tab" role="tab" aria-controls="tickets" aria-selected="false">TICKETS</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" [ngClass]="{'active': selection[4]}" href="/administrator?tab=tickets" id="tickets-tab" data-toggle="tab" role="tab" aria-controls="tickets" aria-selected="false">TICKETS</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" [ngClass]="{'active': selection[5]}" href="/administrator?tab=users" id="users-tab" data-toggle="tab"  role="tab" aria-controls="users" aria-selected="false">USERS</a>
+      <a class="nav-link" [ngClass]="{'active': selection[4]}" href="/administrator?tab=users" id="users-tab" data-toggle="tab"  role="tab" aria-controls="users" aria-selected="false">USERS</a>
     </li>
   </ul>
   
@@ -25,7 +22,6 @@
     <div class="tab-pane fade" [ngClass]="{'show active': selection[0]}" id="functions" role="tabpanel" aria-labelledby="functions-tab"><app-functions></app-functions></div>
     <div class="tab-pane fade" [ngClass]="{'show active': selection[1]}" id="movies" role="tabpanel" aria-labelledby="movies-tab"><app-amovies></app-amovies></div>
     <div class="tab-pane fade" [ngClass]="{'show active': selection[2]}" id="combos" role="tabpanel" aria-labelledby="combos-tab"><app-combos></app-combos></div>
-    <div class="tab-pane fade" [ngClass]="{'show active': selection[3]}" id="statistics" role="tabpanel" aria-labelledby="statistics-tab"><app-statistics></app-statistics></div>
-    <div class="tab-pane fade" [ngClass]="{'show active': selection[4]}" id="tickets" role="tabpanel" aria-labelledby="tickets-tab"><app-tickets></app-tickets></div>
-    <div class="tab-pane fade" [ngClass]="{'show active': selection[5]}" id="users" role="tabpanel" aria-labelledby="users-tab"><app-users></app-users></div>
+    <div class="tab-pane fade" [ngClass]="{'show active': selection[3]}" id="tickets" role="tabpanel" aria-labelledby="tickets-tab"><app-tickets></app-tickets></div>
+    <div class="tab-pane fade" [ngClass]="{'show active': selection[4]}" id="users" role="tabpanel" aria-labelledby="users-tab"><app-users></app-users></div>
   </div>

@@ -16,10 +16,10 @@ export interface PersonResponse {
     results: Person[];
 };
 
-export interface Movie {
-    id?: number;
-    title?: string;
-    movie_status?: number;
+export interface xMovie {
+    id_movie: number;
+    title: string;
+    movie_status: number;
 };
 
 export interface Combo {

@@ -15,7 +15,6 @@ import { ContentComponent } from './core/shared/content/content.component';
 import { HomeComponent } from './core/pages/home/home.component';
 import { RegisterComponent } from './core/pages/register/register.component';
 import { AboutUsComponent } from './core/pages/about-us/about-us.component';
-import { ComingSoonComponent } from './core/pages/coming-soon/coming-soon.component';
 import { MoviesComponent } from './core/pages/movies/movies.component';
 import { PricesComponent } from './core/pages/prices/prices.component';
 import { ContactUsComponent } from './core/pages/contact-us/contact-us.component';
@@ -25,15 +24,13 @@ import { FullBodyComponent } from './core/shared/full-body/full-body.component';
 import { HomeSliderComponent } from './core/pages/component/home-slider/home-slider.component';
 import { MovieCardComponent } from './core/pages/component/movie-card/movie-card.component';
 import { MovieComponent } from './core/pages/movie/movie.component';
+import { PosterGridComponent } from './core/pages/component/poster-grid/poster-grid.component';
 
-import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
-import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
-import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
-import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
-import {FunctionFormComponent} from './core/pages/functions-add/functions-add.component';
-import { FunctionsListComponent } from './core/pages/functions-list/functions-list.component';
-import {ComboFormComponent} from './core/pages/combos-add/combos-add.component';
-import { ComboListComponent } from './core/pages/combos-list/combos-list.component';
+
+import { PersonFormComponent } from './core/pages/administrator/events/persons-add/persons-add.component';
+import { SeatFormComponent } from './core/pages/administrator/events/seats-add/seats-add.component';
+import { RoomFormComponent } from './core/pages/administrator/events/rooms-add/rooms-add.component';
+import { ListFunctionComponent } from './core/pages/administrator/events/list-function/list-function.component';
 
 import { DataBaseService } from './core/services/database/database.service';
 
@@ -47,8 +44,11 @@ import { UsersComponent } from './core/pages/administrator/users/users.component
 import { AmoviesComponent } from './core/pages/administrator/amovies/amovies.component';
 import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
-
-
+import { AddFunctionComponent } from './core/pages/administrator/events/add-function/add-function.component';
+import { ListMoviesComponent } from './core/pages/administrator/events/list-movies/list-movies.component';
+import { AddComboComponent } from './core/pages/administrator/events/add-combos/add-combo.component';
+import { ListComboComponent } from './core/pages/administrator/events/list-combos/list-combo.component';
+import { ListPersonsComponent } from './core/pages/administrator/events/list-person/list-person.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +58,6 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     HomeComponent,
     RegisterComponent,
     AboutUsComponent,
-    ComingSoonComponent,
     MoviesComponent,
     PricesComponent,
     ContactUsComponent,
@@ -79,13 +78,15 @@ import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component
     UserProfileComponent,
     MyTicketsComponent,
     PersonFormComponent,
-    PersonsListComponent,
     SeatFormComponent,
     RoomFormComponent,
-    FunctionFormComponent,
-    FunctionsListComponent,
-    ComboFormComponent,
-    ComboListComponent,
+    AddFunctionComponent,
+    ListMoviesComponent,
+    ListFunctionComponent,
+    AddComboComponent,
+    ListComboComponent,
+    ListPersonsComponent,
+    PosterGridComponent,
   ],
   imports: [
     HttpClientModule,

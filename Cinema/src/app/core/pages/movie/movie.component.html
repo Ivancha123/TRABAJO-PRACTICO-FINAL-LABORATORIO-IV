@@ -1,11 +1,11 @@
 <div class="container">
     <div class="movie-details">
         <div class="movie-poster">
-            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-fluid rounded-start"
-                alt="{{movie.title}}">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}" class="img-fluid rounded-start"
+                alt="{{movie?.title}}">
         </div>
         <div class="movie-info">
-            <h1>{{movie.title}}</h1>
+            <h1>{{movie?.title}}</h1>
             <div id="details">
                 <div id="detail">
                     <div id="data">
@@ -20,7 +20,7 @@
                         Language:
                     </div>
                     <div id="info">
-                        {{movie.original_language}}
+                        {{movie?.original_language}}
                     </div>
                 </div>
                 <div id="detail">
@@ -28,7 +28,7 @@
                         Release Date:
                     </div>
                     <div id="info">
-                        {{movie.release_date}}
+                        {{movie?.release_date}}
                     </div>
                 </div>
                 <div id="detail">
@@ -36,7 +36,7 @@
                         Vote Rate:
                     </div>
                     <div id="info">
-                        {{movie.vote_average}}
+                        {{movie?.vote_average}}
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                         Overwiew:
                     </div>
                     <div id="info">
-                        {{movie.overview}}
+                        {{movie?.overview}}
                     </div>
                 </div>
             </div>

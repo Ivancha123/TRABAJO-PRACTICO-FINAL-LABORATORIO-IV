@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="movie-list" *ngIf="movies.length !== 0">
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let movie of movies">
+              {{movie.id_movie}} {{ movie.title }}
+              <button class="btn btn-danger" (click)="deleteMovie(movie.id_movie)">
+                <i class="far fa-trash-alt">ELIMINAR</i>
+              </button>
+          </li>
+          
+      </ul>
+  </div>
+  <div *ngIf="movies.length === 0">
+    <div class="alert alert-warning">
+        <strong>There are no movies to display</strong>
+    </div>
+</div>
+</div>

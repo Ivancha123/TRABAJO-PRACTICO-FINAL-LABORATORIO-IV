@@ -14,7 +14,15 @@ class FunctionController {
             return res.json(functions[0]);
         }
         res.status(404).json({text: 'The function doesn´t exists'});
-    }  
+    }
+    public async getOneForMovie(req: Request, res: Response): Promise<any>{
+        const {id} = req.params;
+        const functions = await pool.query('SELECT * FROM functions WHERE id_movie = ?',[id]);
+        if(functions.length > 0){
+            return res.json(functions[0]);
+        }
+        res.status(404).json({text: 'The function doesn´t exists'});
+    }    
 
     public async create (req: Request, res: Response): Promise<void>{
         await pool.query('INSERT INTO functions set ?', [req.body]);

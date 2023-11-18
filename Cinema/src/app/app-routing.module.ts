@@ -4,21 +4,17 @@ import { HomeComponent } from './core/pages/home/home.component';
 import { RegisterComponent } from './core/pages/register/register.component';
 import { AboutUsComponent } from './core/pages/about-us/about-us.component';
 import { MoviesComponent } from './core/pages/movies/movies.component';
+import { MovieComponent } from './core/pages/movie/movie.component';
 import { PricesComponent } from './core/pages/prices/prices.component';
-import { ComingSoonComponent } from './core/pages/coming-soon/coming-soon.component';
 import { ContactUsComponent } from './core/pages/contact-us/contact-us.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AdministratorComponent } from './core/pages/administrator/administrator.component';
 import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
-import { PersonsListComponent } from './core/pages/persons-list/persons-list.component';
-import { PersonFormComponent } from './core/pages/persons-add/persons-add.component';
-import { SeatFormComponent } from './core/pages/seats-add/seats-add.component';
-import { RoomFormComponent } from './core/pages/rooms-add/rooms-add.component';
-import { FunctionFormComponent } from './core/pages/functions-add/functions-add.component';
-import { FunctionsListComponent } from './core/pages/functions-list/functions-list.component';
-import { ComboFormComponent } from './core/pages/combos-add/combos-add.component';
-import { ComboListComponent } from './core/pages/combos-list/combos-list.component';
+import { PersonFormComponent } from './core/pages/administrator/events/persons-add/persons-add.component';
+import { SeatFormComponent } from './core/pages/administrator/events/seats-add/seats-add.component';
+import { RoomFormComponent } from './core/pages/administrator/events/rooms-add/rooms-add.component';
+import { AddComboComponent } from './core/pages/administrator/events/add-combos/add-combo.component';
 
 const routes: Routes = [  {
   path: "",
@@ -41,12 +37,12 @@ const routes: Routes = [  {
   component: MoviesComponent
 },
 {
-  path: "prices",
-  component: PricesComponent
+  path: "movie/:id",
+  component: MovieComponent
 },
 {
-  path: "coming-soon",
-  component: ComingSoonComponent
+  path: "prices",
+  component: PricesComponent
 },
 {
   path: "contact-us",
@@ -65,10 +61,6 @@ const routes: Routes = [  {
   component: MyTicketsComponent
 },
 {
-  path: "persons",
-  component: PersonsListComponent
-},
-{
   path: 'persons/add',
   component: PersonFormComponent
 },
@@ -80,7 +72,14 @@ const routes: Routes = [  {
   path: 'seats/add',
   component: SeatFormComponent
 },
-
+{
+  path: 'administrator/combo/edit/:id',
+  component: AddComboComponent
+},
+{
+  path: 'seats/edit/:id',
+  component: SeatFormComponent
+},
 {
   path: 'seats/edit/:id',
   component: SeatFormComponent
@@ -92,30 +91,6 @@ const routes: Routes = [  {
 {
   path: 'rooms/edit/:id',
   component: RoomFormComponent
-},
-{
-  path: 'functions',
-  component: FunctionsListComponent
-},
-{
-  path: 'functions/add',
-  component: FunctionFormComponent
-},
-{
-  path: 'functions/edit/:id',
-  component: FunctionFormComponent
-},
-{
-  path: 'combos',
-  component: ComboListComponent
-},
-{
-  path: 'combos/add',
-  component: ComboFormComponent
-},
-{
-  path: 'combos/edit/:id',
-  component: ComboFormComponent
 },
 {
   path: "**",

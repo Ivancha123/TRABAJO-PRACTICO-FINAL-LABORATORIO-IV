@@ -11,34 +11,14 @@ export class AdministratorComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log("Evento: ", event);
-        switch (event.urlAfterRedirects) {
-          case "/administrator?tab=functions":
-            this.selection = [true, false, false, false, false, false];
-            break;
-          case "/administrator?tab=movies":
-            this.selection = [false, true, false, false, false, false];
-            break;
-          case "/administrator?tab=combos":
-            this.selection = [false, false, true, false, false, false];
-            break;
-          case "/administrator?tab=statistics":
-            this.selection = [false, false, false, true, false, false];
-            break;
-          case "/administrator?tab=tickets":
-            this.selection = [false, false, false, false, true, false];
-            break;
-          case "/administrator?tab=users":
-            this.selection = [false, false, false, false, false, true];
-            break;
-          default:
-            this.selection = [true, false, false, false, false, false];
-            break;
-        }
+        if (event.urlAfterRedirects.includes("/administrator?tab=functions")) this.selection = [true, false, false, false, false, false];
+        else if (event.urlAfterRedirects.includes("/administrator?tab=movies")) this.selection = [false, true, false, false, false, false];
+        else if (event.urlAfterRedirects.includes("/administrator?tab=combos")) this.selection = [false, false, true, false, false, false];
+        else if (event.urlAfterRedirects.includes("/administrator?tab=tickets")) this.selection = [false, false, false, true, false, false];
+        else if (event.urlAfterRedirects.includes("/administrator?tab=users")) this.selection = [false, false, false, false, true, false];
+        else this.selection = [true, false, false, false, false, false];
       }
-      console.log(this.selection);
     });
-
   }
   selection = [true, false, false, false, false, false];
 }

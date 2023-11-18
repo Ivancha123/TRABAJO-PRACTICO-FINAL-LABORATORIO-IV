@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 
 import { Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
-import { Movie } from 'src/app/core/interfaces/database.module' ;
+import { xMovie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
 import { Room } from 'src/app/core/interfaces/database.module' ;
 import { Function } from 'src/app/core/interfaces/database.module' ;
@@ -47,8 +47,8 @@ export class DataBaseService {
 
   //Movie Functions
 
-  getMovies() {
-    return this.http.get(`${this.API_URI}/movies`);
+  public getMovies() : Observable<xMovie[]> {
+    return this.http.get<xMovie[]>(`${this.API_URI}/movies`);
   }
 
   getMovie(id: string) {
@@ -59,12 +59,12 @@ export class DataBaseService {
     return this.http.delete(`${this.API_URI}/movies/${id}`);
   }
 
-  saveMovie(movie: Movie) {
+  saveMovie(movie: xMovie) {
     return this.http.post(`${this.API_URI}/movies`, movie);
   }
 
-  updateMovie(id: string|number, updatedMovie: Movie): Observable<Movie> {
-    return this.http.put(`${this.API_URI}/movies/${id}`, updatedMovie);
+  updateMovie(id: string|number, updatedMovie: xMovie) {
+    this.http.put(`${this.API_URI}/movies/${id}`, updatedMovie);
   }
 
   //Combo Functions
@@ -86,13 +86,13 @@ export class DataBaseService {
   }
 
   updateCombo(id: string|number, updatedCombo: Combo): Observable<Combo> {
-    return this.http.put(`${this.API_URI}/combos/${id}`, updatedCombo);
+    return this.http.put<Combo>(`${this.API_URI}/combos/${id}`, updatedCombo);
   }
 
   //Room Functions
 
-  getRooms() {
-    return this.http.get(`${this.API_URI}/rooms`);
+  getRooms() : Observable<Room[]> {
+    return this.http.get<Room[]>(`${this.API_URI}/rooms`);
   }
 
   getRoom(id: string) {
@@ -119,6 +119,9 @@ export class DataBaseService {
 
   getFunction(id: string) {
     return this.http.get(`${this.API_URI}/functions/${id}`);
+  }
+  public getFunctionByMovie(id: string) : Observable<Function[]>{
+    return this.http.get<Function[]>(`${this.API_URI}/functions/${id}`);
   }
 
   deleteFunction(id: number|undefined) {
