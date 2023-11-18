@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from 'src/app/core/interfaces/movies';
 
 
@@ -9,23 +10,15 @@ import { Movie } from 'src/app/core/interfaces/movies';
 })
 
 export class HomeSliderComponent implements OnInit {
-
-
-
   @Input()
   movies!: Movie[];
   movieIndex = 1;
 
   intervalId : any;
 
+  constructor(private router : Router){}
   ngOnInit(): void {
     this.createInterval();
-  }
-  ngAfterViewInit() {
-
-  }
-  OnDestroy(): void {
-
   }
   //localStorage
   //Interceptor servicio
@@ -58,7 +51,11 @@ export class HomeSliderComponent implements OnInit {
     this.resetInterval();
   }
 
+  navigate(movie : Movie) {
+    this.router.navigate(['/movie', movie.id])
+  }
 
 
 
 }
+

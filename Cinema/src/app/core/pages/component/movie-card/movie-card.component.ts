@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from 'src/app/core/interfaces/movies';
 
 @Component({
@@ -8,12 +9,17 @@ import { Movie } from 'src/app/core/interfaces/movies';
 })
 export class MovieCardComponent {
 
-  @Input()
-  movie!: Movie;
+  @Input() movie!: Movie;
 
-  constructor () {
-
+  constructor(private router: Router) {
   }
 
+  ngOnInit() {
+    console.log(this.movie)
+  }
+
+  onMovieClick(movie:Movie){
+    this.router.navigate(['/movie', movie.id])
+  }
 
 }

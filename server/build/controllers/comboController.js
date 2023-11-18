@@ -47,8 +47,8 @@ class ComboController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM combos_tickets WHERE id_combo = ?', [id]);
-            res.json({ message: 'The combo_ticket was deleted' });
+            yield database_1.default.query('DELETE FROM combos WHERE id_combo = ?', [id]);
+            res.json({ message: 'The combo was deleted' });
         });
     }
 }

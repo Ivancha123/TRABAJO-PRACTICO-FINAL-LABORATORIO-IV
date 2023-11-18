@@ -31,6 +31,16 @@ class FunctionController {
             res.status(404).json({ text: 'The function doesn´t exists' });
         });
     }
+    getOneForMovie(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const functions = yield database_1.default.query('SELECT * FROM functions WHERE id_movie = ?', [id]);
+            if (functions.length > 0) {
+                return res.json(functions[0]);
+            }
+            res.status(404).json({ text: 'The function doesn´t exists' });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO functions set ?', [req.body]);

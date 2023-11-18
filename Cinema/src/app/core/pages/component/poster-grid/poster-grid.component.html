@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let movie of movies" (click)="onMovieClick(movie)">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-fluid rounded-start"
+      alt="{{movie.title}}">
+    <div>
+        <h2 class="mt-10">{{ movie.title }}</h2>
+    </div>
+  </div>
+</div>

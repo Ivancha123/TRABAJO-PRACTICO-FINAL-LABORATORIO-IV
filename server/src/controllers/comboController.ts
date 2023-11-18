@@ -29,8 +29,8 @@ class ComboController {
 
     public async delete (req: Request, res: Response ): Promise<void>{
         const {id} = req.params;
-        await pool.query('DELETE FROM combos_tickets WHERE id_combo = ?', [id]);
-        res.json({message: 'The combo_ticket was deleted'});
+        await pool.query('DELETE FROM combos WHERE id_combo = ?', [id]);
+        res.json({message: 'The combo was deleted'});
     }
 }
 

@@ -1,0 +1,10 @@
+<div class="content">
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let function of functions">
+              {{function.id_function}}. {{ function.id_movie }}.{{function.id_room}}. {{ function.function_date }}{{function.function_hour}}. {{ function.price }}
+              <button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
+                <i class="far fa-trash-alt">ELIMINAR</i>
+              </button>
+          </li>
+      </ul>
+</div>
