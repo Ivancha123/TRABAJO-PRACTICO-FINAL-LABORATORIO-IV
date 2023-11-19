@@ -1,17 +1,18 @@
 import { Request, Response } from 'express';
 import pool from '../database';
+import { RowDataPacket } from 'mysql2';
 
 class RoomController {
     public async list(req: Request, res: Response){
-        const rooms = await pool.query('SELECT * FROM rooms');
-        res.json(rooms[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM rooms');
+        res.json(rows[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const rooms = await pool.query('SELECT * FROM rooms WHERE id_room = ?',[id]);
-        if(rooms.length > 0){
-            return res.json(rooms[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM rooms WHERE id_room = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The room doesn´t exists'});
     }  

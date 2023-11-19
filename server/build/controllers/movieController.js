@@ -17,16 +17,16 @@ const database_1 = __importDefault(require("../database"));
 class MovieController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const movies = yield database_1.default.query('SELECT * FROM movies');
-            res.json(movies[0]);
+            const rows = yield database_1.default.query('SELECT * FROM movies');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const movies = yield database_1.default.query('SELECT * FROM movies WHERE id_movie = ?', [id]);
-            if (movies.length > 0) {
-                return res.json(movies[0]);
+            const rows = yield database_1.default.query('SELECT * FROM movies WHERE id_movie = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The movie doesn´t exists' });
         });

@@ -60,7 +60,7 @@ export class AddFunctionComponent implements OnInit {
       .subscribe(
         res => { 
           console.log(res);
-          this.router.navigate(['/functions']);
+          this.router.navigate(['/administrator']);
         },
         err => console.error(err)
       )

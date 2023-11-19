@@ -17,16 +17,16 @@ const database_1 = __importDefault(require("../database"));
 class RoomController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const rooms = yield database_1.default.query('SELECT * FROM rooms');
-            res.json(rooms[0]);
+            const rows = yield database_1.default.query('SELECT * FROM rooms');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const rooms = yield database_1.default.query('SELECT * FROM rooms WHERE id_room = ?', [id]);
-            if (rooms.length > 0) {
-                return res.json(rooms[0]);
+            const rows = yield database_1.default.query('SELECT * FROM rooms WHERE id_room = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The room doesn´t exists' });
         });

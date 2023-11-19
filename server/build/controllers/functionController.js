@@ -17,26 +17,26 @@ const database_1 = __importDefault(require("../database"));
 class FunctionController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const functions = yield database_1.default.query('SELECT * FROM functions');
-            res.json(functions[0]);
+            const rows = yield database_1.default.query('SELECT * FROM functions');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const functions = yield database_1.default.query('SELECT * FROM functions WHERE id_function = ?', [id]);
-            if (functions.length > 0) {
-                return res.json(functions[0]);
+            const rows = yield database_1.default.query('SELECT * FROM functions WHERE id_function = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The function doesn´t exists' });
         });
     }
-    getOneForMovie(req, res) {
+    getForMovie(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const functions = yield database_1.default.query('SELECT * FROM functions WHERE id_movie = ?', [id]);
-            if (functions.length > 0) {
-                return res.json(functions[0]);
+            const rows = yield database_1.default.query('SELECT * FROM functions WHERE id_movie = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The function doesn´t exists' });
         });

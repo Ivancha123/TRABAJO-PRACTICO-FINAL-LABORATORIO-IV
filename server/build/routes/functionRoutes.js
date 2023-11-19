@@ -10,7 +10,7 @@ class FunctionRoutes {
     config() {
         this.router.get('/', functionController_1.functionController.list);
         this.router.get('/:id', functionController_1.functionController.getOne);
-        this.router.get('/:id', functionController_1.functionController.getOneForMovie);
+        this.router.get('/:id', functionController_1.functionController.getForMovie);
         this.router.post('/', functionController_1.functionController.create);
         this.router.put('/:id', functionController_1.functionController.update);
         this.router.delete('/:id', functionController_1.functionController.delete);

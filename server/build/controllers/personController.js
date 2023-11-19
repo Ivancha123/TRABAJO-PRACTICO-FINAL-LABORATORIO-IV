@@ -17,16 +17,16 @@ const database_1 = __importDefault(require("../database"));
 class PersonController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const persons = yield database_1.default.query('SELECT * FROM persons');
-            res.json(persons[0]);
+            const rows = yield database_1.default.query('SELECT * FROM persons');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const persons = yield database_1.default.query('SELECT * FROM persons WHERE id_person = ?', [id]);
-            if (persons.length > 0) {
-                return res.json(persons[0]);
+            const rows = yield database_1.default.query('SELECT * FROM persons WHERE id_person = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The person doesn´t exists' });
         });

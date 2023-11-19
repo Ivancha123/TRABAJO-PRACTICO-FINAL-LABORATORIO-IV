@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
 
 import { Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
 import { xMovie } from 'src/app/core/interfaces/database.module' ;
@@ -120,8 +119,8 @@ export class DataBaseService {
   getFunction(id: string) {
     return this.http.get(`${this.API_URI}/functions/${id}`);
   }
-  public getFunctionByMovie(id: string) : Observable<Function[]>{
-    return this.http.get<Function[]>(`${this.API_URI}/functions/${id}`);
+  getFunctionByMovie(id: string){
+    return this.http.get(`${this.API_URI}/functions/${id}`);
   }
 
   deleteFunction(id: number|undefined) {

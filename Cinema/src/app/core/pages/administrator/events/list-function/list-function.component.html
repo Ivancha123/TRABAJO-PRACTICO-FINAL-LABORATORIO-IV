@@ -5,6 +5,9 @@
               <button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
                 <i class="far fa-trash-alt">ELIMINAR</i>
               </button>
+              <a [routerLink]="['function/edit', function.id_function]" class="btn btn-info btn-block">
+                EDIT FUNCTION
+              </a>
           </li>
       </ul>
 </div>

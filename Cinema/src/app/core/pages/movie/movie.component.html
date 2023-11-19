@@ -61,7 +61,7 @@
                             Sorry! There are no showtimes available for this movie at the moment.
                         </div>
                         <!--Listar Funciones (en date hacer un *ngFor para listar los dias y un *ngfor en hour para listar horarios de ese dia)-->
-                        <div id="date" [hidden]="haveFunction === false"><!--Aqui SI va *ngFOr-->
+                        <div id="date" [hidden]="haveFunction === false" *ngFor="let function of functions"><!--Aqui SI va *ngFOr-->
                             <!--Put Date-->
                             <div id="hours"><!--Aqui NO va *ngFOr-->
                                 <div id="hour"><!--Aqui SI va *ngFOr-->

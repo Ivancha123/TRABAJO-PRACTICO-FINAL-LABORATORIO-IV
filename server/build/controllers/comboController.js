@@ -17,16 +17,16 @@ const database_1 = __importDefault(require("../database"));
 class ComboController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const combo = yield database_1.default.query('SELECT * FROM combos');
-            res.json(combo[0]);
+            const rows = yield database_1.default.query('SELECT * FROM combos');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const combo = yield database_1.default.query('SELECT * FROM combos WHERE id_combo = ?', [id]);
-            if (combo.length > 0) {
-                return res.json(combo[0]);
+            const rows = yield database_1.default.query('SELECT * FROM combos WHERE id_combo = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The combo doesn´t exists' });
         });
