@@ -1,17 +1,18 @@
 import { Request, Response } from 'express';
 import pool from '../database';
+import { RowDataPacket } from 'mysql2';
 
 class PersonController {
     public async list(req: Request, res: Response){
-        const persons = await pool.query('SELECT * FROM persons');
-        res.json(persons[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM persons');
+        res.json(rows[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const persons = await pool.query('SELECT * FROM persons WHERE id_person = ?',[id]);
-        if(persons.length > 0){
-            return res.json(persons[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM persons WHERE id_person = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The person doesn´t exists'});
     }  

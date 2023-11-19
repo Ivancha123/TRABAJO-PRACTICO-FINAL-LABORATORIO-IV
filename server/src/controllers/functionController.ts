@@ -1,25 +1,26 @@
 import { Request, Response } from 'express';
 import pool from '../database';
+import { RowDataPacket } from 'mysql2';
 
 class FunctionController {
     public async list(req: Request, res: Response){
-        const functions = await pool.query('SELECT * FROM functions');
-        res.json(functions[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM functions');
+        res.json(rows[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const functions = await pool.query('SELECT * FROM functions WHERE id_function = ?',[id]);
-        if(functions.length > 0){
-            return res.json(functions[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM functions WHERE id_function = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The function doesn´t exists'});
     }
-    public async getOneForMovie(req: Request, res: Response): Promise<any>{
+    public async getForMovie(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const functions = await pool.query('SELECT * FROM functions WHERE id_movie = ?',[id]);
-        if(functions.length > 0){
-            return res.json(functions[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM functions WHERE id_movie = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The function doesn´t exists'});
     }    

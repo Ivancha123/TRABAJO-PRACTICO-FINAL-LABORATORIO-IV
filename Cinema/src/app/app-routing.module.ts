@@ -11,10 +11,8 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AdministratorComponent } from './core/pages/administrator/administrator.component';
 import { UserProfileComponent } from './core/pages/user-profile/user-profile.component';
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
-import { PersonFormComponent } from './core/pages/administrator/events/persons-add/persons-add.component';
-import { SeatFormComponent } from './core/pages/administrator/events/seats-add/seats-add.component';
-import { RoomFormComponent } from './core/pages/administrator/events/rooms-add/rooms-add.component';
 import { AddComboComponent } from './core/pages/administrator/events/add-combos/add-combo.component';
+import { AddFunctionComponent } from './core/pages/administrator/events/add-function/add-function.component';
 
 const routes: Routes = [  {
   path: "",
@@ -61,36 +59,12 @@ const routes: Routes = [  {
   component: MyTicketsComponent
 },
 {
-  path: 'persons/add',
-  component: PersonFormComponent
-},
-{
-  path: 'persons/edit/:id',
-  component: PersonFormComponent
-},
-{
-  path: 'seats/add',
-  component: SeatFormComponent
-},
-{
   path: 'administrator/combo/edit/:id',
   component: AddComboComponent
 },
 {
-  path: 'seats/edit/:id',
-  component: SeatFormComponent
-},
-{
-  path: 'seats/edit/:id',
-  component: SeatFormComponent
-},
-{
-  path: 'rooms/add',
-  component: RoomFormComponent
-},
-{
-  path: 'rooms/edit/:id',
-  component: RoomFormComponent
+  path: 'administrator/function/edit/:id',
+  component: AddFunctionComponent
 },
 {
   path: "**",

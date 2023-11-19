@@ -11,7 +11,7 @@ class FunctionRoutes {
     config(): void{
         this.router.get('/', functionController.list);
         this.router.get('/:id', functionController.getOne);
-        this.router.get('/:id',functionController.getOneForMovie)
+        this.router.get('/:id',functionController.getForMovie)
         this.router.post('/', functionController.create);
         this.router.put('/:id',functionController.update);
         this.router.delete('/:id',functionController.delete);

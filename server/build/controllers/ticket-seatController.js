@@ -17,16 +17,16 @@ const database_1 = __importDefault(require("../database"));
 class TicketSeatController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const ticketSeat = yield database_1.default.query('SELECT * FROM tickets_seats');
-            res.json(ticketSeat[0]);
+            const rows = yield database_1.default.query('SELECT * FROM tickets_seats');
+            res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const ticketSeat = yield database_1.default.query('SELECT * FROM tickets_seats WHERE id_ticket = ?', [id]);
-            if (ticketSeat.length > 0) {
-                return res.json(ticketSeat[0]);
+            const rows = yield database_1.default.query('SELECT * FROM tickets_seats WHERE id_ticket = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
             }
             res.status(404).json({ text: 'The ticket_seat doesn´t exists' });
         });

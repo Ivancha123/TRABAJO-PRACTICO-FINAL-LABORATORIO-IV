@@ -49,6 +49,7 @@ import { ListMoviesComponent } from './core/pages/administrator/events/list-movi
 import { AddComboComponent } from './core/pages/administrator/events/add-combos/add-combo.component';
 import { ListComboComponent } from './core/pages/administrator/events/list-combos/list-combo.component';
 import { ListPersonsComponent } from './core/pages/administrator/events/list-person/list-person.component';
+import { AddMovieComponent } from './core/pages/administrator/events/add-movies/add-movie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { ListPersonsComponent } from './core/pages/administrator/events/list-per
     ListComboComponent,
     ListPersonsComponent,
     PosterGridComponent,
+    AddMovieComponent,
   ],
   imports: [
     HttpClientModule,

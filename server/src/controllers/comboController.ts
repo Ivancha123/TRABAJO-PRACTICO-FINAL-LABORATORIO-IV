@@ -1,17 +1,18 @@
 import { Request, Response } from 'express';
 import pool from '../database';
+import { RowDataPacket } from 'mysql2';
 
 class ComboController {
     public async list(req: Request, res: Response){
-        const combo = await pool.query('SELECT * FROM combos');
-        res.json(combo[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM combos');
+        res.json(rows[0]);
     }
 
     public async getOne(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const combo = await pool.query('SELECT * FROM combos WHERE id_combo = ?',[id]);
-        if(combo.length > 0){
-            return res.json(combo[0]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM combos WHERE id_combo = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The combo doesn´t exists'});
     }  
