@@ -12,6 +12,7 @@ import roomRoutes from './routes/roomRoutes';
 import ticketSeatRoutes from './routes/ticket-seatRoutes';
 import ticketRoutes from './routes/ticketRoutes';
 import seatRoutes from './routes/seatRoutes';
+import cardRoutes from './routes/cardRoutes';
 
 class Server {
     public app: Application;
@@ -33,6 +34,7 @@ class Server {
         this.app.use(indexRoutes);
         this.app.use('/api/persons', personRoutes);
         this.app.use('/api/combos', comboRoutes);
+        this.app.use('/api/cards', cardRoutes);
         this.app.use('/api/functions', functionRoutes);
         this.app.use('/api/combos-tickets', comboTicketRoutes);
         this.app.use('/api/movies', movieRoutes);
@@ -40,6 +42,7 @@ class Server {
         this.app.use('/api/tickets-seats', ticketSeatRoutes);
         this.app.use('/api/tickets', ticketRoutes);
         this.app.use('/api/seats', seatRoutes);
+
     }
 
     start(): void {

@@ -13,7 +13,9 @@ import { UserProfileComponent } from './core/pages/user-profile/user-profile.com
 import { MyTicketsComponent } from './core/pages/my-tickets/my-tickets.component';
 import { AddComboComponent } from './core/pages/administrator/events/add-combos/add-combo.component';
 import { AddFunctionComponent } from './core/pages/administrator/events/add-function/add-function.component';
-
+import { ListSeatComponent } from './core/pages/list-seats/list-seats.component';
+import { AddCardComponent } from './core/pages/add-card/add-card.component';
+import { AddTicketComponent } from './core/pages/add-ticket/add-ticket.component';
 const routes: Routes = [  {
   path: "",
   component: HomeComponent
@@ -65,6 +67,18 @@ const routes: Routes = [  {
 {
   path: 'administrator/function/edit/:id',
   component: AddFunctionComponent
+},
+{
+  path: 'movie/:idMovie/functionId/:idFunction',
+  component: ListSeatComponent
+},
+{
+  path: 'movie/:id_movie/functionId/:id_function/seatId/:id_seat',
+  component: AddCardComponent
+},
+{
+  path: 'movie/:id_movie/functionId/:id_function/seatId/:id_seat/cardId/:id_card',
+  component: AddTicketComponent
 },
 {
   path: "**",

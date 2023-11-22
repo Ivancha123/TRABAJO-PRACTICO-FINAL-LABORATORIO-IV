@@ -50,6 +50,10 @@ import { AddComboComponent } from './core/pages/administrator/events/add-combos/
 import { ListComboComponent } from './core/pages/administrator/events/list-combos/list-combo.component';
 import { ListPersonsComponent } from './core/pages/administrator/events/list-person/list-person.component';
 import { AddMovieComponent } from './core/pages/administrator/events/add-movies/add-movie.component';
+import { ListSeatComponent } from './core/pages/list-seats/list-seats.component';
+import { AddCardComponent } from './core/pages/add-card/add-card.component';
+import { AddTicketComponent } from './core/pages/add-ticket/add-ticket.component';
+import { ListTicketComponent } from './core/pages/administrator/events/list-tickets/list-ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +93,10 @@ import { AddMovieComponent } from './core/pages/administrator/events/add-movies/
     ListPersonsComponent,
     PosterGridComponent,
     AddMovieComponent,
+    ListSeatComponent,
+    AddCardComponent,
+    AddTicketComponent,
+    ListTicketComponent,
   ],
   imports: [
     HttpClientModule,

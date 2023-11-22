@@ -16,6 +16,7 @@ const roomRoutes_1 = __importDefault(require("./routes/roomRoutes"));
 const ticket_seatRoutes_1 = __importDefault(require("./routes/ticket-seatRoutes"));
 const ticketRoutes_1 = __importDefault(require("./routes/ticketRoutes"));
 const seatRoutes_1 = __importDefault(require("./routes/seatRoutes"));
+const cardRoutes_1 = __importDefault(require("./routes/cardRoutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -33,6 +34,7 @@ class Server {
         this.app.use(indexRoutes_1.default);
         this.app.use('/api/persons', personRoutes_1.default);
         this.app.use('/api/combos', comboRoutes_1.default);
+        this.app.use('/api/cards', cardRoutes_1.default);
         this.app.use('/api/functions', functionRoutes_1.default);
         this.app.use('/api/combos-tickets', combo_ticketRoutes_1.default);
         this.app.use('/api/movies', movieRoutes_1.default);

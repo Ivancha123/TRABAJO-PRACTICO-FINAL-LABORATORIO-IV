@@ -20,7 +20,7 @@ class FunctionController {
         const {id} = req.params;
         const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM functions WHERE id_movie = ?',[id]);
         if(rows.length > 0){
-            return res.json(rows[0][0]);
+            return res.json(rows[0]);
         }
         res.status(404).json({text: 'The function doesn´t exists'});
     }    

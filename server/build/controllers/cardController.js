@@ -12,54 +12,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.functionController = void 0;
+exports.cardController = void 0;
 const database_1 = __importDefault(require("../database"));
-class FunctionController {
+class CardController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const rows = yield database_1.default.query('SELECT * FROM functions');
+            const rows = yield database_1.default.query('SELECT * FROM cards');
             res.json(rows[0]);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const rows = yield database_1.default.query('SELECT * FROM functions WHERE id_function = ?', [id]);
+            const rows = yield database_1.default.query('SELECT * FROM cards WHERE id_card = ?', [id]);
             if (rows.length > 0) {
                 return res.json(rows[0][0]);
             }
-            res.status(404).json({ text: 'The function doesn´t exists' });
-        });
-    }
-    getForMovie(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const rows = yield database_1.default.query('SELECT * FROM functions WHERE id_movie = ?', [id]);
-            if (rows.length > 0) {
-                return res.json(rows[0]);
-            }
-            res.status(404).json({ text: 'The function doesn´t exists' });
+            res.status(404).json({ text: 'The card doesn´t exists' });
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO functions set ?', [req.body]);
-            res.json({ message: 'function saved' });
+            yield database_1.default.query('INSERT INTO cards set ?', [req.body]);
+            res.json({ message: 'card saved' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE functions set ? WHERE id_function = ?', [req.body, id]);
-            res.json({ text: 'The function was updated ' });
+            yield database_1.default.query('UPDATE cards set ? WHERE id_card = ?', [req.body, id]);
+            res.json({ text: 'The card was updated ' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM functions WHERE id_function = ?', [id]);
-            res.json({ message: 'The function was deleted' });
+            yield database_1.default.query('DELETE FROM cards WHERE id_card = ?', [id]);
+            res.json({ message: 'The card was deleted' });
         });
     }
 }
-exports.functionController = new FunctionController();
+exports.cardController = new CardController();
