@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
+import { Card, Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
 import { xMovie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
 import { Room } from 'src/app/core/interfaces/database.module' ;
@@ -9,7 +9,6 @@ import { Function } from 'src/app/core/interfaces/database.module' ;
 import { Ticket } from 'src/app/core/interfaces/database.module' ;
 import { ComboTicket } from 'src/app/core/interfaces/database.module' ;
 import { Seat } from 'src/app/core/interfaces/database.module' ;
-import { TicketSeat } from 'src/app/core/interfaces/database.module' ;
 
 import { Observable } from 'rxjs';
 
@@ -50,8 +49,8 @@ export class DataBaseService {
     return this.http.get<xMovie[]>(`${this.API_URI}/movies`);
   }
 
-  getMovie(id: string) {
-    return this.http.get(`${this.API_URI}/movies/${id}`);
+  getMovie(id: string|undefined): Observable<xMovie> {
+    return this.http.get<xMovie>(`${this.API_URI}/movies/${id}`);
   }
 
   deleteMovie(id: number|undefined) {
@@ -94,7 +93,7 @@ export class DataBaseService {
     return this.http.get<Room[]>(`${this.API_URI}/rooms`);
   }
 
-  getRoom(id: string) {
+  getRoom(id: string|undefined) {
     return this.http.get(`${this.API_URI}/rooms/${id}`);
   }
 
@@ -119,8 +118,8 @@ export class DataBaseService {
   getFunction(id: string) {
     return this.http.get(`${this.API_URI}/functions/${id}`);
   }
-  getFunctionByMovie(id: string){
-    return this.http.get(`${this.API_URI}/functions/${id}`);
+  getFunctionByMovie(id: string): Observable<Function[]>{
+    return this.http.get<Function[]>(`${this.API_URI}/functions/movie/${id}`);
   }
 
   deleteFunction(id: number|undefined) {
@@ -137,8 +136,8 @@ export class DataBaseService {
 
   //Ticket Functions
 
-  getTickets() {
-    return this.http.get(`${this.API_URI}/tickets`);
+  getTickets() : Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.API_URI}/tickets`);
   }
 
   getTicket(id: string) {
@@ -181,8 +180,8 @@ export class DataBaseService {
 
   //Seat Functions
 
-  getSeats() {
-    return this.http.get(`${this.API_URI}/seats`);
+  getSeats() : Observable<Seat[]>{
+    return this.http.get<Seat[]>(`${this.API_URI}/seats`);
   }
 
   getSeat(id: string) {
@@ -201,27 +200,28 @@ export class DataBaseService {
     return this.http.put(`${this.API_URI}/seats/${id}`, updatedSeat);
   }
 
-  //TicketSeat Functions
+  //Card Functions
 
-  getTicketSeats() {
-    return this.http.get(`${this.API_URI}/tickets-seats`);
+  public getCards() : Observable<Card[]> {
+    return this.http.get<Card[]>(`${this.API_URI}/cards`);
   }
 
-  getTicketSeat(id: string) {
-    return this.http.get(`${this.API_URI}/tickets-seats/${id}`);
+  getCard(id: string|undefined): Observable<Card> {
+    return this.http.get<Card>(`${this.API_URI}/cards/${id}`);
   }
 
-  deleteTicketSeat(id: number|undefined) {
-    return this.http.delete(`${this.API_URI}/tickets-seats/${id}`);
+  deleteCard(id: number|undefined) {
+    return this.http.delete(`${this.API_URI}/cards/${id}`);
   }
 
-  saveTicketSeat(ticketSeats: TicketSeat) {
-    return this.http.post(`${this.API_URI}/tickets-seats`, ticketSeats);
+  saveCard(card: Card) {
+    return this.http.post(`${this.API_URI}/cards`, card);
   }
 
-  updateTicketSeat(id: string|number, updatedTicketSeat: TicketSeat): Observable<TicketSeat> {
-    return this.http.put(`${this.API_URI}/tickets-seats/${id}`, updatedTicketSeat);
+  updateCard(id: string|number, updatedCard: Card) {
+    this.http.put(`${this.API_URI}/cards/${id}`, updatedCard);
   }
+
 }
 
 

@@ -43,28 +43,35 @@ export interface Function {
     price?: number;
 };
 
-export interface Ticket {
-    id?: number;
-    idPerson?: number;
-    idFunction?: number;
-    idTransaction?: number;
-};
-
-export interface ComboTicket {
-    id?: number;
-    idTicket?: number;
-    amount?: number;
+export interface Card {
+    id_card?: number;
+    number?: number;
+    id_person?: number;
 };
 
 export interface Seat {
-    id?: number;
+    id_seat?: number;
     id_Room?: number;
     seat_letter?: string;
     seat_number?: number;
 };
 
-export interface TicketSeat {
-    idTicket?: number;
-    idSeat?: number;
-    
+export interface Ticket {
+    id_ticket?: number;
+    id_person?: number;
+    id_function?: number;
+    id_card?: number;
+    id_seat?: number;
+    mount?: number;
+
 };
+
+export interface ComboTicket {
+    id_combo?: number;
+    id_ticket?: number;
+    amount?: number;
+};
+
+
+
+

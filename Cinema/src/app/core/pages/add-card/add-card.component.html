@@ -1,0 +1,29 @@
+<div class="col-md-4 offset-md-2" id="content">
+  <h1>Charge a new Card</h1>
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+          <div class="mb-3">
+            <label for="number" class="form-label">Card Number</label>
+            <input type="text" name="number" [(ngModel)]="card.number" placeholder="Enter Card Number"
+              class="form-control" id="number" autofocus>
+          </div>
+          <button type="submit" class="btn btn-success btn-block" (click)="saveNewCard()" onclick="alert('Your card has been uploaded successfully');">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
+
+        <h1>Your Card´s</h1>
+<div class="content">
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let card of cards">
+          Seat: {{card.number}}
+          <a [routerLink]="['cardId/', card.id_card]" class="btn btn-info btn-block">
+            SELECCIONAR
+          </a>
+      </li>
+  </ul>
+</div>

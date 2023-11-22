@@ -2,7 +2,7 @@
   <div class="movie-list" *ngIf="movies.length !== 0">
       <ul class="list-group">
           <li class="list-group-item" *ngFor="let movie of movies">
-              {{movie.id_movie}} {{ movie.title }}
+              ID: {{movie.id_movie}}. / TITLE: {{ movie.title }}
               <button class="btn btn-danger" (click)="deleteMovie(movie.id_movie)">
                 <i class="far fa-trash-alt">ELIMINAR</i>
               </button>

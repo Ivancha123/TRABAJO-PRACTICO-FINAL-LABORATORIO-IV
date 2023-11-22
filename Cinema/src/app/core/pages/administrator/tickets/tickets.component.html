@@ -1,1 +1,20 @@
-<p>tickets works!</p>
+<div>
+    <div class="content">
+      <h1>Ticket's Options</h1>
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" [ngClass]="{'active': selection[0]}" href="/administrator?tab=tickets.list" id="users-list-tab"
+            data-toggle="tab" role="tab" aria-controls="tickets.list" aria-selected="false">LIST</a>
+        </li>
+      </ul>
+  
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" [ngClass]="{'show active': selection[0]}" id="view" role="tabpanel"
+          aria-labelledby="movies-list-tab">
+          <div class="app-container">
+            <app-list-ticket></app-list-ticket>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

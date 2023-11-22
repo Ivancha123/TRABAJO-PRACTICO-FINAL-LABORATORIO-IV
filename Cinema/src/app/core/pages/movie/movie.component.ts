@@ -3,6 +3,7 @@ import { Cast, Movie, MovieDetails } from '../../interfaces/movies';
 import { combineLatest } from 'rxjs';
 import { TmdbService } from '../../services/tmdb/tmdb.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Function } from '../../interfaces/database.module';
 import { DataBaseService } from '../../services/database/database.service';
 @Component({
   selector: 'app-movie',
@@ -14,7 +15,7 @@ export class MovieComponent implements OnInit {
   haveFunction = false;
   movie?: MovieDetails;
   cast: Cast[] = [];
-  functions: any;
+  functions: Function[] = [];
 
   constructor(private dataBaseService: DataBaseService, private tmdbService: TmdbService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -39,6 +40,10 @@ export class MovieComponent implements OnInit {
           res => {
             console.log(res);
             this.functions = res;
+            if(this.functions.length > 0)
+            {
+              this.haveFunction = true;
+            }
           },
           err => console.log(err)
         )

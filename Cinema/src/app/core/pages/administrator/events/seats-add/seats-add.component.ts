@@ -13,7 +13,7 @@ export class SeatFormComponent implements OnInit {
   @HostBinding('class') clases = 'row';
 
   seat: Seat = {
-    id: 0,
+    id_seat: 0,
     id_Room: 0,
     seat_letter: '',
     seat_number: 0,
@@ -39,7 +39,7 @@ export class SeatFormComponent implements OnInit {
   }
 
   saveNewSeat() {
-    delete this.seat.id;
+    delete this.seat.id_seat;
     this.databaseService.saveSeat(this.seat)
       .subscribe(
         res => {
@@ -51,7 +51,7 @@ export class SeatFormComponent implements OnInit {
   }
 
   updateSeat() {
-    this.databaseService.updateSeat(this.seat.id!, this.seat)
+    this.databaseService.updateSeat(this.seat.id_seat!, this.seat)
       .subscribe(
         res => { 
           console.log(res);
