@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { DataBaseService } from 'src/app/core/services/database/database.service';
-import { Ticket } from 'src/app/core/interfaces/database.module';
+import { TicketFormat } from 'src/app/core/interfaces/database.module';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class ListTicketComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
   
-  tickets: Ticket[] = [];
+  tickets: TicketFormat[] = [];
 
   constructor(private databaseService: DataBaseService, private router:Router) { }
 
@@ -23,7 +23,7 @@ export class ListTicketComponent implements OnInit {
   }
 
   getTickets() {
-    this.databaseService.getTickets().subscribe((response) => {
+    this.databaseService.getTicketsFormat().subscribe((response) => {
       this.tickets = response;
       console.log(this.tickets);
     });

@@ -8,6 +8,11 @@ class FunctionController {
         res.json(rows[0]);
     }
 
+    public async listFormat(req: Request, res: Response){
+        const rows = await pool.query<RowDataPacket[][]>('select f.id_function as id_function, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, f.price as price from functions f inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie;');
+        res.json(rows[0]);
+    }
+
     public async getOne(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
         const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM functions WHERE id_function = ?',[id]);

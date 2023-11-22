@@ -48,7 +48,6 @@ export class AddCardComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.router.navigate(['movie/:id_movie/functionId/:id_function/seatId/:id_seat']);
         },
         err => console.error(err)
       )

@@ -69,7 +69,7 @@ const routes: Routes = [  {
   component: AddFunctionComponent
 },
 {
-  path: 'movie/:idMovie/functionId/:idFunction',
+  path: 'movie/:id_movie/functionId/:id_function',
   component: ListSeatComponent
 },
 {

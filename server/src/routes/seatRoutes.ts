@@ -11,8 +11,8 @@ class SeatRoutes {
     config(): void{
         this.router.get('/', seatController.list);
         this.router.get('/:id', seatController.getOne);
+        this.router.get('/room/:id', seatController.getSeatByRoom);
         this.router.post('/', seatController.create);
-        //this.router.post('/', seatController.createSeat);
         this.router.put('/:id',seatController.update);
         this.router.delete('/:id',seatController.delete);
     }

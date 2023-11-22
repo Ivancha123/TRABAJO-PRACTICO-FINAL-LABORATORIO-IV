@@ -15,6 +15,15 @@ class SeatController {
             return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The seat doesn´t exists'});
+    }
+
+    public async getSeatByRoom(req: Request, res: Response): Promise<any>{
+        const {id} = req.params;
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM seats WHERE seat_status = 0 and id_room = ?',[id]);
+        if(rows.length > 0){
+            return res.json(rows[0]);
+        }
+        res.status(404).json({text: 'The seat doesn´t exists'});
     }  
 
     public async create (req: Request, res: Response): Promise<void>{

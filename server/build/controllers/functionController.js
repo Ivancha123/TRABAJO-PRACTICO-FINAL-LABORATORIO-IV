@@ -21,6 +21,12 @@ class FunctionController {
             res.json(rows[0]);
         });
     }
+    listFormat(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const rows = yield database_1.default.query('select f.id_function as id_function, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, f.price as price from functions f inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie;');
+            res.json(rows[0]);
+        });
+    }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
