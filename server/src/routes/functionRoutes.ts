@@ -10,6 +10,7 @@ class FunctionRoutes {
 
     config(): void{
         this.router.get('/', functionController.list);
+        this.router.get('/format/', functionController.listFormat);
         this.router.get('/:id', functionController.getOne);
         this.router.get('/movie/:id',functionController.getForMovie)
         this.router.post('/', functionController.create);

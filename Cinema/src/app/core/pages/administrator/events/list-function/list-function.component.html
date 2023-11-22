@@ -1,7 +1,7 @@
 <div class="content">
       <ul class="list-group">  
-            <li class="list-group-item" *ngFor="let function of functions;let index = index">
-              Movie Name: {{ movies[index].title }} / Room Name: {{rooms[index].room_name}} / Function Date: {{ function.function_date }} / Function Hour: {{function.function_hour}} / Function Price: {{ function.price }}
+            <li class="list-group-item" *ngFor="let function of functions">
+              Movie Name: {{ function.title }} / Room Name: {{function.room_name}} / Function Date: {{ function.function_date }} / Function Hour: {{function.function_hour}} / Function Price: {{ function.price }}
               <button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
                 <i class="far fa-trash-alt">ELIMINAR</i>
               </button>

@@ -77,4 +77,45 @@
             </div>
         </div>
     </div>
+    <div class="comment-section">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id Person</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let comment of comments"><!--*ngFor-->
+                    <td>{{comment.id_person}}</td><!--Status-->
+                    <td>{{comment.date}}</td><!--Function-->
+                    <td>{{comment.comment}}</td><!--Seat-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<!--
+<div class="col-md-4 offset-md-2" id="content">
+    <h1>Add new comment</h1>
+      <div class="card">
+        <div class="card-body">
+          <form action="">
+            <div class="mb-3">
+              <label for="number" class="form-label">Comment</label>
+              <input type="text" name="comment" [(ngModel)]="comment.comment" placeholder="Enter Comment"
+                class="form-control" id="comment" autofocus>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" (click)="saveNewComment()" onclick="alert('Your comment has been uploaded successfully');">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+  </div>
+-->
+
+
+
+

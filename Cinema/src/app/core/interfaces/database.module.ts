@@ -43,6 +43,15 @@ export interface Function {
     price?: number;
 };
 
+export interface FunctionFormat {
+    id_function?: number;
+    function_date?: Date;
+    function_hour?: Time;
+    room_name?: string;
+    title?: string;
+    price?: number;
+};
+
 export interface Card {
     id_card?: number;
     number?: number;
@@ -54,6 +63,7 @@ export interface Seat {
     id_Room?: number;
     seat_letter?: string;
     seat_number?: number;
+    seat_status?: number;
 };
 
 export interface Ticket {
@@ -63,13 +73,29 @@ export interface Ticket {
     id_card?: number;
     id_seat?: number;
     mount?: number;
+};
 
+export interface TicketFormat {
+    id_ticket?: number;
+    document?: number;
+    function_date?: Date;
+    function_hour?: Time;
+    room_name?: string;
+    mount?: number;
 };
 
 export interface ComboTicket {
     id_combo?: number;
     id_ticket?: number;
     amount?: number;
+};
+
+export interface Comment {
+    id_comment?: number;
+    id_person?: number;
+    id_movie?: number;
+    date?: Date;
+    comment?: string;
 };
 
 

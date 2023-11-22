@@ -104,6 +104,17 @@ CREATE TABLE combos_tickets (
 
 DESCRIBE combos_tickets;
 
+create table comments (
+	id_comment int NOT NULL AUTO_INCREMENT,
+	id_person int NOT NULL,
+	id_movie int NOT NULL,
+	date date NOT NULL,
+	comment varchar(255) NOT NULL,
+	PRIMARY KEY (id_comment),
+	FOREIGN KEY (id_person) REFERENCES persons (id_person),
+	FOREIGN KEY (id_movie) REFERENCES movies (id_movie)
+);
+
 CREATE INDEX idx_function_date_hour ON functions (function_date, function_hour);
 CREATE INDEX idx_combos_description ON combos (combo_description);
 CREATE INDEX idx_room_capacity ON rooms (capacity);

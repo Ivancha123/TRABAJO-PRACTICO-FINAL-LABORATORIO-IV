@@ -1,6 +1,6 @@
 <div class="content">
       <ul class="list-group">  
-            <li class="list-group-item" *ngFor="let ticket of tickets;let index = index">
-              {{ticket.id_function}} {{ticket.id_person}}
+            <li class="list-group-item" *ngFor="let ticket of tickets">
+                  Id Ticket: {{ticket.id_ticket}} User Document: {{ticket.document}} Function Date: {{ticket.function_date}} Function Hour: {{ticket.function_hour}} Room Name: {{ticket.room_name}} Mount: {{ticket.mount}}
       </ul>
 </div>

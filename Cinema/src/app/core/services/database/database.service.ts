@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Card, Person, PersonResponse } from 'src/app/core/interfaces/database.module' ;
+import { Card, Person, PersonResponse, Comment } from 'src/app/core/interfaces/database.module' ;
 import { xMovie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
 import { Room } from 'src/app/core/interfaces/database.module' ;
@@ -114,6 +114,9 @@ export class DataBaseService {
   public getFunctions() : Observable<Function[]> {
     return this.http.get<Function[]>(`${this.API_URI}/functions`);
   }
+  getFunctionFormat() : Observable<Function[]> {
+    return this.http.get<Function[]>(`${this.API_URI}/functions/format`);
+  }
 
   getFunction(id: string) {
     return this.http.get(`${this.API_URI}/functions/${id}`);
@@ -138,6 +141,10 @@ export class DataBaseService {
 
   getTickets() : Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.API_URI}/tickets`);
+  }
+
+  getTicketsFormat() : Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.API_URI}/tickets/format`);
   }
 
   getTicket(id: string) {
@@ -188,6 +195,10 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/seats/${id}`);
   }
 
+  getSeatForRoom(id: string|undefined): Observable<Seat[]>{
+    return this.http.get<Seat[]>(`${this.API_URI}/seats/room/${id}`);
+  }
+
   deleteSeat(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/seats/${id}`);
   }
@@ -196,7 +207,7 @@ export class DataBaseService {
     return this.http.post(`${this.API_URI}/seats`, seats);
   }
 
-  updateSeat(id: string|number, updatedSeat: Seat): Observable<Seat> {
+  updateSeat(id: number | undefined, updatedSeat: Seat): Observable<Seat> {
     return this.http.put(`${this.API_URI}/seats/${id}`, updatedSeat);
   }
 
@@ -220,6 +231,31 @@ export class DataBaseService {
 
   updateCard(id: string|number, updatedCard: Card) {
     this.http.put(`${this.API_URI}/cards/${id}`, updatedCard);
+  }
+
+  //Comment Functions
+
+  public getComments() : Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.API_URI}/comments`);
+  }
+
+  getComment(id: string) {
+    return this.http.get(`${this.API_URI}/comments/${id}`);
+  }
+  getCommentByMovie(id: string): Observable<Comment[]>{
+    return this.http.get<Comment[]>(`${this.API_URI}/comments/movie/${id}`);
+  }
+
+  deleteComment(id: number|undefined) {
+    return this.http.delete(`${this.API_URI}/comments/${id}`);
+  }
+
+  saveComment(comments: Comment) {
+    return this.http.post(`${this.API_URI}/comments`, comments);
+  }
+
+  updateComment(id: string|number, updatedComment: Comment): Observable<Comment> {
+    return this.http.put(`${this.API_URI}/comments/${id}`, updatedComment);
   }
 
 }

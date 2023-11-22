@@ -13,6 +13,7 @@ import ticketSeatRoutes from './routes/ticket-seatRoutes';
 import ticketRoutes from './routes/ticketRoutes';
 import seatRoutes from './routes/seatRoutes';
 import cardRoutes from './routes/cardRoutes';
+import commentRoutes from './routes/commentRoutes';
 
 class Server {
     public app: Application;
@@ -42,7 +43,7 @@ class Server {
         this.app.use('/api/tickets-seats', ticketSeatRoutes);
         this.app.use('/api/tickets', ticketRoutes);
         this.app.use('/api/seats', seatRoutes);
-
+        this.app.use('/api/comments', commentRoutes);
     }
 
     start(): void {

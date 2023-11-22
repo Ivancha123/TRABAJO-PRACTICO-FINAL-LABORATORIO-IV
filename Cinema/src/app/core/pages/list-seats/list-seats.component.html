@@ -3,7 +3,7 @@
   <ul class="list-group">
       <li class="list-group-item" *ngFor="let seat of seats">
           Seat: {{seat.seat_letter}}/{{seat.seat_number}}
-          <a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block">
+          <a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
             SELECCIONAR
           </a>
       </li>
