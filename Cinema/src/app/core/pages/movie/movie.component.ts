@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cast, Movie, MovieDetails } from '../../interfaces/movies';
-import { combineLatest } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { TmdbService } from '../../services/tmdb/tmdb.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Function, Comment } from '../../interfaces/database.module';
+import { Function, CommentFormat } from '../../interfaces/database.module';
 import { DataBaseService } from '../../services/database/database.service';
 @Component({
   selector: 'app-movie',
@@ -16,12 +16,14 @@ export class MovieComponent implements OnInit {
   movie?: MovieDetails;
   cast: Cast[] = [];
   functions: Function[] = [];
-  comments: Comment[] = [];
-  comment!: Comment;
+  comments: CommentFormat[] = [];
+  flag = false;
 
   constructor(private dataBaseService: DataBaseService, private tmdbService: TmdbService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.flag = localStorage.getItem("idUser") != null?true:false;
+    console.log(this.flag);
     const { id } = this.activatedRoute.snapshot.params;
     console.log(id);
     combineLatest([
@@ -46,6 +48,11 @@ export class MovieComponent implements OnInit {
             {
               this.haveFunction = true;
             }
+            for(const functions of this.functions)
+            {
+              let date = new Date(functions.function_date); 
+              functions.function_date = date.toDateString();
+            }
           },
           err => console.log(err)
         )
@@ -53,28 +60,19 @@ export class MovieComponent implements OnInit {
     }
     getComments(){
       const params = this.activatedRoute.snapshot.params;
-      this.dataBaseService.getCommentByMovie(params["id_movie"])
+      this.dataBaseService.getCommentByMovie(params["id"])
         .subscribe(
           res => {
             console.log(res);
-            this.comments = res;
+            this.comments = res as CommentFormat[];
+            console.log(this.comments);
+            for(const comment of this.comments)
+            {
+              let date = new Date(comment.date); 
+              comment.date = date.toDateString();
+            }
           },
           err => console.log(err)
-        )
-    }
-
-    
-    saveNewComment() {
-      const params = this.activatedRoute.snapshot.params;
-      this.comment.id_movie = params["id_movie"];
-      this.comment.id_person = 1;
-      this.comment.date = new Date();
-      this.dataBaseService.saveComment(this.comment)
-        .subscribe(
-          res => {
-            console.log(res);
-          },
-          err => console.error(err)
         )
     }
   }

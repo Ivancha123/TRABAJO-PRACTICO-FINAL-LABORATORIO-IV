@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Function, Room, xMovie } from 'src/app/core/interfaces/database.module';
 import { DataBaseService } from 'src/app/core/services/database/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatePipe, Time } from '@angular/common';
 
 @Component({
   selector: 'app-add-function',
@@ -20,6 +21,8 @@ export class AddFunctionComponent implements OnInit {
     id_movie: 0,
     id_room: 0,
     price: 0,
+    function_date: '',
+    function_hour: ''
   };
 
   edit: boolean = false;
@@ -35,16 +38,28 @@ export class AddFunctionComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.function = res;
+            this.function = res as Function;
             this.edit = true;
           },
           err => console.log(err)
         )
     }
+    
   }
+  saveNewFunction(id_movie: string, id_room: string, function_date: Date | null, function_hour: string, price: string) {
+    this.function.id_movie = Number(id_movie);
+    this.function.id_room = Number(id_room);
+    this.function.price = Number(price);
+    if (!function_date! || !function_hour) {
+      const adviseElement = document.getElementById('advise');
+      adviseElement!.textContent = 'Fecha no puede ser null';
+      adviseElement!.style.color = 'red';
+      return;
+    }
 
-  saveNewFunction() {
-    delete this.function.id_function;
+    this.function.function_date = function_date.getFullYear()+ '-'+function_date.getMonth()+'-'+function_date.getDay();
+    this.function.function_hour = function_hour;
+
     this.databaseService.saveFunction(this.function)
       .subscribe(
         res => {
@@ -58,7 +73,7 @@ export class AddFunctionComponent implements OnInit {
   updateFunction() {
     this.databaseService.updateFunction(this.function.id_function!, this.function)
       .subscribe(
-        res => { 
+        res => {
           console.log(res);
           this.router.navigate(['/administrator']);
         },

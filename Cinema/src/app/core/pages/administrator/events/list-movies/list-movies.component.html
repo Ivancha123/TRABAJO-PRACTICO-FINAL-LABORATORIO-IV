@@ -1,18 +1,31 @@
-<div class="content">
-  <div class="movie-list" *ngIf="movies.length !== 0">
-      <ul class="list-group">
-          <li class="list-group-item" *ngFor="let movie of movies">
-              ID: {{movie.id_movie}}. / TITLE: {{ movie.title }}
-              <button class="btn btn-danger" (click)="deleteMovie(movie.id_movie)">
-                <i class="far fa-trash-alt">ELIMINAR</i>
-              </button>
-          </li>
-          
-      </ul>
-  </div>
-  <div *ngIf="movies.length === 0">
-    <div class="alert alert-warning">
-        <strong>There are no movies to display</strong>
+<div class="row" id="content" *ngIf="ready">
+    <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let movie of movies; let i = index">
+        <div id="card">
+            <div id="title">
+                <h2 class="mt-10">{{movietmdb[i].title}}</h2>
+                <div *ngIf="movie.movie_status === 0">Status: Comming Soon!</div>
+                <div *ngIf="movie.movie_status === 1">Status: Now playing</div>
+                <div *ngIf="movie.movie_status === 2">Status: Discontinue</div>
+            </div>
+            <div id="image">
+                <img src="https://image.tmdb.org/t/p/w500/{{movietmdb[i].poster_path}}" class="img-fluid rounded-start"
+                    alt="{{movietmdb[i].title}}">
+            </div>
+            <div id="button">
+                <button class="btn btn-danger" (click)="deleteMovie(movietmdb[i].id)">
+                    <i class="far fa-trash-alt">DELETE</i>
+                </button>
+            </div>
+            <div id="button">
+                <button class="btn btn-danger" (click)="updateMovie(movie, statusSelect.value)">
+                    <i class="far fa-trash-alt">CHANGE STATUS</i>
+                </button>
+            </div>
+            <select class="form-select" id="comboBox" #statusSelect aria-label="Default select example">
+                <option value="0">Comming Soon!</option>
+                <option value="1">Now playing</option>
+                <option value="2">Discontinue</option>
+            </select>
+        </div>
     </div>
-</div>
 </div>

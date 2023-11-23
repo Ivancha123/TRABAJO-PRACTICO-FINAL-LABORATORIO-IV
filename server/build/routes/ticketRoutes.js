@@ -10,6 +10,7 @@ class TicketRoutes {
     config() {
         this.router.get('/', ticketController_1.ticketController.list);
         this.router.get('/format/', ticketController_1.ticketController.listFormat);
+        this.router.get('/user/:id', ticketController_1.ticketController.listFormatByUser);
         this.router.get('/:id', ticketController_1.ticketController.getOne);
         this.router.post('/', ticketController_1.ticketController.create);
         this.router.put('/:id', ticketController_1.ticketController.update);

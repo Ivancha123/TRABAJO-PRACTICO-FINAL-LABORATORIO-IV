@@ -34,7 +34,7 @@ class SeatController {
     getSeatByRoom(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const rows = yield database_1.default.query('SELECT * FROM seats WHERE seat_status = 0 and id_room = ?', [id]);
+            const rows = yield database_1.default.query('SELECT s.id_seat, s.seat_letter, s.seat_number, s.id_room FROM seats s WHERE s.id_room = ( SELECT f.id_room FROM functions f WHERE f.id_function = ?) AND s.id_seat NOT IN ( SELECT t.id_seat FROM tickets t WHERE t.id_function = ?);', [id, id]);
             if (rows.length > 0) {
                 return res.json(rows[0]);
             }

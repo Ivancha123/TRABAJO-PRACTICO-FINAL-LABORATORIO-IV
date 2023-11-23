@@ -37,6 +37,13 @@ class TicketController {
             res.status(404).json({ text: 'The ticket doesn´t exists' });
         });
     }
+    listFormatByUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const rows = yield database_1.default.query('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount as mount from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie where t.id_person = ?', [id]);
+            res.json(rows[0]);
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO tickets set ?', [req.body]);

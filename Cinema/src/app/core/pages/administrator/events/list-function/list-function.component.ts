@@ -25,7 +25,7 @@ export class ListFunctionComponent implements OnInit {
 
   getFunctions() {
     this.databaseService.getFunctionFormat().subscribe((response) => {
-      this.functions = response;
+      this.functions = response as FunctionFormat[];
       console.log(this.functions);
     });
   }

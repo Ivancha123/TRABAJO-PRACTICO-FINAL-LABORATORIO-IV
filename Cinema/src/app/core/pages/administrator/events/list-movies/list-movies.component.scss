@@ -1,23 +1,31 @@
 @use "../../../../../../assets/variables/variables.scss";
 
 #content {
-    display: flex;
     width: 100%;
-
-    .card {
+    
+    #card {
         background-color: variables.$primary-blackin-color;
+        border-radius: 25px;
+        border: 1px solid variables.$primary-blacker-color;
         margin: 20px;
-        height: 500px;
+        height: auto;
         width: auto;
         display: flex;
         flex-direction: column;
+        #title{
+            margin-top: 5px;
+        }
+        #image{
+            margin: 5px;
+        }
+        #button{
+            margin-bottom: 10xp;
+            margin:10px;
+        }
+        #comboBox{
+            padding: 10px;
+            background-color: variables.$primary-blackin-color;
+            border-radius: 25px;
+        }
     }
-
-    /*
-    .search {
-        background-color: variables.$primary-blackin-color;
-        margin: 20px;
-        width: auto;
-    }
-*/
 }

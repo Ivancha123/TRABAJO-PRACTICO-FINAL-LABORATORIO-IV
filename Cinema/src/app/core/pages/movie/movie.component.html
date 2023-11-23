@@ -61,61 +61,42 @@
                             Sorry! There are no showtimes available for this movie at the moment.
                         </div>
                         <!--Listar Funciones (en date hacer un *ngFor para listar los dias y un *ngfor en hour para listar horarios de ese dia)-->
-                        <div id="date" [hidden]="haveFunction === false" *ngFor="let function of functions"><!--Aqui SI va *ngFOr-->
-                            <!--Put Date-->
-                            Date: {{function.function_date}}
-                            <div id="hours"><!--Aqui NO va *ngFOr-->
-                                <div id="hour"><!--Aqui SI va *ngFOr-->
-                                    <a [routerLink]="['functionId/', function.id_function]" class="btn btn-info btn-block"><!--Put Hour-->
-                                    Hour: {{function.function_hour}}
-                                </a>
+                        <ng-container *ngFor="let function of functions">
+                            <div id="date" [hidden]="haveFunction === false" *ngIf="flag === true"><!--Aqui SI va *ngFOr-->
+                                <!--Put Date-->
+                                {{function.function_date}}
+                                <div id="hours"><!--Aqui NO va *ngFOr-->
+                                    <div id="hour"><!--Aqui SI va *ngFOr-->
+                                        <a [routerLink]="['functionId/', function.id_function]"
+                                            class="btn btn-info btn-block"><!--Put Hour-->
+                                            {{function.function_hour}}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="comment-section">
-        <table class="table">
+        <table class="table" *ngFor="let comment of comments">
             <thead>
                 <tr>
-                    <th scope="col">Id Person</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">{{comment.user_name}}</th>
                     <th scope="col">Comment</th>
+                    <th scope="col">{{comment.date}}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let comment of comments"><!--*ngFor-->
-                    <td>{{comment.id_person}}</td><!--Status-->
-                    <td>{{comment.date}}</td><!--Function-->
-                    <td>{{comment.comment}}</td><!--Seat-->
+                <tr><!--*ngFor-->
+                    <td colspan="3">{{comment.comment}}</td><!--Seat-->
                 </tr>
             </tbody>
         </table>
     </div>
+    <a [routerLink]="['addComment/']" class="btn btn-info btn-block">
+        ADD COMMENT
+    </a>
 </div>
-<!--
-<div class="col-md-4 offset-md-2" id="content">
-    <h1>Add new comment</h1>
-      <div class="card">
-        <div class="card-body">
-          <form action="">
-            <div class="mb-3">
-              <label for="number" class="form-label">Comment</label>
-              <input type="text" name="comment" [(ngModel)]="comment.comment" placeholder="Enter Comment"
-                class="form-control" id="comment" autofocus>
-            </div>
-            <button type="submit" class="btn btn-success btn-block" (click)="saveNewComment()" onclick="alert('Your comment has been uploaded successfully');">
-              Save
-            </button>
-          </form>
-        </div>
-      </div>
-  </div>
--->
-
-
-
-

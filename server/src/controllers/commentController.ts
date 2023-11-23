@@ -19,7 +19,7 @@ class CommentController {
 
     public async getByMovieId(req: Request, res: Response): Promise<any>{
         const {id} = req.params;
-        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM comments WHERE id_movie = ?',[id]);
+        const rows = await pool.query<RowDataPacket[][]>('SELECT p.user_name as user_name, c.date as date, c.comment as comment FROM comments c inner join persons p on c.id_person = p.id_person WHERE id_movie = ?',[id]);
         if(rows.length > 0){
             return res.json(rows[0]);
         }

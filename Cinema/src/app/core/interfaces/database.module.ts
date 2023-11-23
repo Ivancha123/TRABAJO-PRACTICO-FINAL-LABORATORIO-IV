@@ -2,14 +2,16 @@ import { Time } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 
 export interface Person {
-    id_person?: number;
-    document?: string;
-    user_name?: string;
-    lastname?: string;
-    born?: Date;
-    genre?: string;
-    phone?: string;
-    email?: string;
+    id_person: number;
+    document: string;
+    user_name: string;
+    lastname: string;
+    born: Date;
+    genre: string;
+    phone: string;
+    email: string;
+    password: string;
+
 };
 
 export interface PersonResponse {
@@ -35,12 +37,12 @@ export interface Room {
 };
 
 export interface Function {
-    id_function?: number;
-    function_date?: Date;
-    function_hour?: Time;
-    id_room?: number;
-    id_movie?: number;
-    price?: number;
+    id_function: number;
+    function_date: string;
+    function_hour: string;
+    id_room: number;
+    id_movie: number;
+    price: number;
 };
 
 export interface FunctionFormat {
@@ -91,11 +93,17 @@ export interface ComboTicket {
 };
 
 export interface Comment {
-    id_comment?: number;
-    id_person?: number;
-    id_movie?: number;
-    date?: Date;
-    comment?: string;
+    id_comment: number;
+    id_person: number;
+    id_movie: number;
+    date: string;
+    comment: string;
+};
+
+export interface CommentFormat {
+    user_name: string;
+    date: string;
+    comment: string;
 };
 
 

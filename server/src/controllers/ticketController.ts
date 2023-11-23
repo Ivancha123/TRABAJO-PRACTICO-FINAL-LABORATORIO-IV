@@ -20,7 +20,13 @@ class TicketController {
             return res.json(rows[0][0]);
         }
         res.status(404).json({text: 'The ticket doesn´t exists'});
-    }  
+    }
+
+    public async listFormatByUser(req: Request, res: Response){
+        const {id} = req.params;
+        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount as mount from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie where t.id_person = ?',[id]);
+        res.json(rows[0]);
+    }
 
     public async create (req: Request, res: Response): Promise<void>{
         await pool.query('INSERT INTO tickets set ?', [req.body]);

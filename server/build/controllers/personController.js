@@ -31,6 +31,16 @@ class PersonController {
             res.status(404).json({ text: 'The person doesn´t exists' });
         });
     }
+    getByUsername(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { user_name } = req.params;
+            const rows = yield database_1.default.query('SELECT * FROM persons WHERE user_name = ?', [user_name]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
+            }
+            res.status(404).json({ text: 'The person doesn´t exists' });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO persons set ?', [req.body]);

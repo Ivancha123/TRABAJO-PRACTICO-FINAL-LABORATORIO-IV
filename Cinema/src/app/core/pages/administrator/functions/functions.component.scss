@@ -1,12 +1,9 @@
 @use "../../../../../assets/variables/variables.scss";
 
-.content {
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
+.content{
+    margin-left: 20px;
+    margin-right: 20px;
 }
-
-#myTabContent {
-    border: 2px solid variables.$primary-light-color;
-    background-color: variables.$primary-blackin-color;
+.app-container{
+    justify-content: center;
 }
