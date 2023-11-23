@@ -34,7 +34,7 @@ class CommentController {
     getByMovieId(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const rows = yield database_1.default.query('SELECT * FROM comments WHERE id_movie = ?', [id]);
+            const rows = yield database_1.default.query('SELECT p.user_name as user_name, c.date as date, c.comment as comment FROM comments c inner join persons p on c.id_person = p.id_person WHERE id_movie = ?', [id]);
             if (rows.length > 0) {
                 return res.json(rows[0]);
             }

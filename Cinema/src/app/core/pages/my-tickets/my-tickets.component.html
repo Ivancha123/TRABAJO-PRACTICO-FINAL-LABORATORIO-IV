@@ -2,25 +2,21 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Status</th>
-            <th scope="col">Function</th>
-            <th scope="col">Seat</th>
-            <th scope="col">Date</th>
-            <th scope="col">Hour</th>
+            <th scope="col">Document</th>
+            <th scope="col">Function Date</th>
+            <th scope="col">Function Hour</th>
+            <th scope="col">Room Name</th>
             <th scope="col">Total Price</th>
-            <th scope="col">Transaction</th>
         </tr>
     </thead>
     <tbody>
-        <tr><!--*ngFor-->
+        <tr *ngFor="let ticket of tickets"><!--*ngFor-->
             <th scope="row">1</th><!--Number of Row-->
-            <td>Finished</td><!--Status-->
-            <td>Frozen</td><!--Function-->
-            <td>F7 , F8</td><!--Seat-->
-            <td>2022-11-30</td><!--Date-->
-            <td>20.30</td><!--Hour-->
-            <td>2000</td><!--Price-->
-            <td>15d5ge8azes8</td><!--Transaction-->
+            <td>{{ticket.document}}</td><!--Function-->
+            <td>{{ticket.function_date}}</td><!--Seat-->
+            <td>{{ticket.function_hour}}</td><!--Date-->
+            <td>{{ticket.room_name}}</td><!--Hour-->
+            <td>{{ticket.mount}}</td><!--Price-->
         </tr>
     </tbody>
 </table>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Card, Person, PersonResponse, Comment } from 'src/app/core/interfaces/database.module' ;
+import { Card, Person, PersonResponse, Comment, FunctionFormat, CommentFormat } from 'src/app/core/interfaces/database.module' ;
 import { xMovie } from 'src/app/core/interfaces/database.module' ;
 import { Combo } from 'src/app/core/interfaces/database.module' ;
 import { Room } from 'src/app/core/interfaces/database.module' ;
@@ -29,6 +29,10 @@ export class DataBaseService {
 
   getPerson(id: string) {
     return this.http.get(`${this.API_URI}/persons/${id}`);
+  }
+
+  getPersonForUsername(username: string|undefined) {
+    return this.http.get(`${this.API_URI}/persons/login/${username}`);
   }
 
   deletePerson(id: number|undefined) {
@@ -61,8 +65,8 @@ export class DataBaseService {
     return this.http.post(`${this.API_URI}/movies`, movie);
   }
 
-  updateMovie(id: string|number, updatedMovie: xMovie) {
-    this.http.put(`${this.API_URI}/movies/${id}`, updatedMovie);
+  updateMovie(id: string|number, updatedMovie: xMovie) : Observable<xMovie>{
+    return this.http.put<xMovie>(`${this.API_URI}/movies/${id}`, updatedMovie);
   }
 
   //Combo Functions
@@ -114,8 +118,8 @@ export class DataBaseService {
   public getFunctions() : Observable<Function[]> {
     return this.http.get<Function[]>(`${this.API_URI}/functions`);
   }
-  getFunctionFormat() : Observable<Function[]> {
-    return this.http.get<Function[]>(`${this.API_URI}/functions/format`);
+  getFunctionFormat() : Observable<FunctionFormat[]> {
+    return this.http.get<FunctionFormat[]>(`${this.API_URI}/functions/format`);
   }
 
   getFunction(id: string) {
@@ -134,7 +138,7 @@ export class DataBaseService {
   }
 
   updateFunction(id: string|number, updatedFunction: Function): Observable<Function> {
-    return this.http.put(`${this.API_URI}/functions/${id}`, updatedFunction);
+    return this.http.put<Function>(`${this.API_URI}/functions/${id}`, updatedFunction);
   }
 
   //Ticket Functions
@@ -145,6 +149,10 @@ export class DataBaseService {
 
   getTicketsFormat() : Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.API_URI}/tickets/format`);
+  }
+
+  getTicketsFormatByUser(id: string|null) : Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.API_URI}/tickets/user/${id}`);
   }
 
   getTicket(id: string) {
@@ -242,8 +250,8 @@ export class DataBaseService {
   getComment(id: string) {
     return this.http.get(`${this.API_URI}/comments/${id}`);
   }
-  getCommentByMovie(id: string): Observable<Comment[]>{
-    return this.http.get<Comment[]>(`${this.API_URI}/comments/movie/${id}`);
+  getCommentByMovie(id: string): Observable<CommentFormat[]>{
+    return this.http.get<CommentFormat[]>(`${this.API_URI}/comments/movie/${id}`);
   }
 
   deleteComment(id: number|undefined) {
@@ -255,7 +263,7 @@ export class DataBaseService {
   }
 
   updateComment(id: string|number, updatedComment: Comment): Observable<Comment> {
-    return this.http.put(`${this.API_URI}/comments/${id}`, updatedComment);
+    return this.http.put<Comment>(`${this.API_URI}/comments/${id}`, updatedComment);
   }
 
 }

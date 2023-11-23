@@ -1,8 +1,31 @@
-<div class="col-md-4 offset-md-2" id="content">
-  <div class="card">
-    <div class="card-body">
-        <button type="submit" class="btn btn-success btn-block" (click)="updateMovies()">
-          Save New Movies
-        </button>
+<div>
+  
+  <form class="form-inline my-2 my-lg-0" id="search">
+    <label>
+      <h2>Movie Title:</h2>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #movieInput
+        (input)="find(movieInput.value)" />
+    </label>
+  </form>
+
+  <div *ngIf="searchResult">
+    <div class="row">
+      <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let movie of this.movies; let i = index">
+        <div id="card" >
+          <div id="title">
+            <h2 class="mt-10">{{movie.title}}</h2>
+          </div>
+          <div id="image" *ngIf="movie.poster_path">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-fluid rounded-start"
+              alt="{{movie.title}}">
+          </div>
+          <div id="buttons">
+            <button class="btn btn-danger" (click)="addMovie(movie)" onclick="alert('Your movie has been uploaded successfully');">
+              <i class="far fa-trash-alt">Add</i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>

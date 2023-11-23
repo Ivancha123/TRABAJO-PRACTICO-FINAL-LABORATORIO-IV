@@ -3,7 +3,7 @@ import { Observable, delay, interval, tap, timer } from 'rxjs';
 import { TmdbService } from '../../services/tmdb/tmdb.service';
 import { Movie, MoviesResponse } from '../../interfaces/movies';
 import { DataBaseService } from '../../services/database/database.service';
-import { Person } from '../../interfaces/database.module';
+import { Person, xMovie } from '../../interfaces/database.module';
 import { NgZone } from '@angular/core';
 
 @Component({
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   movieId = '808';
   persons: Person[] = [];
 
+  moviesdb: xMovie[] = [];
 
   constructor(private tmdbService: TmdbService, private dbService: DataBaseService, private zone: NgZone) { }
   onScroll() {
@@ -37,13 +38,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.loadPersons();
-    this.tmdbService.getMovies().subscribe(movies => {
-      for (const movie of movies) {
-        this.moviesSlideShow.push(movie);
-        this.movies.push(movie);
-      }
+
+    this.dbService.getMovies().subscribe((response) => {
+      this.moviesdb = response;
+      this.getMovieFromTMDB();
     });
 
+
+  }
+
+  getMovieFromTMDB() {
+    for (const movie of this.moviesdb) {
+      this.tmdbService.getMovieById(movie.id_movie.toString()).subscribe((response) => {
+        if (movie.movie_status === 0)
+          this.moviesSlideShow.push(response);
+        else
+          this.movies.push(response);
+      })
+    }
   }
 
   loadPersons(): void {

@@ -1,49 +1,42 @@
-<div class="col-md-4 offset-md-2" id="content">
-    <div class="card">
-      <div class="card-body">
-        <form action="">
-          <div class="mb-3">
-            <label for="idMovie" class="form-label">Id Movie</label>
-            <input type="text" name="document" [(ngModel)]="function.id_movie" placeholder="Enter Id Movie"
-              class="form-control" id="idMovie" autofocus>
-          </div>
-          <div class="mb-3">
-            <label for="idRoom" class="form-label">Id Room</label>
-            <input name="text" [(ngModel)]="function.id_room" placeholder="Enter Id Room" class="form-control"
-              id="idRoom">
-          </div>
-          <div class="mb-3">
-            <label for="functionDate" class="form-label">Date</label>
-            <input type="date" name="date" [(ngModel)]="function.function_date" placeholder="Enter Date"
-              class="form-control" id="functionDate">
-          </div>
-          <div class="mb-3">
-            <label for="functionHour" class="form-label">Hour</label>
-            <input type="time" name="text" [(ngModel)]="function.function_hour" placeholder="Enter Hour"
-              class="form-control" id="functionHour">
-          </div>
-          <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="number" name="text" [(ngModel)]="function.price" placeholder="Enter Price" class="form-control"
-              id="price">
-          </div>
-          <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateFunction() : saveNewFunction()">
-            Save
-          </button>
-        </form>
-      </div>
-      <div class="content">
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let movie of movies">
-                {{movie.id_movie}}. {{ movie.title }}
-            </li>
-        </ul>
-      </div>
-      <div class="content">
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let room of rooms">
-                {{room.id_room}}. {{ room.room_name }}
-            </li>
-        </ul>
-      </div>
+<div class="col-md-5" id="content">
+  <form class="form-inline my-2 my-lg-0" id="form">
+    <div id="advise"></div>
+    <div class="mb-3">
+      <label>Movie: </label>
+      <select class="form-select" id="comboBox" #movieSelect aria-label="Default select example">
+        <ng-container *ngFor="let movie of movies;">
+          <option *ngIf="movie.movie_status === 1" value="{{movie.id_movie}}">{{movie.title}}</option>
+        </ng-container>
+      </select>
     </div>
+    <div class="mb-3">
+      <label>Room: </label>
+      <select class="form-select" id="comboBox" #roomSelect aria-label="Default select example">
+        <option *ngIf="rooms.length === 0" value="-1">Not Found Rooms Availables!</option>
+        <option *ngFor="let room of rooms" value="{{room.id_room}}">{{room.id_room}}->{{room.room_name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="functionDate" class="form-label">Date</label>
+      <input type="date" name="date" #dateSelect [(ngModel)]="function.function_date" placeholder="Enter Date" class="form-control"
+        id="functionDate">
+    </div>
+
+    <div class="mb-3">
+      <label for="functionHour" class="form-label">Hour</label>
+      <input type="time" name="text" #timeSelect [(ngModel)]="function.function_hour" placeholder="Enter Hour" class="form-control"
+        id="functionHour">
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" name="text" #priceSelect [(ngModel)]="function.price" placeholder="Enter Price" class="form-control"
+        id="price">
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block" (click)="saveNewFunction(movieSelect.value,roomSelect.value,dateSelect.valueAsDate,timeSelect.value,priceSelect.value)">
+      Save
+    </button>
+
+  </form>
+</div>

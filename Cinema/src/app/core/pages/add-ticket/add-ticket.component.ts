@@ -30,7 +30,7 @@ export class AddTicketComponent implements OnInit {
 
   saveNewTicket() {
     const params = this.activatedRoute.snapshot.params;
-    this.ticket.id_person = 1;
+    this.ticket.id_person = Number(localStorage.getItem("idUser"));
     this.ticket.id_function = params["id_function"];
     this.ticket.id_card = params["id_card"];
     this.ticket.id_seat = params["id_seat"];
@@ -39,7 +39,6 @@ export class AddTicketComponent implements OnInit {
     .subscribe(
     res => {
         console.log(res);
-        this.router.navigate(['']);
 
       },
       err => console.error(err)

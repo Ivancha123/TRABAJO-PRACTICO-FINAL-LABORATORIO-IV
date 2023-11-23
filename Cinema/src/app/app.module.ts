@@ -19,7 +19,7 @@ import { MoviesComponent } from './core/pages/movies/movies.component';
 import { PricesComponent } from './core/pages/prices/prices.component';
 import { ContactUsComponent } from './core/pages/contact-us/contact-us.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
-import { LoginComponent } from './core/shared/dialog/login/login.component';
+import { LoginComponent } from './core/shared/login/login.component';
 import { FullBodyComponent } from './core/shared/full-body/full-body.component';
 import { HomeSliderComponent } from './core/pages/component/home-slider/home-slider.component';
 import { MovieCardComponent } from './core/pages/component/movie-card/movie-card.component';
@@ -27,7 +27,6 @@ import { MovieComponent } from './core/pages/movie/movie.component';
 import { PosterGridComponent } from './core/pages/component/poster-grid/poster-grid.component';
 
 
-import { PersonFormComponent } from './core/pages/administrator/events/persons-add/persons-add.component';
 import { SeatFormComponent } from './core/pages/administrator/events/seats-add/seats-add.component';
 import { RoomFormComponent } from './core/pages/administrator/events/rooms-add/rooms-add.component';
 import { ListFunctionComponent } from './core/pages/administrator/events/list-function/list-function.component';
@@ -54,6 +53,8 @@ import { ListSeatComponent } from './core/pages/list-seats/list-seats.component'
 import { AddCardComponent } from './core/pages/add-card/add-card.component';
 import { AddTicketComponent } from './core/pages/add-ticket/add-ticket.component';
 import { ListTicketComponent } from './core/pages/administrator/events/list-tickets/list-ticket.component';
+import { AddCommentComponent } from './core/pages/add-comments/add-comment.component';
+import { AddComboTicketComponent } from './core/pages/add-combos-tickets/add-combo-ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +83,6 @@ import { ListTicketComponent } from './core/pages/administrator/events/list-tick
     AmoviesComponent,
     UserProfileComponent,
     MyTicketsComponent,
-    PersonFormComponent,
     SeatFormComponent,
     RoomFormComponent,
     AddFunctionComponent,
@@ -97,6 +97,8 @@ import { ListTicketComponent } from './core/pages/administrator/events/list-tick
     AddCardComponent,
     AddTicketComponent,
     ListTicketComponent,
+    AddCommentComponent,
+    AddComboTicketComponent,
   ],
   imports: [
     HttpClientModule,

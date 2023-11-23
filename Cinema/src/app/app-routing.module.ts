@@ -16,6 +16,8 @@ import { AddFunctionComponent } from './core/pages/administrator/events/add-func
 import { ListSeatComponent } from './core/pages/list-seats/list-seats.component';
 import { AddCardComponent } from './core/pages/add-card/add-card.component';
 import { AddTicketComponent } from './core/pages/add-ticket/add-ticket.component';
+import { AddCommentComponent } from './core/pages/add-comments/add-comment.component';
+import { AddComboTicketComponent } from './core/pages/add-combos-tickets/add-combo-ticket.component';
 const routes: Routes = [  {
   path: "",
   component: HomeComponent
@@ -79,6 +81,14 @@ const routes: Routes = [  {
 {
   path: 'movie/:id_movie/functionId/:id_function/seatId/:id_seat/cardId/:id_card',
   component: AddTicketComponent
+},
+{
+  path: 'movie/:id_movie/functionId/:id_function/seatId/:id_seat/cardId/:id_card/ticketId/:id_ticket',
+  component: AddComboTicketComponent
+},
+{
+  path: 'movie/:id_movie/addComment',
+  component: AddCommentComponent
 },
 {
   path: "**",

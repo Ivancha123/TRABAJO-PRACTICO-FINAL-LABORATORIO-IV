@@ -27,12 +27,16 @@
                             <div id="userProfile" (click)="navigate('user-profile')" class="nav-link active" aria-current="page">User Profile
                             </div>
                         </li>
-                        <li class="nav-item" *ngIf="isLogin === true">
+                        <li class="nav-item" *ngIf="isLogin === true && isAdmin === false">
                             <div id="myTickets" (click)="navigate('my-tickets')" class="nav-link active" aria-current="page">My Tickets
                             </div>
                         </li>
                         <li class="nav-item" *ngIf="isLogin === true && isAdmin === true">
                             <div id="administrator" (click)="navigate('administrator')" class="nav-link active" aria-current="page">Administrator
+                            </div>
+                        </li>
+                        <li class="nav-item" *ngIf="isLogin === true">
+                            <div id="administrator" (click)="logout()" class="nav-link active" aria-current="page">Logout
                             </div>
                         </li>
                     </ul>

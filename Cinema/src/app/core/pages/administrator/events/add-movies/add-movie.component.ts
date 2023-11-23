@@ -1,8 +1,10 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { xMovie } from 'src/app/core/interfaces/database.module';
 import { DataBaseService } from 'src/app/core/services/database/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UpdatingService } from 'src/app/core/services/updating/updating.service';
+import { Movie } from 'src/app/core/interfaces/movies';
+import { TmdbService } from 'src/app/core/services/tmdb/tmdb.service';
+import { xMovie } from 'src/app/core/interfaces/database.module';
+
 
 @Component({
   selector: 'app-add-movie',
@@ -11,25 +13,41 @@ import { UpdatingService } from 'src/app/core/services/updating/updating.service
 })
 export class AddMovieComponent implements OnInit {
 
-  @HostBinding('class') clases = 'row';
+  searchResult: string = '';
+  movies: Movie[] = [];
 
-  combos: xMovie = {
+  xmovie: xMovie = {
     id_movie: 0,
     title: '',
-    movie_status: 0,
+    movie_status: 0
   };
 
-  edit: boolean = false;
-
-  constructor(private updatingService: UpdatingService,private databaseService: DataBaseService, private router: Router, private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit() {
+  constructor(private tmdbService: TmdbService, private dbService:DataBaseService){
 
   }
 
-  updateMovies(){
-    this.updatingService.updateMoviesLastMoviesInDataBase();
-  }
+  ngOnInit(): void {
 
+  }
+  
+  addMovie(movie: Movie){
+      this.xmovie!.id_movie = movie.id;
+      this.xmovie!.movie_status = 0;
+      this.xmovie!.title = movie.title;
+      this.dbService.saveMovie(this.xmovie!).subscribe(res => {
+        console.log(res);
+      }, 
+      err => console.error(err)
+      );
+  }
+ 
+  find(value: string) {
+    this.searchResult = value;
+    if(this.searchResult !== ''){
+      this.tmdbService.searchMovie(this.searchResult).subscribe((response) =>{
+        this.movies = response;
+      })
+    }
+  }
 
 }
