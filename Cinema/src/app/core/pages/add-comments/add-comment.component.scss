@@ -2,22 +2,12 @@
 
 #content {
     display: flex;
-    width: 100%;
-
+    flex-direction: column;
     .card {
         background-color: variables.$primary-blackin-color;
         margin: 20px;
-        height: 500px;
+        height: auto;
         width: auto;
-        display: flex;
-        flex-direction: column;
+        display: flex;  
     }
-
-    /*
-    .search {
-        background-color: variables.$primary-blackin-color;
-        margin: 20px;
-        width: auto;
-    }
-*/
 }

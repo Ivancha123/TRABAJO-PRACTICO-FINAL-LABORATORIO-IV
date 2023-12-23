@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ThemeService } from '../../services/theme/theme.service';
+import { DataBaseService } from '../../services/database/database.service';
+import { Person } from '../../interfaces/database.module';
 
 @Component({
   selector: 'app-user-profile',
@@ -24,13 +26,62 @@ export class UserProfileComponent {
     '#E6E6FA',
   ];
 
-  constructor(private themeService: ThemeService) {
+  person: Person = {
+    id_person: 0,
+    document: '',
+    user_name: '',
+    lastname: '',
+    born: '',
+    genre: '',
+    phone: '',
+    email: '',
+    password: '',
+  };
 
+  gPerson: Person = {
+    id_person: 0,
+    document: '',
+    user_name: '',
+    lastname: '',
+    born: '',
+    genre: '',
+    phone: '',
+    email: '',
+    password: '',
+  };
+
+  constructor(private themeService: ThemeService,private databaseService: DataBaseService) {
+
+  }
+
+  ngOnInit() {
+    this.getPerson();
   }
 
   saveSelectedColorToCookie(color: string) {
     this.themeService.setTheme(color);
 
+  }
+
+  getPerson(){
+    let id_person = localStorage.getItem("idUser")?.toString();
+    this.databaseService.getPerson(id_person).subscribe(
+      res => {
+        this.gPerson = res as Person;
+      },
+        err => console.error(err)
+    )
+  }
+  updatePerson() {
+    this.person.id_person = Number(localStorage.getItem("idUser"));
+    this.person.born = "2001-03-23T03:00:00.000Z";
+    this.databaseService.updatePerson(this.person.id_person, this.person)
+      .subscribe(
+        res => { 
+          console.log(res);
+        },
+        err => console.error(err)
+      )
   }
 
 }

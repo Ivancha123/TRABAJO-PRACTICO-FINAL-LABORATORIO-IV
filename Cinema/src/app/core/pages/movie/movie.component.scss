@@ -37,31 +37,51 @@
 
         #details {
             display: flex;
+
             #detail {
                 margin: 20px;
+
                 #data {
                     font-weight: bold;
                     font-size: 16px;
                 }
+
                 #info {
                     font-size: 18px;
-                    #date{
+
+                    #date {
                         margin: 10px;
                         font-weight: bold;
-                        #hours{
+
+                        #hours {
                             display: flex;
                             font-weight: normal;
-                            #hour{
+
+                            #hour {
                                 margin: 20px;
                                 margin-right: 30px;
                             }
-                            #hour:hover{
-                                cursor:pointer;
+
+                            #hour:hover {
+                                cursor: pointer;
                                 color: variables.$primary-button-color;
                             }
 
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .comment-section {
+        table {
+            tr {
+                th {
+                    background-color: variables.$primary-blackin-color;
+                }
+                td{
+                    background-color: variables.$primary-lightin-color;
                 }
             }
         }

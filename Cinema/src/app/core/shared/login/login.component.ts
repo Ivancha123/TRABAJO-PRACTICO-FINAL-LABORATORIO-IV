@@ -17,7 +17,7 @@ export class LoginComponent {
     password: '',
     document: '',
     lastname: '',
-    born: new Date(),
+    born: '',
     genre: '',
     phone: '',
     email: ''
@@ -52,6 +52,7 @@ export class LoginComponent {
               localStorage.setItem("login","false");
               localStorage.setItem("admin","false");
               this.router.navigate(['/']);
+              alert("User or password incorrect");
             }
           },
           err => console.log(err)

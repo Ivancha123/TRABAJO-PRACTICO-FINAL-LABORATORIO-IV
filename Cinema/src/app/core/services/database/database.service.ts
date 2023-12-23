@@ -27,7 +27,7 @@ export class DataBaseService {
     return this.http.get<Person[]>(`${this.API_URI}/persons`);
   }
 
-  getPerson(id: string) {
+  getPerson(id: string|undefined) {
     return this.http.get(`${this.API_URI}/persons/${id}`);
   }
 

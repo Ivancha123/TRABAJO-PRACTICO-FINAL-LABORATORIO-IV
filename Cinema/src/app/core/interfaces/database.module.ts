@@ -6,7 +6,7 @@ export interface Person {
     document: string;
     user_name: string;
     lastname: string;
-    born: Date;
+    born: string;
     genre: string;
     phone: string;
     email: string;

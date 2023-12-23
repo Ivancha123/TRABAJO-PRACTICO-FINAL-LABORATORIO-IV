@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit{
     document: '',
     user_name: '',
     lastname: '',
-    born: new Date(),
+    born: '',
     genre: '',
     phone: '',
     email: '',
