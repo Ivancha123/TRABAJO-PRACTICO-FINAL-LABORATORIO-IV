@@ -30,7 +30,7 @@ export class SeatFormComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.seat = res;
+            this.seat = res as Seat;
             this.edit = true;
           },
           err => console.log(err)
@@ -39,7 +39,6 @@ export class SeatFormComponent implements OnInit {
   }
 
   saveNewSeat() {
-    delete this.seat.id_seat;
     this.databaseService.saveSeat(this.seat)
       .subscribe(
         res => {

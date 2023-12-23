@@ -57,12 +57,16 @@
                         Functions:
                     </div>
                     <div id="info">
-                        <div class="alert alert-danger" role="alert" [hidden]="haveFunction != false">
+                        <div class="alert alert-danger" role="alert" [hidden]="haveFunction != false" *ngIf="flag === false">
+                            You need Register or Login to buy!
+                        </div>
+                        <div class="alert alert-danger" role="alert" [hidden]="haveFunction != false" *ngIf="flag === true">
                             Sorry! There are no showtimes available for this movie at the moment.
                         </div>
                         <!--Listar Funciones (en date hacer un *ngFor para listar los dias y un *ngfor en hour para listar horarios de ese dia)-->
                         <ng-container *ngFor="let function of functions">
-                            <div id="date" [hidden]="haveFunction === false" *ngIf="flag === true"><!--Aqui SI va *ngFOr-->
+                            <div id="date" [hidden]="haveFunction === false" *ngIf="flag === true">
+                                <!--Aqui SI va *ngFOr-->
                                 <!--Put Date-->
                                 {{function.function_date}}
                                 <div id="hours"><!--Aqui NO va *ngFOr-->
@@ -85,7 +89,7 @@
             <thead>
                 <tr>
                     <th scope="col">{{comment.user_name}}</th>
-                    <th scope="col">Comment</th>
+                    <th scope="col"></th>
                     <th scope="col">{{comment.date}}</th>
                 </tr>
             </thead>
@@ -96,7 +100,7 @@
             </tbody>
         </table>
     </div>
-    <a [routerLink]="['addComment/']" class="btn btn-info btn-block">
-        ADD COMMENT
-    </a>
+    <div class="comments" *ngIf="flag === true">
+        <div class="app-container"><app-add-comment [id]="movie!.id" (messageEvent)="receiveMessage($event)"></app-add-comment></div>
+    </div>
 </div>

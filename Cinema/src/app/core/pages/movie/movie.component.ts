@@ -21,6 +21,10 @@ export class MovieComponent implements OnInit {
 
   constructor(private dataBaseService: DataBaseService, private tmdbService: TmdbService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
+  receiveMessage($event: string) {
+    location.reload();
+  }
+
   ngOnInit() {
     this.flag = localStorage.getItem("idUser") != null?true:false;
     console.log(this.flag);
