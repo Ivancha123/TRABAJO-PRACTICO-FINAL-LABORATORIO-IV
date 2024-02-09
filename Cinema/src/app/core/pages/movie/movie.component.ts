@@ -70,11 +70,6 @@ export class MovieComponent implements OnInit {
             console.log(res);
             this.comments = res as CommentFormat[];
             console.log(this.comments);
-            for(const comment of this.comments)
-            {
-              let date = new Date(comment.date); 
-              comment.date = date.toDateString();
-            }
           },
           err => console.log(err)
         )

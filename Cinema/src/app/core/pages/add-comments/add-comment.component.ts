@@ -31,13 +31,14 @@ export class AddCommentComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveNewComment() {
+  saveNewComment(comment: string) {
     this.comment.id_movie = this.id;
     let date = new Date();
-    this.comment.date = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+    this.comment.date = String(date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay());
     this.comment.id_person = Number(localStorage.getItem("idUser"));
     console.log(this.comment.id_person);
-    this.databaseService.saveComment(this.comment)
+    if(comment != ''){
+      this.databaseService.saveComment(this.comment)
       .subscribe(
         res => {
           console.log(res);
@@ -45,6 +46,10 @@ export class AddCommentComponent implements OnInit {
         err => console.error(err)
       )
     this.messageEvent.emit("Comentario");
+    }else{
+      alert('Your comment can´t be empty');
+    }
+    
   }
 
 }
