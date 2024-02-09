@@ -64,7 +64,8 @@ export class AddFunctionComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.router.navigate(['/']);
+          alert("Function saved");
+          this.router.navigate(['/administrator']);
         },
         err => console.error(err)
       )

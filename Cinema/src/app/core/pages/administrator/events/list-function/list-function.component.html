@@ -1,14 +1,29 @@
-<div class="content">
-      <ul class="list-group">  
-            <li class="list-group-item" *ngFor="let function of functions">
-              Movie Name: {{ function.title }} / Room Name: {{function.room_name}} / Function Date: {{ function.function_date }} / Function Hour: {{function.function_hour}} / Function Price: {{ function.price }}
-              <button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
-                <i class="far fa-trash-alt">ELIMINAR</i>
-              </button>
-              <a [routerLink]="['function/edit', function.id_function]" class="btn btn-info btn-block">
-                EDIT FUNCTION
-              </a>
-              
-          </li>
-      </ul>
-</div>
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">Movie Name</th>
+          <th scope="col">Room Name</th>
+          <th scope="col">Function Date</th>
+          <th scope="col">Function Hour</th>
+          <th scope="col">Function Price</th>
+          <th scope="col">Delete Function</th>
+          <th scope="col">Edit Function</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let function of functions"><!--*ngFor-->
+          <td>{{function.title}}</td><!--Title-->
+          <td>{{function.room_name}}</td><!--Room Name-->
+          <td>{{function.function_date}}</td><!--Date-->
+          <td>{{function.function_hour}}</td><!--Hour-->
+          <td>{{function.price}}</td><!--Price-->
+          <td><button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
+            <i class="far fa-trash-alt">DELETE</i>
+          </button>
+          </td><!--Delete-->
+          <td><a [routerLink]="['function/edit', function.id_function]" class="btn btn-info btn-block">
+            EDIT
+          </a></td><!--Edit-->
+      </tr>
+  </tbody>
+</table>

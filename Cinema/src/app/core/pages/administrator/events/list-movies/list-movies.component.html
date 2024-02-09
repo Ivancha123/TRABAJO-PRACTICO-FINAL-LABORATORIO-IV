@@ -11,7 +11,7 @@
                 <img src="https://image.tmdb.org/t/p/w500/{{movietmdb[i].poster_path}}" class="img-fluid rounded-start"
                     alt="{{movietmdb[i].title}}">
             </div>
-            <div id="button">
+            <div id="button" *ngIf="movie.movie_status != 1">
                 <button class="btn btn-danger" (click)="deleteMovie(movietmdb[i].id)">
                     <i class="far fa-trash-alt">DELETE</i>
                 </button>

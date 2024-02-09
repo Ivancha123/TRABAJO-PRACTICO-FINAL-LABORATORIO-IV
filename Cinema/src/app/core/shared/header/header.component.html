@@ -36,7 +36,7 @@
                             </div>
                         </li>
                         <li class="nav-item" *ngIf="isLogin === true">
-                            <div id="administrator" (click)="logout()" class="nav-link active" aria-current="page">Logout
+                            <div id="administrator" [routerLink]="['']" (click)="logout()" class="nav-link active" aria-current="page">Logout
                             </div>
                         </li>
                     </ul>

@@ -43,6 +43,7 @@ export class AddComboComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          alert("Combo saved");
           this.router.navigate(['/administrator']);
         },
         err => console.error(err)
