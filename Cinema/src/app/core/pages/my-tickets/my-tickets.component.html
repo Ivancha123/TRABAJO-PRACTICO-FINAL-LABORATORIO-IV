@@ -1,7 +1,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Document</th>
             <th scope="col">Function Date</th>
             <th scope="col">Function Hour</th>
@@ -11,7 +10,6 @@
     </thead>
     <tbody>
         <tr *ngFor="let ticket of tickets"><!--*ngFor-->
-            <th scope="row">1</th><!--Number of Row-->
             <td>{{ticket.document}}</td><!--Function-->
             <td>{{ticket.function_date}}</td><!--Seat-->
             <td>{{ticket.function_hour}}</td><!--Date-->

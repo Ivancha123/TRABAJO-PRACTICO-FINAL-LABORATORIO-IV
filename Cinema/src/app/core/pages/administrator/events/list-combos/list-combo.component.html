@@ -1,13 +1,23 @@
-<div class="content">
-  <ul class="list-group">
-      <li class="list-group-item" *ngFor="let combo of combos">
-          ID: {{combo.id_combo}}. / DESCRIPTION: {{ combo.combo_description }}. / PRICE: {{combo.price}}
-          <button class="btn btn-danger" (click)="deleteCombo(combo.id_combo)">
-            <i class="far fa-trash-alt">ELIMINAR</i>
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">Combo Description</th>
+          <th scope="col">Combo Price</th>
+          <th scope="col">Delete Combo</th>
+          <th scope="col">Edit Combo</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let combo of combos"><!--*ngFor-->
+          <td>{{combo.combo_description}}</td><!--Description-->
+          <td>{{combo.price}}</td><!--Price-->
+          <td><button class="btn btn-danger" (click)="deleteCombo(combo.id_combo)">
+            <i class="far fa-trash-alt">DELETE</i>
           </button>
-          <a [routerLink]="['combo/edit', combo.id_combo]" class="btn btn-info btn-block">
-            EDIT COMBO
-          </a>
-      </li>
-  </ul>
-</div>
+          </td><!--Delete-->
+          <td><a [routerLink]="['combo/edit', combo.id_combo]" class="btn btn-info btn-block">
+            EDIT
+          </a></td><!--Edit-->
+      </tr>
+  </tbody>
+</table>

@@ -44,7 +44,6 @@ export class HeaderComponent implements AfterViewInit{
     localStorage.setItem("admin","false");
     localStorage.removeItem("idUser");
     this.refresh();
-    location.reload();
   }
 
   refresh(){

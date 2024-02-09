@@ -1,6 +1,20 @@
-<div class="content">
-      <ul class="list-group">  
-            <li class="list-group-item" *ngFor="let ticket of tickets">
-                  Id Ticket: {{ticket.id_ticket}} User Document: {{ticket.document}} Function Date: {{ticket.function_date}} Function Hour: {{ticket.function_hour}} Room Name: {{ticket.room_name}} Mount: {{ticket.mount}}
-      </ul>
-</div>
+<table class="table">
+      <thead>
+          <tr>
+              <th scope="col">User Document</th>
+              <th scope="col">Function Date</th>
+              <th scope="col">Function Hour</th>
+              <th scope="col">Room Name</th>
+              <th scope="col">Mount</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let ticket of tickets"><!--*ngFor-->
+              <td>{{ticket.document}}</td><!--User Document-->
+              <td>{{ticket.function_date}}</td><!--Function Date-->
+              <td>{{ticket.function_hour}}</td><!--Function Hour-->
+              <td>{{ticket.room_name}}</td><!--Room Name-->
+              <td>{{ticket.mount}}</td><!--Mount-->
+          </tr>
+      </tbody>
+    </table>

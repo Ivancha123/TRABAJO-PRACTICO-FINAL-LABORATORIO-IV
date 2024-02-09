@@ -1,7 +1,16 @@
-<div class="content">
-  <ul class="list-group">
-      <li class="list-group-item" *ngFor="let person of persons">
-          ID:{{person.id_person}}. / USERNAME: {{ person.user_name }}. / LASTNAME: {{person.lastname}}. / DOCUMENT: {{ person.document }}
-      </li>
-  </ul>
-</div>
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Document</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let person of persons"><!--*ngFor-->
+          <td>{{person.user_name}}</td><!--Username-->
+          <td>{{person.lastname}}</td><!--Lastname-->
+          <td>{{person.document}}</td><!--Document-->
+      </tr>
+  </tbody>
+</table>
