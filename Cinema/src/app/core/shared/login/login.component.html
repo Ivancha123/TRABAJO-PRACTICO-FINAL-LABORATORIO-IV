@@ -1,16 +1,16 @@
 <form class="login-form">
     <h1>Inicia sesión</h1>
     <div class="form-group row">
-      <label for="username">Usuario</label>
-      <input id="input" type="text" class="form-control" id="user_name" name="user_name" placeholder="Tu nombre de usuario" #user [(ngModel)]="person.user_name">
+      <label for="username">Email</label>
+      <input id="input" type="text" class="form-control" id="email" email="email" placeholder="Your email" #email [(ngModel)]="person.email">
     </div>
   
     <div class="form-group row">
       <label for="password">Contraseña</label>
-      <input id="input" type="password" class="form-control" id="password" name="password" placeholder="Tu contraseña" #password [(ngModel)]="person.password">
+      <input id="input" type="password" class="form-control" id="password" name="password" placeholder="Your password" #password [(ngModel)]="person.password">
     </div>
   
     <div class="form-group row">
-      <button id="button"type="submit" class="btn btn-primary" (click)="getPerson(user.value,password.value)">Iniciar sesión</button>
+      <button id="button"type="submit" class="btn btn-primary" (click)="getPerson(email.value,password.value)">Iniciar sesión</button>
     </div>
   </form>

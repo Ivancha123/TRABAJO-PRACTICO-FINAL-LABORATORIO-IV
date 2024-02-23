@@ -29,13 +29,13 @@ export class LoginComponent {
     
   }
 
-  getPerson(user: string, password: string){
-    this.databaseService.getPersonForUsername(user)
+  getPerson(email: string, password: string){
+    this.databaseService.getPersonForEmail(email)
         .subscribe(
           res => {
             console.log(res);
             this.person = res as Person;
-            if(res!=null && (this.person.user_name === user && this.person.password == password ))
+            if(res!=null && (this.person.email === email && this.person.password == password ))
             {
               localStorage.setItem("login","true");
               localStorage.setItem("idUser",this.person.id_person!.toString());

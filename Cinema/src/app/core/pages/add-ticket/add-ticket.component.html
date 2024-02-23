@@ -2,7 +2,7 @@
   <h1>Confirmation of the transaction</h1>
     <div class="card">
       <div class="card-body">
-        <h2> The amount of the transaction is $5000</h2>
+        <h2> The amount of the transaction is {{function.price}}</h2>
           <button type="submit" class="btn btn-success btn-block" [routerLink]="['/']" (click)="saveNewTicket()" onclick="alert('Your ticket has been uploaded successfully');">
             Confirm your purchase
           </button>

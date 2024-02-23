@@ -18,6 +18,7 @@ export class MovieComponent implements OnInit {
   functions: Function[] = [];
   comments: CommentFormat[] = [];
   flag = false;
+  limitTicket = false;
 
   constructor(private dataBaseService: DataBaseService, private tmdbService: TmdbService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -27,6 +28,8 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.flag = localStorage.getItem("idUser") != null?true:false;
+    this.limitTicket = localStorage.getItem("limitTicket") != null?true:false;
+
     console.log(this.flag);
     const { id } = this.activatedRoute.snapshot.params;
     console.log(id);
@@ -61,6 +64,16 @@ export class MovieComponent implements OnInit {
           err => console.log(err)
         )
       this.getComments();
+    }
+
+    limitTickets(){
+      this.dataBaseService.getTicket(localStorage.getItem("idUser")).subscribe(res=>{
+        if(res != null){
+          localStorage.setItem("limitTicket","true");
+        }else{
+          localStorage.setItem("limitTicket","false");
+        }
+      })
     }
     getComments(){
       const params = this.activatedRoute.snapshot.params;

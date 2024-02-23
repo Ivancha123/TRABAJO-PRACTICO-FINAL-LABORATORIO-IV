@@ -5,16 +5,31 @@
             <th scope="col">Function Date</th>
             <th scope="col">Function Hour</th>
             <th scope="col">Room Name</th>
+            <th scope="col">Combo</th>
             <th scope="col">Total Price</th>
+            <th scope="col">Add Combo</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ticket of tickets"><!--*ngFor-->
-            <td>{{ticket.document}}</td><!--Function-->
-            <td>{{ticket.function_date}}</td><!--Seat-->
-            <td>{{ticket.function_hour}}</td><!--Date-->
-            <td>{{ticket.room_name}}</td><!--Hour-->
-            <td>{{ticket.mount}}</td><!--Price-->
+        <tr *ngFor="let ticketFormatCombo of ticketsFormatCombo"><!--*ngFor-->
+            <td>{{ticketFormatCombo.document}}</td><!--Function-->
+            <td>{{ticketFormatCombo.function_date}}</td><!--Seat-->
+            <td>{{ticketFormatCombo.function_hour}}</td><!--Date-->
+            <td>{{ticketFormatCombo.room_name}}</td><!--Hour-->
+            <td>{{ticketFormatCombo.combo}}</td><!--Combo-->
+            <td>{{ticketFormatCombo.mount}}</td><!--Price-->
+            <td></td>
+        </tr>
+        <tr *ngFor="let ticketFormat of ticketsFormat"><!--*ngFor-->
+            <td>{{ticketFormat.document}}</td><!--Function-->
+            <td>{{ticketFormat.function_date}}</td><!--Seat-->
+            <td>{{ticketFormat.function_hour}}</td><!--Date-->
+            <td>{{ticketFormat.room_name}}</td><!--Hour-->
+            <td></td>
+            <td>{{ticketFormat.mount}}</td><!--Price-->
+            <td><a [routerLink]="['ticketId/', ticketFormat.id_ticket]" class="btn btn-info btn-block">
+                Add
+              </a></td>
         </tr>
     </tbody>
 </table>
