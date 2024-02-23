@@ -31,8 +31,8 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/persons/${id}`);
   }
 
-  getPersonForUsername(username: string|undefined) {
-    return this.http.get(`${this.API_URI}/persons/login/${username}`);
+  getPersonForEmail(email: string|undefined) {
+    return this.http.get(`${this.API_URI}/persons/login/${email}`);
   }
 
   deletePerson(id: number|undefined) {
@@ -155,7 +155,11 @@ export class DataBaseService {
     return this.http.get<Ticket[]>(`${this.API_URI}/tickets/user/${id}`);
   }
 
-  getTicket(id: string) {
+  getTicketsFormatComboByUser(id: string|null) : Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.API_URI}/tickets/combo/user/${id}`);
+  }
+
+  getTicket(id: string | null) {
     return this.http.get(`${this.API_URI}/tickets/${id}`);
   }
 

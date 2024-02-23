@@ -9,7 +9,7 @@ class TicketController {
     }
 
     public async listFormat(req: Request, res: Response){
-        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount as mount from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie');
+        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount + (c.price * ct.amount) as mount, c.combo_description as combo from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie inner join combos_tickets ct on t.id_ticket = ct.id_ticket inner join combos c on ct.id_combo = c.id_combo');
         res.json(rows[0]);
     }
 
@@ -24,7 +24,13 @@ class TicketController {
 
     public async listFormatByUser(req: Request, res: Response){
         const {id} = req.params;
-        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount as mount from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie where t.id_person = ?',[id]);
+        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount as mount from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie left join combos_tickets ct on t.id_ticket = ct.id_ticket where ct.id_ticket is null and t.id_person = ?',[id]);
+        res.json(rows[0]);
+    }
+
+    public async listFormatComboByUser(req: Request, res: Response){
+        const {id} = req.params;
+        const rows = await pool.query<RowDataPacket[][]>('select t.id_ticket as id_ticket, p.document as document, f.function_date as function_date, f.function_hour as function_hour, r.room_name as room_name, m.title as title, t.mount + (c.price * ct.amount) as mount, c.combo_description as combo from tickets t inner join persons p on t.id_person = p.id_person inner join functions f on t.id_function = f.id_function inner join rooms r on f.id_room = r.id_room inner join movies m on f.id_movie = m.id_movie inner join combos_tickets ct on t.id_ticket = ct.id_ticket inner join combos c on ct.id_combo = c.id_combo where t.id_person = ?',[id]);
         res.json(rows[0]);
     }
 

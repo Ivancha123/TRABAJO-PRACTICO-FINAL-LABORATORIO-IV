@@ -28,7 +28,7 @@ export class AddComboTicketComponent implements OnInit {
 
   saveNewComboTicket(amount: string, combo: string) {
     const params = this.activatedRoute.snapshot.params;
-    this.combosTickets.id_ticket = params["ticketId"];
+    this.combosTickets.id_ticket = params["id_ticket"];
     this.combosTickets.amount = Number(amount);
     this.combosTickets.id_combo = Number(combo);
     this.databaseService.saveComboTicket(this.combosTickets)

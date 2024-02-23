@@ -1,3 +1,15 @@
+<h1>Your Card´s</h1>
+<div class="content">
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let card of cards">
+          Card Number: {{card.number}}
+          <a [routerLink]="['cardId/', card.id_card]" class="btn btn-info btn-block">
+            SELECCIONAR
+          </a>
+      </li>
+  </ul>
+</div>
+
 <div class="col-md-4 offset-md-2" id="content">
   <h1>Charge a new Card</h1>
     <div class="card">
@@ -16,14 +28,4 @@
     </div>
 </div>
 
-        <h1>Your Card´s</h1>
-<div class="content">
-  <ul class="list-group">
-      <li class="list-group-item" *ngFor="let card of cards">
-          Seat: {{card.number}}
-          <a [routerLink]="['cardId/', card.id_card]" class="btn btn-info btn-block">
-            SELECCIONAR
-          </a>
-      </li>
-  </ul>
-</div>
+

@@ -83,7 +83,7 @@ const routes: Routes = [  {
   component: AddTicketComponent
 },
 {
-  path: 'movie/:id_movie/functionId/:id_function/seatId/:id_seat/cardId/:id_card/ticketId/:id_ticket',
+  path: 'my-tickets/ticketId/:id_ticket',
   component: AddComboTicketComponent
 },
 {

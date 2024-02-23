@@ -10,7 +10,7 @@ class PersonRoutes {
     config() {
         this.router.get('/', personController_1.personController.list);
         this.router.get('/:id', personController_1.personController.getOne);
-        this.router.get('/login/:user_name', personController_1.personController.getByUsername);
+        this.router.get('/login/:email', personController_1.personController.getByEmail);
         this.router.post('/', personController_1.personController.create);
         this.router.put('/:id', personController_1.personController.update);
         this.router.delete('/:id', personController_1.personController.delete);

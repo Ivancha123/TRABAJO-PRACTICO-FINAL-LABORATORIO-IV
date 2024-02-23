@@ -55,6 +55,6 @@
             <input type="text" class="form-control" id="phone" name="phone" #phoneSlector [(ngModel)]="person.phone">
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="saveNewPerson()">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="saveNewPerson(emailSelector.value)">Submit</button>
     </form>
 </div>

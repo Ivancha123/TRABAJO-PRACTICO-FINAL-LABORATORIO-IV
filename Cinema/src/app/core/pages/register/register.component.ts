@@ -33,8 +33,12 @@ export class RegisterComponent implements OnInit{
     
   }
 
-  saveNewPerson() {
-    this.databaseService.savePerson(this.person)
+  saveNewPerson(email: string | undefined) {
+    this.databaseService.getPersonForEmail(email).subscribe(res=>{
+      if(res != null){
+        alert('That email already exist, try another');
+      }else{
+        this.databaseService.savePerson(this.person)
       .subscribe(
         res => {
           console.log(res);
@@ -42,6 +46,9 @@ export class RegisterComponent implements OnInit{
         },
         err => console.error(err)
       )
+     
+      }
+    }) 
   }
 
   onSubmit() {

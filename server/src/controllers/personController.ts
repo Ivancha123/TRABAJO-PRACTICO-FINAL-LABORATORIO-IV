@@ -16,9 +16,9 @@ class PersonController {
         }
         res.status(404).json({text: 'The person doesn´t exists'});
     }
-    public async getByUsername(req: Request, res: Response): Promise<any>{
-        const {user_name} = req.params;
-        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM persons WHERE user_name = ?',[user_name]);
+    public async getByEmail(req: Request, res: Response): Promise<any>{
+        const {email} = req.params;
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * FROM persons WHERE email = ?',[email]);
         if(rows.length > 0){
             return res.json(rows[0][0]);
         }

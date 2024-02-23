@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 import { DataBaseService } from '../../services/database/database.service';
 import { Router } from '@angular/router';
-import { TicketFormat } from '../../interfaces/database.module';
+import { TicketFormatCombo, TicketFormat } from '../../interfaces/database.module';
 
 @Component({
   selector: 'app-my-tickets',
@@ -12,19 +12,27 @@ export class MyTicketsComponent {
 
   @HostBinding('class') classes = 'row';
   
-  tickets: TicketFormat[] = [];
+  ticketsFormatCombo: TicketFormatCombo[] = [];
+  ticketsFormat: TicketFormat[] = [];
+
 
   constructor(private databaseService: DataBaseService, private router:Router) { }
 
 
   ngOnInit() {
-    this.getTickets();
+    this.getTicketsFormatCombo();
+    this.getTicketsFormat();
   }
 
-  getTickets() {
-    this.databaseService.getTicketsFormatByUser(localStorage.getItem("idUser")).subscribe((response) => {
-      this.tickets = response;
-      console.log(this.tickets);
+  getTicketsFormat() {
+    this.databaseService.getTicketsFormatByUser(localStorage.getItem("idUser")).subscribe((response)=>{
+      this.ticketsFormat = response;
+    })
+  }
+  getTicketsFormatCombo() {
+    this.databaseService.getTicketsFormatComboByUser(localStorage.getItem("idUser")).subscribe((response) => {
+      this.ticketsFormatCombo = response;
+      console.log(this.ticketsFormatCombo);
     });
   }
   

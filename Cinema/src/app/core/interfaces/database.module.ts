@@ -86,6 +86,16 @@ export interface TicketFormat {
     mount?: number;
 };
 
+export interface TicketFormatCombo {
+    id_ticket?: number;
+    document?: number;
+    function_date?: Date;
+    function_hour?: Time;
+    room_name?: string;
+    mount?: number;
+    combo?: string;
+};
+
 export interface ComboTicket {
     id_combo?: number;
     id_ticket?: number;
