@@ -1,0 +1,28 @@
+<div class="col-md-5" id="content">
+  <form class="form-inline my-2 my-lg-0" id="form">
+    <div id="advise"></div>
+    <div class="mb-3">
+      <label>Seat Room: </label>
+      <select class="form-select" id="comboBox" #roomSelect aria-label="Default select example">
+        <option *ngIf="rooms.length === 0" value="-1">Not Found Rooms Availables!</option>
+        <option *ngFor="let room of rooms" value="{{room.id_room}}">{{room.id_room}}->{{room.room_name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="seatLetter" class="form-label">Seat Letter</label>
+      <input type="text" name="seatLetter" #letterSelect [(ngModel)]="seat.seat_letter" placeholder="Enter Seat Letter" class="form-control"
+        id="seatLetter">
+    </div>
+
+    <div class="mb-3">
+      <label for="seatNumber" class="form-label">Seat Number</label>
+      <input type="number" name="seatNumber" #numberSelect [(ngModel)]="seat.seat_number" placeholder="Enter Seat Number" class="form-control"
+        id="seatNumber">
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block" (click)="saveNewSeat(roomSelect.value,letterSelect.value,numberSelect.value)">
+      Save
+    </button>
+
+  </form>
+</div>

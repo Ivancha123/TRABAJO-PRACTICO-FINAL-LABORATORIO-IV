@@ -163,6 +163,10 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/tickets/${id}`);
   }
 
+  getTicketForFunctionId(id: number|undefined) {
+    return this.http.get(`${this.API_URI}/tickets/function/${id}`);
+  }
+
   deleteTicket(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/tickets/${id}`);
   }

@@ -34,7 +34,10 @@ export class AddCommentComponent implements OnInit {
   saveNewComment(comment: string) {
     this.comment.id_movie = this.id;
     let date = new Date();
-    this.comment.date = String(date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay());
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    this.comment.date = `${day}/${month}/${year}`;
     this.comment.id_person = Number(localStorage.getItem("idUser"));
     console.log(this.comment.id_person);
     if(comment != ''){

@@ -14,6 +14,7 @@ class TicketRoutes {
         this.router.get('/user/:id', ticketController.listFormatByUser);
         this.router.get('/combo/user/:id', ticketController.listFormatComboByUser);
         this.router.get('/:id', ticketController.getOne);
+        this.router.get('/function/:id', ticketController.getTicketForFunctionId);
         this.router.post('/', ticketController.create);
         this.router.put('/:id',ticketController.update);
         this.router.delete('/:id',ticketController.delete);

@@ -41,13 +41,15 @@ export class AddCardComponent implements OnInit {
     }
   }
 
-  saveNewCard() {
+  saveNewCard(number: string) {
     delete this.card.id_card;
     this.card.id_person = 1;
+    this.card.number = Number(number)
     this.databaseService.saveCard(this.card)
       .subscribe(
         res => {
           console.log(res);
+          alert('Your card has been succesfully saved');
         },
         err => console.error(err)
       )

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { Function, Room, xMovie } from 'src/app/core/interfaces/database.module';
+import { Function, Room, Seat, xMovie } from 'src/app/core/interfaces/database.module';
 import { DataBaseService } from 'src/app/core/services/database/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DatePipe, Time } from '@angular/common';
@@ -15,6 +15,11 @@ export class AddFunctionComponent implements OnInit {
 
   movies: xMovie[] = [];
   rooms: Room[] = [];
+  room: Room = {
+    id_room: 0,
+    room_name: '',
+    capacity: 0,
+  }
 
   function: Function = {
     id_function: 0,
@@ -56,8 +61,7 @@ export class AddFunctionComponent implements OnInit {
       adviseElement!.style.color = 'red';
       return;
     }
-
-    this.function.function_date = function_date.getFullYear()+ '-'+function_date.getMonth()+'-'+function_date.getDay();
+    this.function.function_date = function_date.getFullYear()+ '-'+(function_date.getMonth()+ 1)+'-'+function_date.getDate();
     this.function.function_hour = function_hour;
 
     this.databaseService.saveFunction(this.function)
