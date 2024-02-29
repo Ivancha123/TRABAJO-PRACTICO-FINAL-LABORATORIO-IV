@@ -70,7 +70,7 @@
                                 <!--Put Date-->
                                 {{function.function_date}}
                                 <div id="hours"><!--Aqui NO va *ngFOr-->
-                                    <div id="hour" [hidden]="haveFunction === false" *ngIf="limitTicket === true"><!--Aqui SI va *ngFOr-->
+                                    <div id="hour" [hidden]="haveFunction === false"><!--Aqui SI va *ngFOr-->
                                         <a  [routerLink]="['functionId/', function.id_function]"
                                             class="btn btn-info btn-block"><!--Put Hour-->
                                             {{function.function_hour}}

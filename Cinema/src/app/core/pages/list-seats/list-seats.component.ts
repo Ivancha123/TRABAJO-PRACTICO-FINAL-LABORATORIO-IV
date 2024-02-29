@@ -33,9 +33,7 @@ export class ListSeatComponent implements OnInit {
     this.databaseService.getFunction(idFunction).subscribe((response) => {
       this.function = response as Function;
       console.log(this.function);
-      let idRoom = this.function.id_room?.toString();
-      console.log(idRoom);
-      this.databaseService.getSeatForRoom(idRoom).subscribe((response) => {
+      this.databaseService.getSeatForRoom(idFunction).subscribe((response) => {
         this.seats = response;
         console.log(response);
       });

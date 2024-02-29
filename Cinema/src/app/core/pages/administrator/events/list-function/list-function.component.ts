@@ -13,7 +13,6 @@ export class ListFunctionComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
   
-  
   functions: FunctionFormat[] = [];
 
   constructor(private databaseService: DataBaseService, private router:Router) { }
@@ -31,7 +30,11 @@ export class ListFunctionComponent implements OnInit {
   }
 
   deleteFunction(id: number|undefined) {
-    this.databaseService.deleteFunction(id)
+    this.databaseService.getTicketForFunctionId(id).subscribe(res=>{
+      if(res != null){
+        alert('The function has a ticket associated');
+      }else{
+        this.databaseService.deleteFunction(id)
       .subscribe(
         res => {
           console.log(res);
@@ -39,6 +42,9 @@ export class ListFunctionComponent implements OnInit {
         },
         err => console.error(err)
       )
+      }
+    })
+    
   }
 
 }

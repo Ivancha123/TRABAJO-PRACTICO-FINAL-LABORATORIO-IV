@@ -1,9 +1,9 @@
 <div class="content">
   <form>
   <div class="mb-3">
-    <label>Room: </label>
+    <label>Combo: </label>
     <select class="form-select" id="comboBox" #comboSelect aria-label="Default select example">
-      <option *ngIf="combos.length === 0" value="-1">Not Found Rooms Availables!</option>
+      <option *ngIf="combos.length === 0" value="-1">Not Found Combos Availables!</option>
       <option *ngFor="let combo of combos" value="{{combo.id_combo}}">{{combo.combo_description}}->${{combo.price}}</option>
     </select>
     <input type="number" #amountSelect>

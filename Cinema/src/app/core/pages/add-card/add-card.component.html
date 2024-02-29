@@ -10,22 +10,21 @@
   </ul>
 </div>
 
-<div class="col-md-4 offset-md-2" id="content">
-  <h1>Charge a new Card</h1>
-    <div class="card">
-      <div class="card-body">
-        <form action="">
-          <div class="mb-3">
-            <label for="number" class="form-label">Card Number</label>
-            <input type="text" name="number" [(ngModel)]="card.number" placeholder="Enter Card Number"
-              class="form-control" id="number" autofocus>
-          </div>
-          <button type="submit" class="btn btn-success btn-block" (click)="saveNewCard()" onclick="alert('Your card has been uploaded successfully');">
-            Save
-          </button>
-        </form>
-      </div>
+<div class="col-md-5" id="content">
+  <form class="form-inline my-2 my-lg-0" id="form">
+    <div id="advise"></div>
+    <div class="mb-3">
+      <label for="cardNumber" class="form-label">Card Number</label>
+      <input type="number" name="cardNumber" #cardNumberSelect [(ngModel)]="card.number" placeholder="Enter Card Number" class="form-control"
+        id="cardNumber">
     </div>
+
+    <button type="submit" class="btn btn-success btn-block" (click)="saveNewCard(cardNumberSelect.value)">
+      Save
+    </button>
+
+  </form>
 </div>
+
 
 

@@ -27,14 +27,14 @@ import { MovieComponent } from './core/pages/movie/movie.component';
 import { PosterGridComponent } from './core/pages/component/poster-grid/poster-grid.component';
 
 
-import { SeatFormComponent } from './core/pages/administrator/events/seats-add/seats-add.component';
-import { RoomFormComponent } from './core/pages/administrator/events/rooms-add/rooms-add.component';
+import { SeatFormComponent } from './core/pages/administrator/events/add-seats/add-seat.component';
+import { AddRoomComponent } from './core/pages/administrator/events/add-rooms/add-room.component';
 import { ListFunctionComponent } from './core/pages/administrator/events/list-function/list-function.component';
 
 import { DataBaseService } from './core/services/database/database.service';
 
-
 import { AdministratorComponent } from './core/pages/administrator/administrator.component';
+import { RoomsComponent } from './core/pages/administrator/rooms/rooms.component';
 import { FunctionsComponent } from './core/pages/administrator/functions/functions.component';
 import { CombosComponent } from './core/pages/administrator/combos/combos.component';
 import { StatisticsComponent } from './core/pages/administrator/statistics/statistics.component';
@@ -55,6 +55,7 @@ import { AddTicketComponent } from './core/pages/add-ticket/add-ticket.component
 import { ListTicketComponent } from './core/pages/administrator/events/list-tickets/list-ticket.component';
 import { AddCommentComponent } from './core/pages/add-comments/add-comment.component';
 import { AddComboTicketComponent } from './core/pages/add-combos-tickets/add-combo-ticket.component';
+import { SeatsComponent } from './core/pages/administrator/seats/seats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,7 @@ import { AddComboTicketComponent } from './core/pages/add-combos-tickets/add-com
     UserProfileComponent,
     MyTicketsComponent,
     SeatFormComponent,
-    RoomFormComponent,
+    AddRoomComponent,
     AddFunctionComponent,
     ListMoviesComponent,
     ListFunctionComponent,
@@ -99,6 +100,8 @@ import { AddComboTicketComponent } from './core/pages/add-combos-tickets/add-com
     ListTicketComponent,
     AddCommentComponent,
     AddComboTicketComponent,
+    RoomsComponent,
+    SeatsComponent
   ],
   imports: [
     HttpClientModule,

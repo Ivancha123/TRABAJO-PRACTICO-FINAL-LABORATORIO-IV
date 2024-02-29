@@ -1,0 +1,15 @@
+<div class="col-md-5" id="content">
+  <form class="form-inline my-2 my-lg-0" id="form">
+    <div id="advise"></div>
+    <div class="mb-3">
+      <label for="roomName" class="form-label">Room Name</label>
+      <input type="name" name="name" #nameSelect [(ngModel)]="room.room_name" placeholder="Enter Room Name" class="form-control"
+        id="roomName">
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block" (click)="saveNewRoom(nameSelect.value)">
+      Save
+    </button>
+
+  </form>
+</div>

@@ -9,6 +9,7 @@ CREATE TABLE persons (
   phone varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   born varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
   PRIMARY KEY (id_person)
 );
 
@@ -43,8 +44,8 @@ DESCRIBE rooms;
 
 CREATE TABLE functions (
   id_function int NOT NULL AUTO_INCREMENT,
-  function_date date NOT NULL,
-  function_hour time NOT NULL,
+  function_date varchar(255) NOT NULL,
+  function_hour varchar(255) NOT NULL,
   id_room int NOT NULL,
   id_movie int NOT NULL,
   price double NOT NULL,
@@ -57,7 +58,7 @@ DESCRIBE functions;
 
 CREATE TABLE cards (
   id_card int NOT NULL AUTO_INCREMENT,
-  number int NOT NULL,
+  number varchar(255) NOT NULL,
   id_person int NOT NULL,
   PRIMARY KEY (id_card),
   FOREIGN KEY (id_person) REFERENCES persons (id_person)
@@ -70,7 +71,7 @@ CREATE TABLE seats (
   id_room int NOT NULL,
   seat_letter varchar(1) NOT NULL,
   seat_number int NOT NULL,
-  seat_status boolean,
+  seat_status tinyint(1),
   PRIMARY KEY (id_seat),
   FOREIGN KEY (id_room) REFERENCES rooms (id_room)
 );
@@ -108,7 +109,7 @@ create table comments (
 	id_comment int NOT NULL AUTO_INCREMENT,
 	id_person int NOT NULL,
 	id_movie int NOT NULL,
-	date date NOT NULL,
+	date varchar(255) NOT NULL,
 	comment varchar(255) NOT NULL,
 	PRIMARY KEY (id_comment),
 	FOREIGN KEY (id_person) REFERENCES persons (id_person),
