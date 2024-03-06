@@ -20,12 +20,41 @@
     #form {
         border-radius: 20px;
     }
+    .a{
+        background-image: '../../../../assets/credit-card.png';
+    }
 
+    
     /*
     .search {
         background-color: variables.$primary-blackin-color;
         margin: 20px;
         width: auto;
     }
+
+    
 */
+}
+
+.table{
+    thead{
+        tr{
+            th{
+                background-color: variables.$primary-blackin-color;
+                border-left: 1px solid variables.$primary-black-color;
+            }
+        }
+    }
+    tbody{
+        tr{
+            th{
+                background-color: variables.$primary-blackin-color;
+                border-left: 1px solid variables.$primary-black-color;
+            }
+            td{
+                background-color: variables.$primary-lightin-color;
+                border-left: 1px solid variables.$primary-light-color;
+            }
+        }
+    }
 }

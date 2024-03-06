@@ -31,6 +31,16 @@ class RoomController {
             res.status(404).json({ text: 'The room doesn´t exists' });
         });
     }
+    getOneByName(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const rows = yield database_1.default.query('SELECT * FROM rooms WHERE room_name = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0][0]);
+            }
+            res.status(404).json({ text: 'The room doesn´t exists' });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO rooms set ?', [req.body]);

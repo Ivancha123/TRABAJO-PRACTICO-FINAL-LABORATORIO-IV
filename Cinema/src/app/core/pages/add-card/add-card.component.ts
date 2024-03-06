@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Card } from 'src/app/core/interfaces/database.module';
 import { DataBaseService } from 'src/app/core/services/database/database.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-card',
@@ -45,14 +46,21 @@ export class AddCardComponent implements OnInit {
     delete this.card.id_card;
     this.card.id_person = 1;
     this.card.number = Number(number)
-    this.databaseService.saveCard(this.card)
-      .subscribe(
-        res => {
-          console.log(res);
-          alert('Your card has been succesfully saved');
-        },
-        err => console.error(err)
-      )
+    if(number.length != 12){
+      alert('Your card number must be with 12 digits');
+    }else{
+      this.databaseService.saveCard(this.card)
+    .subscribe(
+      res => {
+        console.log(res);
+        alert('Your card has been succesfully saved');
+        
+      },
+      err => console.error(err)
+    )
+    }
+    
+    
   }
   getCards() {
     this.databaseService.getCards().subscribe((response) => {

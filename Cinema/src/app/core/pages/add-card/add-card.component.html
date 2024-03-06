@@ -1,15 +1,21 @@
 <h1>Your Card´s</h1>
-<div class="content">
-  <ul class="list-group">
-      <li class="list-group-item" *ngFor="let card of cards">
-          Card Number: {{card.number}}
-          <a [routerLink]="['cardId/', card.id_card]" class="btn btn-info btn-block">
-            SELECCIONAR
-          </a>
-      </li>
-  </ul>
-</div>
-
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">Card Number</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let card of cards"><!--*ngFor-->
+          <td><a class="a" [routerLink]="['cardId/', card.id_card]" class="btn btn-success btn-block">
+            <img src="../../../../assets/credit-card.png" width="50px" height="50px" alt="{{card.number}}"
+              class="">
+              {{card.number}} 
+            </a></td><!--Card-->
+      </tr>
+  </tbody>
+</table>
+<h1>Add a New Card</h1>
 <div class="col-md-5" id="content">
   <form class="form-inline my-2 my-lg-0" id="form">
     <div id="advise"></div>
