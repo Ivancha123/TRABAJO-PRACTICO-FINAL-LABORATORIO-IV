@@ -27,7 +27,11 @@ export class AddRoomComponent implements OnInit {
   saveNewRoom(room_name: string) {
     this.room.room_name = room_name;
     this.room.capacity = 250;
-    this.databaseService.saveRoom(this.room)
+    this.databaseService.getRoomForName(room_name).subscribe(res=>{
+      if(res!= null){
+        alert("There´s already a room with that name");
+      }else{
+        this.databaseService.saveRoom(this.room)
       .subscribe(
         res => {
           alert("Room saved");
@@ -36,6 +40,10 @@ export class AddRoomComponent implements OnInit {
         },
         err => console.error(err)
       )
+      }
+      
+    })
+    
   }
 
 }

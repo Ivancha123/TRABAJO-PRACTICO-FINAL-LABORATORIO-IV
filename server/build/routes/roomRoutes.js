@@ -9,6 +9,7 @@ class RoomRoutes {
     }
     config() {
         this.router.get('/', roomController_1.roomController.list);
+        this.router.get('/name/:id', roomController_1.roomController.getOneByName);
         this.router.get('/:id', roomController_1.roomController.getOne);
         this.router.post('/', roomController_1.roomController.create);
         this.router.put('/:id', roomController_1.roomController.update);

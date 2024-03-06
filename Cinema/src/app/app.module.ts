@@ -5,8 +5,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/shared/header/header.component';
@@ -110,7 +109,8 @@ import { SeatsComponent } from './core/pages/administrator/seats/seats.component
     BrowserAnimationsModule,
     MatSliderModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DataBaseService

@@ -19,6 +19,8 @@ export class SeatFormComponent implements OnInit {
     seat_number: 0,
   };
 
+  seatsAux: Seat [] = [];
+
   rooms: Room[] = [];
   room: Room = {
     id_room: 0,
@@ -35,11 +37,23 @@ export class SeatFormComponent implements OnInit {
   }
 
   saveNewSeat(id_room: string, seat_letter: string, seat_number: string) {
+    let flag = 0;
     this.seat.id_Room = Number(id_room);
     this.seat.seat_letter = seat_letter;
     this.seat.seat_number = Number(seat_number);
     this.seat.seat_status = 1;
-    this.databaseService.saveSeat(this.seat)
+    this.databaseService.getSeatForRoom2(id_room).subscribe(res=>{
+      this.seatsAux = res as Seat[];
+      console.log(this.seatsAux);
+      for (const seat of this.seatsAux) {
+        console.log(this.seat);
+        if(seat.seat_letter == this.seat.seat_letter && seat.seat_number === this.seat.seat_number){
+          flag = 1;
+        }
+      }
+      console.log(flag);
+      if(flag != 1){
+        this.databaseService.saveSeat(this.seat)
       .subscribe(
         res => {
           alert("Seat saved");
@@ -47,6 +61,13 @@ export class SeatFormComponent implements OnInit {
         },
         err => console.error(err)
       )
+        
+      }else{
+        alert('That seat already exist');
+      }
+      
+    })
+    
   }
 
   getRooms() {

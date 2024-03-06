@@ -37,11 +37,12 @@ export class AddTicketComponent implements OnInit {
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
     console.log(params);
+    this.databaseService.getFunction(params["id_function"]).subscribe(res =>{
+      this.function = res as Function;
+    })
   }
 
-  getFunctions(){
-    
-  }
+
   saveNewTicket() {
     const params = this.activatedRoute.snapshot.params;
     this.ticket.id_person = Number(localStorage.getItem("idUser"));

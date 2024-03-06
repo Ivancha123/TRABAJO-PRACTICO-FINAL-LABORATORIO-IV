@@ -101,6 +101,10 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/rooms/${id}`);
   }
 
+  getRoomForName(id: string){
+    return this.http.get(`${this.API_URI}/rooms/name/${id}`)
+  }
+
   deleteRoom(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/rooms/${id}`);
   }
@@ -213,6 +217,9 @@ export class DataBaseService {
 
   getSeatForRoom(id: string|undefined): Observable<Seat[]>{
     return this.http.get<Seat[]>(`${this.API_URI}/seats/room/${id}`);
+  }
+  getSeatForRoom2(id: string|undefined): Observable<Seat[]>{
+    return this.http.get<Seat[]>(`${this.API_URI}/seats/room2/${id}`);
   }
 
   deleteSeat(id: number|undefined) {
