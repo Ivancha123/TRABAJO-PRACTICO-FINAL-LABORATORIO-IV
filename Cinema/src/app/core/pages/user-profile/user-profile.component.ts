@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ThemeService } from '../../services/theme/theme.service';
 import { DataBaseService } from '../../services/database/database.service';
 import { Person } from '../../interfaces/database.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -50,7 +51,7 @@ export class UserProfileComponent {
     password: '',
   };
 
-  constructor(private themeService: ThemeService,private databaseService: DataBaseService) {
+  constructor(private themeService: ThemeService,private databaseService: DataBaseService, private router: Router) {
 
   }
 
@@ -79,6 +80,8 @@ export class UserProfileComponent {
       .subscribe(
         res => { 
           console.log(res);
+          alert('Your user has been updated');
+          this.router.navigate(['/']);
         },
         err => console.error(err)
       )

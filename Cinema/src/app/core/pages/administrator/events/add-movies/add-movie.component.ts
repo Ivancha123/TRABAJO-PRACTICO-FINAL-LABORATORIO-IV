@@ -34,11 +34,20 @@ export class AddMovieComponent implements OnInit {
       this.xmovie!.id_movie = movie.id;
       this.xmovie!.movie_status = 0;
       this.xmovie!.title = movie.title;
-      this.dbService.saveMovie(this.xmovie!).subscribe(res => {
-        console.log(res);
-      }, 
-      err => console.error(err)
-      );
+      this.dbService.getMovie(String(this.xmovie!.id_movie)).subscribe(res=>{
+        if(res!=null){
+          alert('The movie is already in the database');
+        }else{
+          this.dbService.saveMovie(this.xmovie!).subscribe(res => {
+            console.log(res);
+            alert('Your movie has been uploaded successfully');
+          }, 
+          err => console.error(err)
+          );
+        }
+        
+      })
+      
   }
  
   find(value: string) {
