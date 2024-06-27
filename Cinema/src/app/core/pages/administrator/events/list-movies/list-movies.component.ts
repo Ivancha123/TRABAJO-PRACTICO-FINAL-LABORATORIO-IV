@@ -16,7 +16,7 @@ export class ListMoviesComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   movies: xMovie[] = [];
-  movietmdb:Movie[] = [];
+  movietmdb: Movie[] = [];
   ready: boolean = false;
 
   constructor(private databaseService: DataBaseService, private router:Router,private tmdbService : TmdbService) { }

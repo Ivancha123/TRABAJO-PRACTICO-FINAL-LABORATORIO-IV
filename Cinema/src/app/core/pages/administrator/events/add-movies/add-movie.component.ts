@@ -27,7 +27,7 @@ export class AddMovieComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    
   }
   
   addMovie(movie: Movie){
@@ -55,6 +55,7 @@ export class AddMovieComponent implements OnInit {
     if(this.searchResult !== ''){
       this.tmdbService.searchMovie(this.searchResult).subscribe((response) =>{
         this.movies = response;
+        console.log(this.movies)
       })
     }
   }

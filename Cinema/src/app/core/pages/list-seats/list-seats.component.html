@@ -1,51 +1,14 @@
 <h1>Seat´s List</h1>
-  <table class="table">
-    <tbody>
-        <tr *ngFor="let seat of seats">
-          <div *ngIf="seat.seat_letter == 'A'">
+<div class="row" id="content">
+        <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let seat of seats">
+          <div id="card">
             <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
               <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
                   class="">
                   {{seat.seat_letter}}{{seat.seat_number}}
             </a></td>
           </div>
-        </tr>
-        <tr *ngFor="let seat of seats">
-          <div *ngIf="seat.seat_letter == 'B'">
-            <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
-              <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
-                  class="">
-                  {{seat.seat_letter}}{{seat.seat_number}}
-            </a></td>
-          </div>
-        </tr>
-        <tr *ngFor="let seat of seats">
-          <div *ngIf="seat.seat_letter == 'C'">
-            <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
-              <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
-                  class="">
-                  {{seat.seat_letter}}{{seat.seat_number}}
-            </a></td>
-          </div>
-        </tr>
-        <tr *ngFor="let seat of seats">
-          <div *ngIf="seat.seat_letter == 'D'">
-            <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
-              <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
-                  class="">
-                  {{seat.seat_letter}}{{seat.seat_number}}
-            </a></td>
-          </div>
-        </tr>
-        <tr *ngFor="let seat of seats">
-          <div *ngIf="seat.seat_letter == 'E'">
-            <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
-              <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
-                  class="">
-                  {{seat.seat_letter}}{{seat.seat_number}}
-            </a></td>
-          </div>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+    
+      </div>
 

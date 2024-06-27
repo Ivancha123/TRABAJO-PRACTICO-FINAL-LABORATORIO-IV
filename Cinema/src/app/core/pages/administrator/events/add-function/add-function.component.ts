@@ -55,7 +55,7 @@ export class AddFunctionComponent implements OnInit {
     this.function.id_movie = Number(id_movie);
     this.function.id_room = Number(id_room);
     this.function.price = Number(price);
-    if (!function_date! || !function_hour) {
+    if (!function_date || !function_hour) {
       const adviseElement = document.getElementById('advise');
       adviseElement!.textContent = 'Fecha no puede ser null';
       adviseElement!.style.color = 'red';

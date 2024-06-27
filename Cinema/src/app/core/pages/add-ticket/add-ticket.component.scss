@@ -9,6 +9,15 @@
     justify-content: center;
     margin: 0 auto;
 
+    .header {
+        margin: 50px;
+        padding: 20px;
+        border: 2px solid variables.$primary-blackest-color;
+        border-radius: 30px;
+        background-color: variables.$primary-lightin-color;
+        color: black;
+    }
+
     .card {
         background-color: variables.$primary-blackin-color;
         margin: 20px;
@@ -19,6 +28,21 @@
     }
     #form {
         border-radius: 20px;
+    }
+
+    .body-container {
+        .body-content {
+            h2 {
+                font-size: 30px;
+            }
+            p,
+            ul,
+            li {
+                font-size: 15px;
+                text-align: left;
+            }
+
+        }
     }
 
     /*
