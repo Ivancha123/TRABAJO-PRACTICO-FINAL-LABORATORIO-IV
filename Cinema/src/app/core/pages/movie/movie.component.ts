@@ -14,7 +14,7 @@ export class MovieComponent implements OnInit {
 
   haveFunction = false;
   movie?: MovieDetails;
-  cast: Cast[] = [];
+  cast: Cast[] | null = [];
   functions: Function[] = [];
   comments: CommentFormat[] = [];
   flag = false;

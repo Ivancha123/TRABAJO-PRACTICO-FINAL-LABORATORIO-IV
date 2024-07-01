@@ -55,16 +55,16 @@ export class AddFunctionComponent implements OnInit {
     this.function.id_movie = Number(id_movie);
     this.function.id_room = Number(id_room);
     this.function.price = Number(price);
-    if (!function_date! || !function_hour) {
+    if (!function_date || !function_hour) {
       const adviseElement = document.getElementById('advise');
-      adviseElement!.textContent = 'Fecha no puede ser null';
       adviseElement!.style.color = 'red';
       return;
     }
     this.function.function_date = function_date.getFullYear()+ '-'+(function_date.getMonth()+ 1)+'-'+function_date.getDate();
     this.function.function_hour = function_hour;
-
-    this.databaseService.saveFunction(this.function)
+    if(function_date != null && function_hour != null)
+      { 
+      this.databaseService.saveFunction(this.function)
       .subscribe(
         res => {
           console.log(res);
@@ -73,6 +73,9 @@ export class AddFunctionComponent implements OnInit {
         },
         err => console.error(err)
       )
+    }else{
+      alert("Date or Hour can´t be null");
+    }
   }
 
   updateFunction() {

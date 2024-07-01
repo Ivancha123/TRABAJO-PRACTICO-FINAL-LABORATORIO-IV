@@ -11,3 +11,17 @@ tr{
     flex-direction: row;
 }
 
+#content {
+    width: 100%;
+    
+    #card {
+        background-color: variables.$primary-blackin-color;
+        border-radius: 25px;
+        border: 1px solid variables.$primary-blacker-color;
+        margin: 20px;
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}

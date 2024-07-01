@@ -30,7 +30,10 @@ export class AddRoomComponent implements OnInit {
     this.databaseService.getRoomForName(room_name).subscribe(res=>{
       if(res!= null){
         alert("There´s already a room with that name");
-      }else{
+      }else if(room_name == ''){
+        alert("Room name can´t be null");
+      }
+      else{
         this.databaseService.saveRoom(this.room)
       .subscribe(
         res => {

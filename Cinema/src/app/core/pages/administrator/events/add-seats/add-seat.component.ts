@@ -52,18 +52,18 @@ export class SeatFormComponent implements OnInit {
         }
       }
       console.log(flag);
-      if(flag != 1){
+      if(seat_letter != '' && seat_number != '0'){
         this.databaseService.saveSeat(this.seat)
       .subscribe(
         res => {
-          alert("Seat saved");
+          alert('Seat saved');
           this.router.navigate(['/administrator']);
         },
         err => console.error(err)
       )
         
       }else{
-        alert('That seat already exist');
+        alert('Seat letter and number can´t be null');
       }
       
     })
