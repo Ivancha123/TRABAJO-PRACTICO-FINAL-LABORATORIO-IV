@@ -5,15 +5,15 @@
         
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <input name="text" [(ngModel)]="combos.combo_description" placeholder="Enter Description" class="form-control"
+          <input name="text" #descriptionSelect [(ngModel)]="combos.combo_description" placeholder="Enter Description" class="form-control"
             id="description">
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Price</label>
-          <input type="text" name="description" [(ngModel)]="combos.price" placeholder="Enter Price"
+          <input type="text" name="description" #priceSelect [(ngModel)]="combos.price" placeholder="Enter Price"
             class="form-control" id="price">
         </div>
-        <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateCombo() : saveNewCombo()">
+        <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateCombo() : saveNewCombo(descriptionSelect.value, priceSelect.value)">
           Save
         </button>
       </form>
