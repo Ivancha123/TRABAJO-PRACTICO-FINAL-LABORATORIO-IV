@@ -31,6 +31,16 @@ class CardController {
             res.status(404).json({ text: 'The card doesn´t exists' });
         });
     }
+    getForUserId(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const rows = yield database_1.default.query('SELECT * FROM cards WHERE id_person = ?', [id]);
+            if (rows.length > 0) {
+                return res.json(rows[0]);
+            }
+            res.status(404).json({ text: 'The card doesn´t exists' });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO cards set ?', [req.body]);

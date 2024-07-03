@@ -63,7 +63,8 @@ export class AddCardComponent implements OnInit {
     
   }
   getCards() {
-    this.databaseService.getCards().subscribe((response) => {
+    let id_person = localStorage.getItem("idUser");
+    this.databaseService.getCardForUserId(id_person).subscribe((response) => {
       this.cards = response;
       console.log(response);
     });
