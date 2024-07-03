@@ -78,16 +78,21 @@ export class AddFunctionComponent implements OnInit {
     }
   }
 
-  updateFunction() {
-    this.databaseService.updateFunction(this.function.id_function!, this.function)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.router.navigate(['/administrator']);
-        },
-        err => console.error(err)
-      )
-  }
+  updateFunction(id_movie: string, id_room: string, function_date: Date | null, function_hour: string, price: string) {
+    if(function_date != null && function_hour != null)
+      { 
+        this.databaseService.updateFunction(this.function.id_function!, this.function)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.router.navigate(['/administrator']);
+          },
+          err => console.error(err)
+        )
+      }else{
+        alert("Date or Hour can´t be null");
+      }
+    }
 
   getMovies() {
     this.databaseService.getMovies().subscribe((response) => {

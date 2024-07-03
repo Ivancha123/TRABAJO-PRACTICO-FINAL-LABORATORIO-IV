@@ -54,7 +54,8 @@ export class AddComboComponent implements OnInit {
     }
   }
 
-  updateCombo() {
+  updateCombo(description: string, price: string) {
+    if(description != '' && price != '0'){
     this.databaseService.updateCombo(this.combos.id_combo!, this.combos)
       .subscribe(
         res => { 
@@ -63,6 +64,8 @@ export class AddComboComponent implements OnInit {
         },
         err => console.error(err)
       )
+  }else{
+    alert("Description can´t be empty and price can´t be 0");
   }
-
+  }
 }

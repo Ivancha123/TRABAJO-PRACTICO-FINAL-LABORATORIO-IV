@@ -13,7 +13,7 @@
           <input type="text" name="description" #priceSelect [(ngModel)]="combos.price" placeholder="Enter Price"
             class="form-control" id="price">
         </div>
-        <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateCombo() : saveNewCombo(descriptionSelect.value, priceSelect.value)">
+        <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateCombo(descriptionSelect.value, priceSelect.value) : saveNewCombo(descriptionSelect.value, priceSelect.value)">
           Save
         </button>
       </form>

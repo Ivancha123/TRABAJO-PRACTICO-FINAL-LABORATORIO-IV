@@ -34,7 +34,7 @@
         id="price">
     </div>
 
-    <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateFunction() : saveNewFunction(movieSelect.value,roomSelect.value,dateSelect.valueAsDate,timeSelect.value,priceSelect.value)">
+    <button type="submit" class="btn btn-success btn-block" (click)="edit ? updateFunction(movieSelect.value,roomSelect.value,dateSelect.valueAsDate,timeSelect.value,priceSelect.value) : saveNewFunction(movieSelect.value,roomSelect.value,dateSelect.valueAsDate,timeSelect.value,priceSelect.value)">
       Save
     </button>
 

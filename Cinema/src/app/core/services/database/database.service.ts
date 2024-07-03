@@ -244,6 +244,11 @@ export class DataBaseService {
     return this.http.get<Card>(`${this.API_URI}/cards/${id}`);
   }
 
+  getCardForUserId(id: string|null): Observable<Card[]> {
+    return this.http.get<Card[]>(`${this.API_URI}/cards/userId/${id}`);
+  }
+  
+
   deleteCard(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/cards/${id}`);
   }
