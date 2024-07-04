@@ -17,7 +17,7 @@ export class AddCardComponent implements OnInit {
 
   card: Card = {
     id_card: 0,
-    number: 0,
+    number: '',
     id_person: 0,
   };
 
@@ -44,23 +44,27 @@ export class AddCardComponent implements OnInit {
 
   saveNewCard(number: string) {
     delete this.card.id_card;
-    this.card.id_person = 1;
-    this.card.number = Number(number)
-    if(number.length != 12){
-      alert('Your card number must be with 12 digits');
-    }else{
-      this.databaseService.saveCard(this.card)
-    .subscribe(
-      res => {
-        console.log(res);
-        alert('Your card has been succesfully saved');
-        
-      },
-      err => console.error(err)
-    )
-    }
-    
-    
+    let id_person = localStorage.getItem("idUser");
+    this.card.id_person = Number(id_person);
+    this.card.number = number
+    this.databaseService.getCardForNumber(number).subscribe(res =>{
+      if(number.length != 12){
+        alert('Your card number must be with 12 digits');
+      }else if(res != null ){
+        alert('The card has been already charged, try another');
+      }else{
+        this.databaseService.saveCard(this.card)
+      .subscribe(
+        res => {
+          console.log(res);
+          alert('Your card has been succesfully saved');
+          location.reload();
+          
+        },
+        err => console.error(err)
+      )
+      }
+    })
   }
   getCards() {
     let id_person = localStorage.getItem("idUser");
