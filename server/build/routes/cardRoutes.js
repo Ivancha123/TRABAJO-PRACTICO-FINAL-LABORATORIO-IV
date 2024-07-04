@@ -11,6 +11,7 @@ class CardRoutes {
         this.router.get('/', cardController_1.cardController.list);
         this.router.get('/:id', cardController_1.cardController.getOne);
         this.router.get('/userId/:id', cardController_1.cardController.getForUserId);
+        this.router.get('/number/:id', cardController_1.cardController.getByNumber);
         this.router.post('/', cardController_1.cardController.create);
         this.router.put('/:id', cardController_1.cardController.update);
         this.router.delete('/:id', cardController_1.cardController.delete);

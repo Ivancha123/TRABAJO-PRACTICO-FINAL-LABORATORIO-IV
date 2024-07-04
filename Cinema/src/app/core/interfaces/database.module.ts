@@ -56,7 +56,7 @@ export interface FunctionFormat {
 
 export interface Card {
     id_card?: number;
-    number?: number;
+    number?: string;
     id_person?: number;
 };
 
