@@ -15,6 +15,12 @@ export class ListFunctionComponent implements OnInit {
   
   functions: FunctionFormat[] = [];
 
+  date = new Date();
+  day = this.date.getDate();
+  month = this.date.getMonth() + 1;
+  year = this.date.getFullYear();
+  fullDate = `${this.year}-${this.month}-${this.day}`;
+
   constructor(private databaseService: DataBaseService, private router:Router) { }
 
 

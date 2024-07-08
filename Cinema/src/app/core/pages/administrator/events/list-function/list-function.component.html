@@ -17,11 +17,11 @@
           <td>{{function.function_date}}</td><!--Date-->
           <td>{{function.function_hour}}</td><!--Hour-->
           <td>{{function.price}}</td><!--Price-->
-          <td><button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
+          <td *ngIf="fullDate != function.function_date"><button class="btn btn-danger" (click)="deleteFunction(function.id_function)">
             <i class="far fa-trash-alt">DELETE</i>
           </button>
           </td><!--Delete-->
-          <td><a [routerLink]="['function/edit', function.id_function]" class="btn btn-info btn-block">
+          <td *ngIf="fullDate != function.function_date"><a [routerLink]="['function/edit', function.id_function]" class="btn btn-info btn-block">
             EDIT
           </a></td><!--Edit-->
       </tr>
