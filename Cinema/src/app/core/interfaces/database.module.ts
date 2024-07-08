@@ -47,8 +47,8 @@ export interface Function {
 
 export interface FunctionFormat {
     id_function?: number;
-    function_date?: Date;
-    function_hour?: Time;
+    function_date?: string;
+    function_hour?: string;
     room_name?: string;
     title?: string;
     price?: number;

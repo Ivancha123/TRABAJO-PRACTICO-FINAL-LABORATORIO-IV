@@ -189,7 +189,7 @@ export class DataBaseService {
     return this.http.get(`${this.API_URI}/combos-tickets`);
   }
 
-  getComboTicket(id: string) {
+  getComboTicket(id: number|undefined) {
     return this.http.get(`${this.API_URI}/combos-tickets/${id}`);
   }
 

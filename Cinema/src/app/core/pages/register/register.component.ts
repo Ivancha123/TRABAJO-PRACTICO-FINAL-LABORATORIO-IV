@@ -33,7 +33,10 @@ export class RegisterComponent implements OnInit{
     
   }
 
-  saveNewPerson(email: string | undefined) {
+  saveNewPerson(username: string, lastname: string, password: string, document: string, born: string, email: string | undefined, genre: string, phone: string) {
+    if(username != '' && lastname != '' && password != '' && document != '' && born != '' && email != '' && genre != '' && phone != ''){
+
+    
     this.databaseService.getPersonForEmail(email).subscribe(res=>{
       if(res != null){
         alert('That email already exist, try another');
@@ -48,7 +51,10 @@ export class RegisterComponent implements OnInit{
       )
      
       }
-    }) 
+    })
+    }else{
+      alert("Data can´t be empty");
+    } 
   }
 
   onSubmit() {

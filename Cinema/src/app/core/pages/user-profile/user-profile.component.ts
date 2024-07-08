@@ -73,10 +73,13 @@ export class UserProfileComponent {
         err => console.error(err)
     )
   }
-  updatePerson() {
+  updatePerson(document: string, username: string, lastname: string, email: string, password: string, genre: string, phone: string) {
+    if(document != '' && username != '' && lastname != '' && email != '' && password != '' && genre != '' && phone != ''){
     this.person.id_person = Number(localStorage.getItem("idUser"));
-    this.person.born = "2001-03-23T03:00:00.000Z";
-    this.databaseService.updatePerson(this.person.id_person, this.person)
+    this.databaseService.getPerson(localStorage.getItem("idUser")?.toString()).subscribe(res=>{
+      this.gPerson = res as Person;
+      this.person.born = this.gPerson.born;
+      this.databaseService.updatePerson(this.person.id_person, this.person)
       .subscribe(
         res => { 
           console.log(res);
@@ -85,6 +88,11 @@ export class UserProfileComponent {
         },
         err => console.error(err)
       )
+    })
+    
+  }else{
+    alert('Data can´t be empty');
+  }
   }
 
 }

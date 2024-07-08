@@ -32,6 +32,12 @@ export class AddFunctionComponent implements OnInit {
 
   edit: boolean = false;
 
+  date = new Date();
+  day = this.date.getDate();
+  month = this.date.getMonth() + 1;
+  year = this.date.getFullYear();
+  fullDate = `${this.year}-${this.month}-${this.day}`;
+
   constructor(private databaseService: DataBaseService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -55,27 +61,37 @@ export class AddFunctionComponent implements OnInit {
     this.function.id_movie = Number(id_movie);
     this.function.id_room = Number(id_room);
     this.function.price = Number(price);
+    const params = this.activatedRoute.snapshot.params;
+
     if (!function_date || !function_hour) {
-      const adviseElement = document.getElementById('advise');
-      adviseElement!.style.color = 'red';
-      return;
+      return
     }
-    this.function.function_date = function_date.getFullYear()+ '-'+(function_date.getMonth()+ 1)+'-'+function_date.getDate();
+    this.function.function_date = String(function_date.getFullYear()+ '-'+(function_date.getMonth()+ 1)+'-'+(function_date.getDate()+1));
     this.function.function_hour = function_hour;
-    if(function_date != null && function_hour != null)
-      { 
-      this.databaseService.saveFunction(this.function)
-      .subscribe(
-        res => {
-          console.log(res);
-          alert("Function saved");
-          this.router.navigate(['/administrator']);
-        },
-        err => console.error(err)
-      )
-    }else{
-      alert("Date or Hour can´t be null");
-    }
+    this.databaseService.getTicketForFunctionId(params['id']).subscribe(res=>{
+      if(res!=null){
+        alert("You can´t edit this function, there´s a ticket associated");
+        this.router.navigate(['/administrator']);
+      }else{
+        if(function_date != null && function_hour != null && this.function.function_date != this.fullDate)
+          { 
+          this.databaseService.saveFunction(this.function)
+          .subscribe(
+            res => {
+              console.log(res);
+              alert("Function saved");
+              this.router.navigate(['/administrator']);
+            },
+            err => console.error(err)
+          )
+        }else if(this.function.function_date == this.fullDate){
+          alert("The date can´t be today");
+        }else{
+          alert("Date or Hour can´t be null");
+        }
+      }
+    })
+    
   }
 
   updateFunction(id_movie: string, id_room: string, function_date: Date | null, function_hour: string, price: string) {

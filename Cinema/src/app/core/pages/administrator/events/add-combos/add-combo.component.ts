@@ -55,17 +55,27 @@ export class AddComboComponent implements OnInit {
   }
 
   updateCombo(description: string, price: string) {
-    if(description != '' && price != '0'){
-    this.databaseService.updateCombo(this.combos.id_combo!, this.combos)
-      .subscribe(
-        res => { 
-          console.log(res);
-          this.router.navigate(['/administrator']);
-        },
-        err => console.error(err)
-      )
-  }else{
-    alert("Description can´t be empty and price can´t be 0");
-  }
+    const params = this.activatedRoute.snapshot.params;
+    this.databaseService.getComboTicket(params['id']).subscribe(res=>{
+      if(res != null){
+        alert("You can´t edit this combo, there´s a ticket associated");
+        this.router.navigate(['/administrator']);
+      }else{
+        if(description != '' && price != '0' && price != ''){
+          this.databaseService.updateCombo(this.combos.id_combo!, this.combos)
+            .subscribe(
+              res => { 
+                console.log(res);
+                this.router.navigate(['/administrator']);
+              },
+              err => console.error(err)
+            )
+        }else{
+          alert("Description can´t be empty and price can´t be 0");
+        }
+      }
+    })
+
+    
   }
 }

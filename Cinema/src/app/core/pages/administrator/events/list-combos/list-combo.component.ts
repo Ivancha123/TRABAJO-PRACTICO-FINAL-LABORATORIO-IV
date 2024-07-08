@@ -30,14 +30,22 @@ export class ListComboComponent implements OnInit {
   }
 
   deleteCombo(id: number|undefined) {
-    this.databaseService.deleteCombo(id)
+    this.databaseService.getComboTicket(id).subscribe((res)=>{
+      if(res != null){
+        alert('The combo has a ticket associated');
+      }else{
+      this.databaseService.deleteCombo(id)
       .subscribe(
         res => {
           console.log(res);
           this.getCombos();
+          location.reload();
         },
         err => console.error(err)
       )
+      }
+    })
+    
   }
 
 }
