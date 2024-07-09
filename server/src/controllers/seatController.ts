@@ -36,8 +36,10 @@ class SeatController {
     }
 
     public async getSeatByData(req: Request, res: Response): Promise<any>{
-        const {id} = req.params;
-        const rows = await pool.query<RowDataPacket[][]>('SELECT * from seats where id_room = ? AND seat_number = ? AND seat_letter = ?',[id, id, id]);
+        const {idRoom} = req.params;
+        const {seat_letter} = req.params;
+        const {seat_number} = req.params;
+        const rows = await pool.query<RowDataPacket[][]>('SELECT * from seats where id_room = ? AND seat_number = ? AND seat_letter = ?',[idRoom, seat_letter, seat_number]);
         if(rows.length > 0){
             return res.json(rows[0][0]);
         }

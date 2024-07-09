@@ -95,7 +95,13 @@ export class AddFunctionComponent implements OnInit {
   }
 
   updateFunction(id_movie: string, id_room: string, function_date: Date | null, function_hour: string, price: string) {
-    if(function_date != null && function_hour != null)
+    const params = this.activatedRoute.snapshot.params;
+    this.databaseService.getTicketForFunctionId(params['id']).subscribe(res=>{
+      if(res!=null){
+        alert("You can´t edit this function, there´s a ticket associated");
+        this.router.navigate(['/administrator']);
+      }else{
+      if(function_date != null && function_hour != null)
       { 
         this.databaseService.updateFunction(this.function.id_function!, this.function)
         .subscribe(
@@ -105,10 +111,14 @@ export class AddFunctionComponent implements OnInit {
           },
           err => console.error(err)
         )
+      }else if(this.function.function_date == this.fullDate){
+        alert("The date can´t be today");
       }else{
         alert("Date or Hour can´t be null");
       }
     }
+  })
+}
 
   getMovies() {
     this.databaseService.getMovies().subscribe((response) => {

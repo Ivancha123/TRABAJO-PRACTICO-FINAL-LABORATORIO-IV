@@ -53,8 +53,10 @@ class SeatController {
     }
     getSeatByData(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const rows = yield database_1.default.query('SELECT * from seats where id_room = ? AND seat_number = ? AND seat_letter = ?', [id, id, id]);
+            const { idRoom } = req.params;
+            const { seat_letter } = req.params;
+            const { seat_number } = req.params;
+            const rows = yield database_1.default.query('SELECT * from seats where id_room = ? AND seat_number = ? AND seat_letter = ?', [idRoom, seat_letter, seat_number]);
             if (rows.length > 0) {
                 return res.json(rows[0][0]);
             }
