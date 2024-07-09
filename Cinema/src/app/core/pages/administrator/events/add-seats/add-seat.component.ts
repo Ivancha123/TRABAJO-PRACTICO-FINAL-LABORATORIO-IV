@@ -37,36 +37,32 @@ export class SeatFormComponent implements OnInit {
   }
 
   saveNewSeat(id_room: string, seat_letter: string, seat_number: string) {
-    let flag = 0;
     this.seat.id_Room = Number(id_room);
     this.seat.seat_letter = seat_letter;
     this.seat.seat_number = Number(seat_number);
     this.seat.seat_status = 1;
-    this.databaseService.getSeatForRoom2(id_room).subscribe(res=>{
-      this.seatsAux = res as Seat[];
-      console.log(this.seatsAux);
-      for (const seat of this.seatsAux) {
-        console.log(this.seat);
-        if(seat.seat_letter == this.seat.seat_letter && seat.seat_number === this.seat.seat_number){
-          flag = 1;
-        }
-      }
-      console.log(flag);
-      if(seat_letter != '' && seat_number != '0'){
-        this.databaseService.saveSeat(this.seat)
-      .subscribe(
-        res => {
-          alert('Seat saved');
-          this.router.navigate(['/administrator']);
-        },
-        err => console.error(err)
-      )
-        
+    this.databaseService.getSeatForData(id_room, seat_letter, seat_number).subscribe(res=>{
+        console.log(res);
+        if(res == null){
+          if(seat_letter != '' && seat_number != '0'){
+            this.databaseService.saveSeat(this.seat)
+          .subscribe(
+            res => {
+              alert('Seat saved');
+              this.router.navigate(['/administrator']);
+            },
+            err => console.error(err)
+          )
+            
+          }else{
+            alert('Seat letter and number can´t be null');
+          }
       }else{
-        alert('Seat letter and number can´t be null');
+        alert('That seat already exist');
       }
-      
-    })
+      })
+    
+    
     
   }
 

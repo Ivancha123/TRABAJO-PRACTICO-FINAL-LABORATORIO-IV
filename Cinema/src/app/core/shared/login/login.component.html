@@ -1,5 +1,11 @@
 <form class="login-form">
-    <h1>Inicia sesión</h1>
+    <div class="form-header">
+      <h1>Inicia sesión</h1>
+      <td><button class="btn btn-danger" (click)="closeTab()">
+        <i class="far fa-trash-alt">X</i>
+      </button>
+      </td>
+    </div>
     <div class="form-group row">
       <label for="username">Email</label>
       <input id="input" type="text" class="form-control" id="email" email="email" placeholder="Your email" #email [(ngModel)]="person.email">
