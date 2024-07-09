@@ -2,13 +2,16 @@
 <div class="row" id="content">
         <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let seat of seats">
           <div id="card">
-            <td><a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
+            <a [routerLink]="['seatId/', seat.id_seat]" class="btn btn-info btn-block" (click)="updateSeat(seat.id_seat, seat)">
               <img src="../../../../assets/seat-unavailable.png" width="40px" height="40px" alt="Seat"
                   class="">
                   {{seat.seat_letter}}{{seat.seat_number}}
-            </a></td>
+            </a>
           </div>
         </div>
-    
-      </div>
+        <div *ngIf="flag == 1">
+          <h2>There are no seats available</h2>
+          <a [routerLink]="['']" class="btn btn-info btn-block">Go back</a>
+        </div>
+</div>
 

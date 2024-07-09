@@ -28,7 +28,9 @@ export class LoginComponent {
   ngOnInit() {
     
   }
-
+  closeTab(){
+    location.reload();
+  }
   getPerson(email: string, password: string){
     this.databaseService.getPersonForEmail(email)
         .subscribe(

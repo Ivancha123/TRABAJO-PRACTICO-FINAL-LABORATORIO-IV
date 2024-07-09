@@ -16,13 +16,13 @@ export class ListSeatComponent implements OnInit {
   seats: Seat[] = [];
   seat!: Seat;
   function!: Function;
+  flag = 0;
 
   constructor(private databaseService: DataBaseService, private router:Router, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit() {
       this.getSeats();
-    
   }
 
   getSeats() {
@@ -35,7 +35,11 @@ export class ListSeatComponent implements OnInit {
       console.log(this.function);
       this.databaseService.getSeatForRoom(idFunction).subscribe((response) => {
         this.seats = response;
-        console.log(response);
+        console.log(this.seats);
+        if(this.seats.length == 0){
+          this.flag = 1;
+          console.log(this.flag)
+        }
       });
     })
     

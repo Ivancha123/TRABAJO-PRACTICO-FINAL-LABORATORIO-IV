@@ -222,6 +222,10 @@ export class DataBaseService {
     return this.http.get<Seat[]>(`${this.API_URI}/seats/room2/${id}`);
   }
 
+  getSeatForData(idRoom: string|undefined, seatNumber: string|undefined, seatLetter: string|undefined): Observable<Seat[]>{
+    return this.http.get<Seat[]>(`${this.API_URI}/seats/data/${idRoom}/${seatNumber}/${seatLetter}`);
+  }
+
   deleteSeat(id: number|undefined) {
     return this.http.delete(`${this.API_URI}/seats/${id}`);
   }
