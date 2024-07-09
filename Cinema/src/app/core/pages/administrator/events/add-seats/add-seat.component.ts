@@ -28,6 +28,8 @@ export class SeatFormComponent implements OnInit {
     capacity: 0,
   }
 
+  flag = 0;
+
   edit: boolean = false;
 
   constructor(private databaseService: DataBaseService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -37,13 +39,21 @@ export class SeatFormComponent implements OnInit {
   }
 
   saveNewSeat(id_room: string, seat_letter: string, seat_number: string) {
+    let i = 0;
     this.seat.id_Room = Number(id_room);
     this.seat.seat_letter = seat_letter;
     this.seat.seat_number = Number(seat_number);
     this.seat.seat_status = 1;
-    this.databaseService.getSeatForData(id_room, seat_letter, seat_number).subscribe(res=>{
-        console.log(res);
-        if(res == null){
+    this.databaseService.getSeatForRoom2(id_room).subscribe(res=>{
+        this.seatsAux = res;
+        for (const seatAux of this.seatsAux){
+          if(seatAux.seat_letter == seat_letter && seatAux.seat_number == Number(seat_number)){
+            this.flag = 1;
+            console.log(this.flag);
+            console.log(seatAux);
+          }
+        }
+        if(this.flag != 1){
           if(seat_letter != '' && seat_number != '0'){
             this.databaseService.saveSeat(this.seat)
           .subscribe(
@@ -59,6 +69,7 @@ export class SeatFormComponent implements OnInit {
           }
       }else{
         alert('That seat already exist');
+        location.reload();
       }
       })
     

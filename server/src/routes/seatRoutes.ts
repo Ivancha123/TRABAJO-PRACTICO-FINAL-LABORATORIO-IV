@@ -13,7 +13,7 @@ class SeatRoutes {
         this.router.get('/:id', seatController.getOne);
         this.router.get('/room/:id', seatController.getSeatByRoom);
         this.router.get('/room2/:id', seatController.getSeatByRoom2);
-        this.router.get('/data/:id/:id/:id', seatController.getSeatByData);
+        this.router.get('/data/:idRoom/:seatNumber/:seatLetter', seatController.getSeatByData);
         this.router.post('/', seatController.create);
         this.router.put('/:id',seatController.update);
         this.router.delete('/:id',seatController.delete);
